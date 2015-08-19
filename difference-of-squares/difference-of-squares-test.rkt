@@ -2,7 +2,7 @@
 
 (require rackunit)
 (require rackunit/text-ui)
-(require "squares.rkt")
+(require "difference-of-squares.rkt")
 
 (define difference-of-squares
   (test-suite
