@@ -2,7 +2,7 @@
 
 (require rackunit)
 (require rackunit/text-ui)
-(require "dna.rkt")
+(require "rna-transcription.rkt")
 
 (define rna-transcription-tests
   (test-suite
