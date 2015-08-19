@@ -2,9 +2,15 @@
 
 Exercism problems in Racket.
 
-## TODO
+## Working on Problems
 
-_Document how to contribute to the Racket track._
+We welcome both improvements to the existing exercises and the addition of new exercises. A pool of exercise ideas can be found in the [x-common repo](https://github.com/exercism/x-common).
+
+Each problem should have a test suite and an example solution, as well as a stub file for the solution declaring the module and exports. The example solution should be named =example.rkt=.
+
+## Dependencies
+
+Try to avoid external dependencies.
 
 ## Contributing Guide
 
