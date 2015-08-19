@@ -16,7 +16,8 @@
 	  "anagram",
 	  "nucleotide-count",
 	  "difference-of-squares",
-	  "list-ops"
+	  "list-ops",
+    "gigasecond"
   ],
   "deprecated": [
 
