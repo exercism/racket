@@ -1,8 +1,6 @@
 #lang racket/base
 
-;; pick one of: 
-(require "example.rkt")
-; (require "anagram.rkt")
+(require "anagram.rkt")
 
 (module+ test
   (require rackunit rackunit/text-ui))
