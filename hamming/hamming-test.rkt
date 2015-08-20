@@ -2,7 +2,7 @@
 
 (require rackunit)
 (require rackunit/text-ui)
-(require "point-mutations.rkt")
+(require "hamming.rkt")
 
 (define suite
   (test-suite
