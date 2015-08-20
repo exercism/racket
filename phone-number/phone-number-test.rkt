@@ -4,10 +4,10 @@
 (require rackunit/text-ui)
 (require "phone-number.rkt")
 
-(define phone-number-tests
+(define suite
   (test-suite
    "phone number tests"
-   
+
    (test-equal? "cleans number" (numbers "(123) 456-7890") "1234567890")
    (test-equal? "cleans numbers with dots" (numbers "123.456.7890") "1234567890")
    (test-equal? "valid when 11 digits and first is 1" (numbers "11234567890") "1234567890")
@@ -17,4 +17,4 @@
    (test-equal? "pprint" (pprint "1234567890") "(123) 456-7890")
    (test-equal? "pprint with full us phone number" (pprint "11234567890") "(123) 456-7890")))
 
-(run-tests phone-number-tests)
+(exit (if (zero? (run-tests suite)) 0 1))

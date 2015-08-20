@@ -6,7 +6,7 @@
   "problems": [
 	  "hello-world",
 	  "perfect-numbers",
-	  "point-mutations",
+	  "hamming",
 	  "leap",
 	  "grains",
 	  "bob",
@@ -17,7 +17,9 @@
 	  "nucleotide-count",
 	  "difference-of-squares",
 	  "list-ops",
-    "gigasecond"
+	  "gigasecond",
+	  "word-count",
+	  "meetup"
   ],
   "deprecated": [
 
