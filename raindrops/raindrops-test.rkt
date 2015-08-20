@@ -7,7 +7,7 @@
 (define raindrops-tests
   (test-suite
    "raindrops tests"
-   
+
    (test-equal? "test-1" (convert 1) "1")
    (test-equal? "test-3" (convert 3) "Pling")
    (test-equal? "test-5" (convert 5) "Plang")

@@ -7,7 +7,7 @@
 (define rna-transcription-tests
   (test-suite
    "RNA transcription tests"
-   
+
    (test-equal? "transcribes cytosine to guanine" (to-rna "C") "G")
    (test-equal? "transcribes guanine to cytosine" (to-rna "G") "C")
    (test-equal? "transcribes adenine to uracil" (to-rna "A") "U")

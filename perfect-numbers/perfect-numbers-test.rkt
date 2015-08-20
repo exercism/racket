@@ -19,7 +19,7 @@
    (test-equal? "return 3 perfect numbers for range 1 - 1000"
               (perfect-numbers 1000)
               '(6 28 496))
-   
+
    (test-equal? "return 4 perfect numbers for range 1 - 10000"
               (perfect-numbers 10000)
               '(6 28 496 8128))))

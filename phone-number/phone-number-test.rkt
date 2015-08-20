@@ -7,7 +7,7 @@
 (define phone-number-tests
   (test-suite
    "phone number tests"
-   
+
    (test-equal? "cleans number" (numbers "(123) 456-7890") "1234567890")
    (test-equal? "cleans numbers with dots" (numbers "123.456.7890") "1234567890")
    (test-equal? "valid when 11 digits and first is 1" (numbers "11234567890") "1234567890")

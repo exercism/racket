@@ -7,7 +7,7 @@
 (define leap-tests
   (test-suite
    "leap tests"
-   
+
    (test-eqv? "vanilla-leap-year" (leap-year? 1996) #t)
    (test-eqv? "any-old-year" (leap-year? 1997)#f)
    (test-eqv? "non-leap-even-year" (leap-year? 1998) #f)

@@ -7,7 +7,7 @@
 (define grains-tests
   (test-suite
    "grains tests"
-   
+
    (test-eqv? "square 1" (square 1) 1)
    (test-eqv? "square 2" (square 2) 2)
    (test-eqv? "square 3" (square 3) 4)
