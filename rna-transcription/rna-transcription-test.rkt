@@ -4,7 +4,7 @@
 (require rackunit/text-ui)
 (require "rna-transcription.rkt")
 
-(define rna-transcription-tests
+(define suite
   (test-suite
    "RNA transcription tests"
 
@@ -15,4 +15,4 @@
    (test-equal? "transcribes all nucleotides" (to-rna "ACGTGGTCTTAA") "UGCACCAGAAUU")
    (test-exn "it validates dna strands" exn:fail? (lambda () (to-rna "XCGFGGTDTTAA")))))
 
-(run-tests rna-transcription-tests)
+(exit (if (zero? (run-tests suite)) 0 1))

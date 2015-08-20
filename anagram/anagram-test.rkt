@@ -5,7 +5,7 @@
 (require "anagram.rkt")
 
 
-(define anagram-tests
+(define suite
   (test-suite
    "anagram tests"
 
@@ -41,4 +41,4 @@
                 (anagrams-for "banana"'("banana"))
                 '())))
 
-(run-tests anagram-tests)
+(exit (if (zero? (run-tests suite)) 0 1))

@@ -4,7 +4,7 @@
 (require rackunit/text-ui)
 (require "grains.rkt")
 
-(define grains-tests
+(define suite
   (test-suite
    "grains tests"
 
@@ -17,4 +17,4 @@
    (test-eqv? "square 64" (square 64) 9223372036854775808)
    (test-eqv? "total grains" (total) 18446744073709551615)))
 
-(run-tests grains-tests)
+(exit (if (zero? (run-tests suite)) 0 1))

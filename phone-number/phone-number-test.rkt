@@ -4,7 +4,7 @@
 (require rackunit/text-ui)
 (require "phone-number.rkt")
 
-(define phone-number-tests
+(define suite
   (test-suite
    "phone number tests"
 
@@ -17,4 +17,4 @@
    (test-equal? "pprint" (pprint "1234567890") "(123) 456-7890")
    (test-equal? "pprint with full us phone number" (pprint "11234567890") "(123) 456-7890")))
 
-(run-tests phone-number-tests)
+(exit (if (zero? (run-tests suite)) 0 1))

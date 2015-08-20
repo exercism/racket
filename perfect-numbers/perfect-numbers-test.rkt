@@ -4,7 +4,7 @@
 (require rackunit/text-ui)
 (require "perfect-numbers.rkt")
 
-(define perfect-numbers-tests
+(define suite
   (test-suite
    "perfect numbers tests"
 
@@ -24,4 +24,4 @@
               (perfect-numbers 10000)
               '(6 28 496 8128))))
 
-(run-tests perfect-numbers-tests)
+(exit (if (zero? (run-tests suite)) 0 1))

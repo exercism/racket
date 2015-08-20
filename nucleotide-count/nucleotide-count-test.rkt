@@ -4,7 +4,7 @@
 (require rackunit/text-ui)
 (require "nucleotide-count.rkt")
 
-(define nucleotide-count-tests
+(define suite
   (test-suite
    "nucleotide count tests"
 
@@ -23,4 +23,4 @@
 
    (test-exn "invalid nucleotide" exn:fail? (lambda () (nucleotide-counts "AGGTCCXGA")))))
 
-(run-tests nucleotide-count-tests)
+(exit (if (zero? (run-tests suite)) 0 1))

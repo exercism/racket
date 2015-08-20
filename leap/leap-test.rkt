@@ -4,7 +4,7 @@
 (require rackunit/text-ui)
 (require "leap.rkt")
 
-(define leap-tests
+(define suite
   (test-suite
    "leap tests"
 
@@ -14,4 +14,4 @@
    (test-eqv? "century" (leap-year? 1900)#f)
    (test-eqv? "exceptional-century" (leap-year? 2400) #t)))
 
-(run-tests leap-tests)
+(exit (if (zero? (run-tests suite)) 0 1))

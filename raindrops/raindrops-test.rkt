@@ -4,7 +4,7 @@
 (require rackunit/text-ui)
 (require "raindrops.rkt")
 
-(define raindrops-tests
+(define suite
   (test-suite
    "raindrops tests"
 
@@ -24,4 +24,4 @@
    (test-equal? "test-105" (convert 105) "PlingPlangPlong")
    (test-equal? "test-12121" (convert 12121) "12121")))
 
-(run-tests raindrops-tests)
+(exit (if (zero? (run-tests suite)) 0 1))

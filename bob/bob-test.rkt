@@ -4,7 +4,7 @@
 (require rackunit/text-ui)
 (require "bob.rkt")
 
-(define bob-tests
+(define suite
   (test-suite
    "bob tests"
 
@@ -64,5 +64,4 @@
                 (response-for "4?")
                 "Sure.")))
 
-(run-tests bob-tests)
-
+(exit (if (zero? (run-tests suite)) 0 1))

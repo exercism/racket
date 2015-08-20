@@ -4,7 +4,7 @@
 (require rackunit/text-ui)
 (require "point-mutations.rkt")
 
-(define point-mutations-tests
+(define suite
   (test-suite
    "point mutations tests"
 
@@ -32,4 +32,4 @@
              (lambda ()
                (hamming-distance "AGACAACAGCCAGCCGCCGGATT" "AGGCAA")))))
 
-(run-tests point-mutations-tests)
+(exit (if (zero? (run-tests suite)) 0 1))

@@ -6,7 +6,7 @@
 
 (define (inc x) (+ 1 x))
 
-(define list-ops-tests
+(define suite
   (test-suite
    "list operations tests"
 
@@ -114,4 +114,4 @@
                                                        (+ (* 100000 i) j))))))
                 (build-list 1000000 values))))
 
-(run-tests list-ops-tests)
+(exit (if (zero? (run-tests suite)) 0 1))
