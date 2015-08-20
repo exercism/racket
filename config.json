@@ -17,7 +17,8 @@
 	  "nucleotide-count",
 	  "difference-of-squares",
 	  "list-ops",
-    "meetup"
+	  "word-count",
+	  "meetup"
   ],
   "deprecated": [
 
