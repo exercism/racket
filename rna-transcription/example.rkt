@@ -5,7 +5,7 @@
 (define (to-rna dna)
   (let ([dna-seq (string->list dna)])
     (apply string
-           (map (lambda (c) (rest (assoc c lookup))) dna-seq))))
+           (map (lambda (c) (cdr (assoc c lookup))) dna-seq))))
 
 (define lookup
   '((#\C . #\G)
