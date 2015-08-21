@@ -9,7 +9,7 @@ for exercise in *; do
                 mv "$exercise".rkt "$exercise".rkt_
             fi
             mv example.rkt "$exercise".rkt
-            racket "$exercise"-test.rkt
+            raco test "$exercise"-test.rkt
             SUCCESS=$?
             mv "$exercise".rkt example.rkt
             if [ -f "$exercise".rkt_ ]; then
