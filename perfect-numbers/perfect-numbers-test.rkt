@@ -1,27 +1,28 @@
 #lang racket/base
 
-(require rackunit)
-(require rackunit/text-ui)
 (require "perfect-numbers.rkt")
 
-(define suite
-  (test-suite
-   "perfect numbers tests"
+(module+ test
+  (require rackunit rackunit/text-ui)
 
-   (test-equal? "no perfect numbers in 1 - 5"
-              (perfect-numbers 5)
-              '())
+  (define suite
+    (test-suite
+     "perfect numbers tests"
 
-   (test-equal? "return one perfect number for range 1 - 6"
-              (perfect-numbers 6)
-              '(6))
+     (test-equal? "no perfect numbers in 1 - 5"
+                  (perfect-numbers 5)
+                  '())
 
-   (test-equal? "return 3 perfect numbers for range 1 - 1000"
-              (perfect-numbers 1000)
-              '(6 28 496))
+     (test-equal? "return one perfect number for range 1 - 6"
+                  (perfect-numbers 6)
+                  '(6))
 
-   (test-equal? "return 4 perfect numbers for range 1 - 10000"
-              (perfect-numbers 10000)
-              '(6 28 496 8128))))
+     (test-equal? "return 3 perfect numbers for range 1 - 1000"
+                  (perfect-numbers 1000)
+                  '(6 28 496))
 
-(exit (if (zero? (run-tests suite)) 0 1))
+     (test-equal? "return 4 perfect numbers for range 1 - 10000"
+                  (perfect-numbers 10000)
+                  '(6 28 496 8128))))
+
+  (run-tests suite))

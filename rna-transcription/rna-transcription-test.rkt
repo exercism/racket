@@ -1,18 +1,19 @@
 #lang racket/base
 
-(require rackunit)
-(require rackunit/text-ui)
 (require "rna-transcription.rkt")
 
-(define suite
-  (test-suite
-   "RNA transcription tests"
+(module+ test
+  (require rackunit rackunit/text-ui)
 
-   (test-equal? "transcribes cytosine to guanine" (to-rna "C") "G")
-   (test-equal? "transcribes guanine to cytosine" (to-rna "G") "C")
-   (test-equal? "transcribes adenine to uracil" (to-rna "A") "U")
-   (test-equal? "transcribes thymine to adenine" (to-rna "T") "A")
-   (test-equal? "transcribes all nucleotides" (to-rna "ACGTGGTCTTAA") "UGCACCAGAAUU")
-   (test-exn "it validates dna strands" exn:fail? (lambda () (to-rna "XCGFGGTDTTAA")))))
+  (define suite
+    (test-suite
+     "RNA transcription tests"
 
-(exit (if (zero? (run-tests suite)) 0 1))
+     (test-equal? "transcribes cytosine to guanine" (to-rna "C") "G")
+     (test-equal? "transcribes guanine to cytosine" (to-rna "G") "C")
+     (test-equal? "transcribes adenine to uracil" (to-rna "A") "U")
+     (test-equal? "transcribes thymine to adenine" (to-rna "T") "A")
+     (test-equal? "transcribes all nucleotides" (to-rna "ACGTGGTCTTAA") "UGCACCAGAAUU")
+     (test-exn "it validates dna strands" exn:fail? (lambda () (to-rna "XCGFGGTDTTAA")))))
+
+  (run-tests suite))
