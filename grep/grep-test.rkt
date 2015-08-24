@@ -21,7 +21,7 @@
 
      (test-equal? "a few matches"
                   (map car (grep-this-file "require .*"))
-                  '(3 4 5 22))
+                  '(3 6 23))
 
      (test-equal? "many matches"
                   (+ 1
