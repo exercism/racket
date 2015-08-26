@@ -4,7 +4,7 @@ Exercism problems in Racket.
 
 ## Working on the Exercises
 
-We welcome both improvements to the existing exercises and the addition of new exercises. A pool of exercise ideas can be found in the [x-common repo](https://github.com/exercism/x-common).
+We welcome both improvements to the existing exercises and the addition of new exercises. A pool of exercise ideas can be found in the [x-common repo](https://github.com/exercism/x-common). An overview about which language tracks implement which exercises is at [synopsis.exercism.io](http://synopsis.exercism.io/).
 
 Each exercise should have an example solution and a test suite, as well as a stub file for the solution declaring the module and exports.
 
@@ -49,7 +49,7 @@ Prior to submitting a pull request, ensure that your test requires the stub file
 
   (run-tests suite))
 ```
-The exercise should also be added as a value for the `problems` key in [config.json](https://github.com/exercism/xracket/blob/master/config.json); otherwise, the pull request will not pass the Travis CI build.
+The exercise should also be added as a value for the `problems` key in [config.json](https://github.com/exercism/xracket/blob/master/config.json); otherwise, the pull request will not pass the Travis CI build. Use [Order of exercises](https://github.com/exercism/xracket/wiki/Order-of-exercises) in our wiki to find a good place for the new exercise in the curriculum.
 
 You can perform additional checks by running the following in your terminal:
 
