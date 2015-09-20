@@ -19,6 +19,7 @@
     "nucleotide-count",
     "raindrops",
     "grep",
+    "say",
     "list-ops"
   ],
   "deprecated": [
