@@ -43,6 +43,7 @@
   '#("zero" "one" "two" "three" "four" "five" "six" "seven" "eight" "nine" "ten"
      "eleven" "twelve" "thirteen" "fourteen" "fifteen" "sixteen" "seventeen"
      "eighteen" "nineteen"))
+
 (define TENS>10
   '#("twenty" "thirty" "forty" "fifty" "sixty" "seventy" "eighty" "ninety"))
 
