@@ -93,14 +93,14 @@
         (cond
          [(zero? n)
           ""]
-         [(= 100 n)
-          "one hundred"]
-         [(< 100 n)
+         [(< n 100)
+          (step1 r)]
+         [else
           (define hd (vector-ref N<20 q))
           (define tl (step1 r))
-          (string-append hd " hundred " tl)]
-         [else
-          (step1 r)]))
+          (if (equal? "zero" tl)
+              (string-append hd " hundred")
+              (string-append hd " hundred " tl))]))
       ;; Don't print a scale for zeros or the last chunk
       (if (or (eq? s 'END) (zero? n))
           n-str
