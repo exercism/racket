@@ -2,5 +2,7 @@
 
 (provide accumulate)
 
-(define (accumulate collection op)
-  (map op collection))
+(define (accumulate lst op)
+  (cond
+    [(empty? lst) lst]
+    [(cons (op (car lst)) (accumulate (cdr lst) op))]))
