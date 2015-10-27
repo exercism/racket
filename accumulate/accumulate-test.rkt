@@ -29,7 +29,7 @@
      
      (test-equal? "reverse strings"                
                   (accumulate (list "the" "quick" "brown" "fox" "jumped" "over" "the" "lazy" "dog") reverse-words)
-                  (map reverse-words '("the" "quick" "brown" "fox" "jumped" "over" "the" "lazy" "dog")))
+                  (map reverse-words '("the" "quick" "brown" "fox" "jumped" "over" "the" "lazy" "dog")))))
      
      
-     (run-tests suite))))
+     (run-tests suite))
