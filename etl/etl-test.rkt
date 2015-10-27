@@ -28,11 +28,12 @@
      (test-case
       "mixed case input"
       (let ([actual (etl mixed-case-input)])
+        (check-equal? (hash-count actual) (hash-count expected))
         (for ([k (hash-keys actual)])
-          ;(printf "actual: ~a -> ~a, expected: ~a -> ~a\n" 
-          ;        k (hash-ref actual k) 
-          ;        k (hash-ref expected k))
+          #;(printf "actual: ~a -> ~a, expected: ~a -> ~a\n"
+                  k (hash-ref actual k)
+                  k (hash-ref expected k))
           (check-equal? (hash-ref actual k)
-                        (hash-ref expected k)))))
+                        (hash-ref expected k)))))))
      
-     (run-tests suite))))
+     (run-tests suite))
