@@ -18,22 +18,39 @@
                          "o" 1 "p" 3 "q" 10 "r" 1 "s" 1 "t" 1 
                          "u" 1 "v" 4 "x" 8 "w" 4 "y" 4 "z" 10))
   
+  (define negative-keys-input (hash 1 '("L" "N")
+                                    -3 '("B" "c" "P")))
+
+  (define listof-chars-input (hash 1 '(#\N #\r #\q)))
+
   (define suite
     (test-suite
      "etl tests"
      
      (test-true "empty hash"             
                 (zero? (hash-count (etl (make-hash)))))
-     
+
      (test-case
       "mixed case input"
-      (let ([actual (etl mixed-case-input)])
-        (check-equal? (hash-count actual) (hash-count expected))
-        (for ([k (hash-keys actual)])
-          #;(printf "actual: ~a -> ~a, expected: ~a -> ~a\n"
+      (define actual (etl mixed-case-input))
+      (check-equal? (hash-count actual) (hash-count expected))
+      (for ([k (hash-keys actual)])
+        #;(printf "actual: ~a -> ~a, expected: ~a -> ~a\n"
                   k (hash-ref actual k)
                   k (hash-ref expected k))
-          (check-equal? (hash-ref actual k)
-                        (hash-ref expected k)))))))
-     
-     (run-tests suite))
+        (check-equal? (hash-ref actual k)
+                      (hash-ref expected k))))
+
+     (test-true
+      "test bad input: negative keys"
+      (with-handlers ([exn:fail:contract? (lambda _ #t)])
+        (etl negative-keys-input)
+        #f))
+
+     (test-true
+      "test bad input: list of non-string values"
+      (with-handlers ([exn:fail:contract? (lambda _ #t)])
+        (etl listof-chars-input)
+        #f))))
+
+  (run-tests suite))

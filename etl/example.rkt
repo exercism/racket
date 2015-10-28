@@ -1,12 +1,21 @@
 #lang racket
 
 (provide (contract-out
-          [etl (-> hash? hash?)]))          
+          [etl (-> valid-input valid-output)]))
 
-; TODO Provide contract on the keys and values of the input and output
+(define (lower-case? s) (not (regexp-match? #rx"[A-Z]" s)))
+
+;; Accept upper- or lower-case-letters strings as values
+(define valid-input
+  (hash/c exact-nonnegative-integer? (listof string?)))
+
+;; Keys will always be lower-case
+(define valid-output
+  (hash/c lower-case? exact-nonnegative-integer?))
 
 (define (etl h)
   (for*/hash ([(score letter*) (in-hash h)]
               [letter (in-list letter*)])
-      #;(printf "~a: ~a\n" letter score)
-      (values (string-downcase letter) score)))  ; All letters will be lowercase
+    ;(printf "~a: ~a\n" letter score)
+    (values (string-downcase letter) score)))
+
