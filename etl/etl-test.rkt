@@ -26,7 +26,7 @@
   (define suite
     (test-suite
      "etl tests"
-     
+
      (test-true "empty hash"             
                 (zero? (hash-count (etl (make-hash)))))
 
@@ -41,16 +41,12 @@
         (check-equal? (hash-ref actual k)
                       (hash-ref expected k))))
 
-     (test-true
+     (test-exn
       "test bad input: negative keys"
-      (with-handlers ([exn:fail:contract? (lambda _ #t)])
-        (etl negative-keys-input)
-        #f))
+      exn:fail:contract? (lambda () (etl negative-keys-input)))
 
-     (test-true
+     (test-exn
       "test bad input: list of non-string values"
-      (with-handlers ([exn:fail:contract? (lambda _ #t)])
-        (etl listof-chars-input)
-        #f))))
+      exn:fail:contract? (lambda () (etl listof-chars-input)))))
 
   (run-tests suite))
