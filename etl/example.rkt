@@ -16,6 +16,5 @@
 (define (etl h)
   (for*/hash ([(score letter*) (in-hash h)]
               [letter (in-list letter*)])
-    ;(printf "~a: ~a\n" letter score)
     (values (string-downcase letter) score)))
 
