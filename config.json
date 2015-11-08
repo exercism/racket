@@ -15,6 +15,7 @@
     "hamming",
     "anagram",
     "rna-transcription",
+    "etl",
     "word-count",
     "phone-number",
     "nucleotide-count",
