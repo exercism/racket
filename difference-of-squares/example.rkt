@@ -3,11 +3,14 @@
 (provide sum-of-squares square-of-sums difference)
 
 (define (sum-of-squares n)
-  (apply + (map (lambda (i) (expt i 2)) (range 1 (+ n 1)))))
+  (for/sum
+      ([i (in-range (add1 n))])
+    (* i i)))
 
 (define (square-of-sums n)
-  (expt (apply + (range 1 (+ n 1))) 2))
+  (let ([sum (for/sum
+               ([i (in-range (add1 n))]) i)])
+    (* sum sum)))
 
 (define (difference n)
-  (- (square-of-sums n)
-     (sum-of-squares n)))
+  (- (square-of-sums n) (sum-of-squares n)))
