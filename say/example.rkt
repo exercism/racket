@@ -11,11 +11,11 @@
   (only-in racket/match match-define)
   (only-in racket/string string-trim))
 
-(define UPPER-BOUND 1000000000000000)
-;; The largest printable number
-
 (define SCALE '#(END thousand million billion trillion))
 ;; Supported size classifiers
+
+(define UPPER-BOUND (sub1 (expt 10 (* (vector-length SCALE) 3))))
+;; The largest printable number
 
 (define (scale? v) (for/or ([s (in-vector SCALE)]) (eq? v s)))
 ;; Contract for scales
@@ -93,14 +93,14 @@
         (cond
          [(zero? n)
           ""]
-         [(= 100 n)
-          "one hundred"]
-         [(< 100 n)
+         [(< n 100)
+          (step1 r)]
+         [else
           (define hd (vector-ref N<20 q))
           (define tl (step1 r))
-          (string-append hd " hundred " tl)]
-         [else
-          (step1 r)]))
+          (if (equal? "zero" tl)
+              (string-append hd " hundred")
+              (string-append hd " hundred " tl))]))
       ;; Don't print a scale for zeros or the last chunk
       (if (or (eq? s 'END) (zero? n))
           n-str

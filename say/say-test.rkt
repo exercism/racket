@@ -59,6 +59,8 @@
          [999000000000000 == "nine hundred ninety-nine trillion"]
          [0 == "zero"]
          [16 == "sixteen"]
+         [300 == "three hundred"]
+         [440 == "four hundred forty"]
          [999 == "nine hundred ninety-nine"]
          [-1 == "negative one"]
          [22 == "twenty-two"]
@@ -67,6 +69,7 @@
          [14 == "fourteen"]
          [50 == "fifty"]
          [98 == "ninety-eight"]
+         [-432600 == "negative four hundred thirty-two thousand six hundred"]
          [12345 == "twelve thousand three hundred forty-five"]))))
 
   (for ([suite (in-list step*)])
