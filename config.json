@@ -28,6 +28,7 @@
 
   ],
   "ignored": [
+    "travis-racket",
     "bin",
     "docs"
   ],
