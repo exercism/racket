@@ -8,7 +8,7 @@ We welcome both improvements to the existing exercises and the addition of new e
 
 Each exercise should have an example solution and a test suite, as well as a stub file for the solution declaring the module and exports.
 
-### Naming Conventions 
+### Naming Conventions
 
 The example solution should be named `example.rkt`. The test should be named `<exercise-name>-test.rkt`, and the stub should be named `<exercise-name>.rkt`.
 
@@ -64,7 +64,7 @@ bin/configlet .
 ```
 Your pull request won't pass the Travis CI build if either of those fail.
 
-If you're new to Git, take a look at [this short guide](http://help.exercism.io/git-workflow.html).
+If you're new to Git, take a look at [this short guide](https://github.com/exercism/x-common/blob/master/CONTRIBUTING.md#git-basics).
 
 ## READMEs
 Please do not add a README or README.md file to the problem directory. The READMEs are constructed using shared metadata, which lives in the [exercism/x-common](https://github.com/exercism/x-common) repository.
@@ -78,4 +78,3 @@ Please see the [contributing guide](https://github.com/exercism/x-api/blob/maste
 The MIT License (MIT)
 
 Copyright (c) 2015 Katrina Owen, _@kytrinyx.com
-

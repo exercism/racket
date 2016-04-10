@@ -1,7 +1,7 @@
 * * * *
 
 For installation and learning resources, refer to the
-[exercism help page](http://help.exercism.io/getting-started-with-racket.html).
+[exercism Racket page](http://exercism.io/languages/racket).
 
 You can run the provided tests through DrRacket, or via the command line.
 
