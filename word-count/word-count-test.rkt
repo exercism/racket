@@ -6,9 +6,8 @@
   (require rackunit rackunit/text-ui)
 
   (define-binary-check (hashes-equal? actual expected)
-    (for/and ([k (in-list (hash-keys actual))])
-      (and (hash-has-key? expected k)
-           (equal? (hash-ref actual k) (hash-ref expected k)))))
+    (equal? (sort (hash->list actual) string<? #:key car)
+            (sort (hash->list expected) string<? #:key car)))
 
   (define suite
     (test-suite
