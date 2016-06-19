@@ -30,7 +30,8 @@
   "ignored": [
     "travis-racket",
     "bin",
-    "docs"
+    "docs",
+    "img"
   ],
   "foregone": [
 
