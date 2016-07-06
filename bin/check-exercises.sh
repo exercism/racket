@@ -2,6 +2,8 @@
 
 set -e
 
+cd exercises
+
 for exercise in *; do
     if [ -d "$exercise" ]; then
         if [ -f "$exercise/$exercise"-test.rkt ]; then
