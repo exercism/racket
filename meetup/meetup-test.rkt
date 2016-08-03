@@ -6,7 +6,7 @@
          "meetup.rkt")
 
 (define (make-date year month day)
-  (seconds->date (find-seconds 0 0 0 day month year #f)))
+  (seconds->date (find-seconds 0 0 0 day month year #f) #f))
 
 (define suite
   (test-suite

@@ -15,7 +15,7 @@
     [(2) (if (leap-year? year) 29 28)]))
 
 (define (make-date year month day)
-  (seconds->date (find-seconds 0 0 0 day month year #f)))
+  (seconds->date (find-seconds 0 0 0 day month year #f) #f))
 
 (define (meetup-day year month weekday week)
   (let ([first-of-week
