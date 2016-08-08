@@ -14,14 +14,21 @@ for exercise in *; do
         fi
     fi
 done
+
 raco test -x --jobs 5 -Q --table .
 SUCCESS=$?
+
 for exercise in *; do
-    if [ -f "$exercise/$exercise".rkt_ ]; then
-        mv "$exercise/$exercise".rkt "$exercise"/example.rkt
-        mv "$exercise/$exercise".rkt_ "$exercise/$exercise".rkt
+    if [ -d "$exercise" ]; then
+	if [ -f "$exercise/$exercise"-test.rkt ]; then
+	    mv "$exercise/$exercise".rkt "$exercise"/example.rkt
+	    if [ -f "$exercise/$exercise".rkt_ ]; then
+		mv "$exercise/$exercise".rkt_ "$exercise/$exercise".rkt
+	    fi
+	fi
     fi
 done
+
 if [ $SUCCESS -ne 0 ]; then
     exit $SUCCESS
 fi
