@@ -5,7 +5,7 @@ env:
   global:
   - RACKET_DIR=~/racket
   matrix:
-  - RACKET_VERSION=6.3 RACKET_MINIMAL=1
+  - RACKET_VERSION=6.6 RACKET_MINIMAL=1
 before_install:
   - git clone https://github.com/zenspider/travis-racket.git
   - cd travis-racket
