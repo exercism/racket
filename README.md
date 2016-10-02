@@ -78,3 +78,7 @@ Please see the [contributing guide](https://github.com/exercism/x-api/blob/maste
 The MIT License (MIT)
 
 Copyright (c) 2015 Katrina Owen, _@kytrinyx.com
+
+## Racket icon
+The Racket logo was created by [Matthias.f at en.wikipedia](https://en.wikipedia.org/wiki/User:Matthias.f) and released under the Creative Commons Attribution-Share Alike 3.0 Unported license.
+We adapted the Racket logo, creating a black/white version of it to use on Exercism.
