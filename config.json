@@ -3,28 +3,115 @@
   "language": "Racket",
   "repository": "https://github.com/exercism/xracket",
   "active": true,
-  "problems": [
-    "hello-world",
-    "grains",
-    "leap",
-    "difference-of-squares",
-    "perfect-numbers",
-    "gigasecond",
-    "bob",
-    "hamming",
-    "scrabble-score",
-    "roman-numerals",
-    "anagram",
-    "rna-transcription",
-    "etl",
-    "word-count",
-    "phone-number",
-    "nucleotide-count",
-    "raindrops",
-    "grep",
-    "say",
-    "allergies",
-    "list-ops"
+  "exercises": [
+    {
+      "difficulty": 1,
+      "slug": "hello-world",
+      "topics": [
+        "optional values",
+        "text formatting"
+      ]
+    },
+    {
+      "difficulty": 1,
+      "slug": "grains",
+      "topics": []
+    },
+    {
+      "difficulty": 1,
+      "slug": "leap",
+      "topics": []
+    },
+    {
+      "difficulty": 1,
+      "slug": "difference-of-squares",
+      "topics": []
+    },
+    {
+      "difficulty": 1,
+      "slug": "perfect-numbers",
+      "topics": []
+    },
+    {
+      "difficulty": 1,
+      "slug": "gigasecond",
+      "topics": []
+    },
+    {
+      "difficulty": 1,
+      "slug": "bob",
+      "topics": []
+    },
+    {
+      "difficulty": 1,
+      "slug": "hamming",
+      "topics": []
+    },
+    {
+      "difficulty": 1,
+      "slug": "scrabble-score",
+      "topics": []
+    },
+    {
+      "difficulty": 1,
+      "slug": "roman-numerals",
+      "topics": []
+    },
+    {
+      "difficulty": 1,
+      "slug": "anagram",
+      "topics": []
+    },
+    {
+      "difficulty": 1,
+      "slug": "rna-transcription",
+      "topics": []
+    },
+    {
+      "difficulty": 1,
+      "slug": "etl",
+      "topics": []
+    },
+    {
+      "difficulty": 1,
+      "slug": "word-count",
+      "topics": []
+    },
+    {
+      "difficulty": 1,
+      "slug": "phone-number",
+      "topics": []
+    },
+    {
+      "difficulty": 1,
+      "slug": "nucleotide-count",
+      "topics": []
+    },
+    {
+      "difficulty": 1,
+      "slug": "raindrops",
+      "topics": []
+    },
+    {
+      "difficulty": 1,
+      "slug": "grep",
+      "topics": []
+    },
+    {
+      "difficulty": 1,
+      "slug": "say",
+      "topics": []
+    },
+    {
+      "difficulty": 1,
+      "slug": "allergies",
+      "topics": []
+    },
+    {
+      "difficulty": 1,
+      "slug": "list-ops",
+      "topics": []
+    }
   ],
   "deprecated": [
     "accumulate"
