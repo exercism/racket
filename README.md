@@ -80,5 +80,5 @@ The MIT License (MIT)
 Copyright (c) 2015 Katrina Owen, _@kytrinyx.com
 
 ## Racket icon
-The Racket logo was created by [Matthias.f at en.wikipedia](https://en.wikipedia.org/wiki/User:Matthias.f) and released under the Creative Commons Attribution-Share Alike 3.0 Unported license.
-We adapted the Racket logo, creating a black/white version of it to use on Exercism.
+The Racket logo was created by [Matthew Butterick](https://en.wikipedia.org/wiki/Matthew_Butterick) and released under the Creative Commons Attribution-Share Alike 3.0 Unported license.
+We have adapted it, changing the colour scheme, for use on Exercism.
