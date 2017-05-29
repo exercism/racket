@@ -73,11 +73,6 @@ Please do not add a README or README.md file to the problem directory. The READM
 
 Please see the [contributing guide](https://github.com/exercism/x-api/blob/master/CONTRIBUTING.md#the-exercise-data)
 
-## License
-
-The MIT License (MIT)
-
-Copyright (c) 2015 Katrina Owen, _@kytrinyx.com
 
 ## Racket icon
 The Racket logo was created by [Matthew Butterick](https://en.wikipedia.org/wiki/Matthew_Butterick) and released under the Creative Commons Attribution-Share Alike 3.0 Unported license.
