@@ -111,6 +111,11 @@
       "difficulty": 1,
       "slug": "list-ops",
       "topics": []
+    },
+    {
+      "difficulty": 1,
+      "slug": "acronym",
+      "topics": []
     }
   ],
   "deprecated": [
