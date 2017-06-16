@@ -163,12 +163,6 @@
   "deprecated": [
     "accumulate"
   ],
-  "ignored": [
-    "travis-racket",
-    "bin",
-    "docs",
-    "img"
-  ],
   "foregone": [
 
   ]
