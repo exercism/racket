@@ -1,4 +1,4 @@
-# xRacket
+# Exercism Racket Track
 
 Exercism problems in Racket.
 
@@ -49,7 +49,7 @@ Prior to submitting a pull request, ensure that your test requires the stub file
 
   (run-tests suite))
 ```
-The exercise should also be added as a value for the `problems` key in [config.json](https://github.com/exercism/xracket/blob/master/config.json); otherwise, the pull request will not pass the Travis CI build. Use [Order of exercises](https://github.com/exercism/xracket/wiki/Order-of-exercises) in our wiki to find a good place for the new exercise in the curriculum.
+The exercise should also be added as a value for the `problems` key in [config.json](https://github.com/exercism/racket/blob/master/config.json); otherwise, the pull request will not pass the Travis CI build. Use [Order of exercises](https://github.com/exercism/racket/wiki/Order-of-exercises) in our wiki to find a good place for the new exercise in the curriculum.
 
 You can perform additional checks by running the following in your terminal:
 
