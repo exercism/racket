@@ -18,5 +18,5 @@ before_script:
 script:
   - "./bin/check-exercises.sh"
   - "./bin/fetch-configlet"
-  - "./bin/configlet ."
+  - "./bin/configlet lint ."
 after_script:

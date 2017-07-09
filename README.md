@@ -60,7 +60,7 @@ bin/check_exercises.sh
 and:
 
 ```bash
-bin/configlet .
+bin/configlet lint .
 ```
 Your pull request won't pass the Travis CI build if either of those fail.
 
