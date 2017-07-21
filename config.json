@@ -1,7 +1,5 @@
 {
-  "slug": "racket",
   "language": "Racket",
-  "repository": "https://github.com/exercism/racket",
   "active": true,
   "exercises": [
     {
