@@ -64,7 +64,7 @@ bin/configlet lint .
 ```
 Your pull request won't pass the Travis CI build if either of those fail.
 
-If you're new to Git, take a look at [this short guide](https://github.com/exercism/x-common/blob/master/CONTRIBUTING.md#git-basics).
+If you're new to Git, take a look at [this short guide](https://github.com/exercism/docs/blob/master/contributing-to-language-tracks/README.md#git-basics).
 
 ## READMEs
 Please do not add a README or README.md file to the problem directory. The READMEs are constructed using shared metadata, which lives in the [exercism/x-common](https://github.com/exercism/x-common) repository.
