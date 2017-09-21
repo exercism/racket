@@ -34,6 +34,16 @@
       ]
     },
     {
+      "uuid": "e92ac1ee-6e7e-40b4-826a-ed3d46660b83",
+      "slug": "pascals-triangle",
+      "core": false,
+      "unlocked_by": null,
+      "difficulty": 1,
+      "topics": [
+
+      ]
+    },
+    {
       "uuid": "a3d9a2bb-a80a-487f-b529-64e20f7cf9b5",
       "slug": "difference-of-squares",
       "core": false,
