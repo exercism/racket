@@ -74,6 +74,16 @@
       ]
     },
     {
+      "uuid": "28102e69-dad0-4f3c-8cdf-5a18a73178a4",
+      "slug": "collatz-conjecture",
+      "core": false,
+      "unlocked_by": null,
+      "difficulty": 1,
+      "topics": [
+
+      ]
+    },
+    {
       "uuid": "f0a6e55d-6702-4043-bdcf-2ed99bf60645",
       "slug": "hamming",
       "core": false,
