@@ -1,24 +1,31 @@
 # Exercism Racket Track
 
-Exercism problems in Racket.
+[![Build Status](https://travis-ci.org/exercism/racket.svg?branch=master)](https://travis-ci.org/exercism/racket)
 
-## Working on the Exercises
+Exercism exercises in Racket.
 
-We welcome both improvements to the existing exercises and the addition of new exercises. A pool of exercise ideas can be found in the [x-common repo](https://github.com/exercism/x-common). An overview about which language tracks implement which exercises is at [synopsis.exercism.io](http://synopsis.exercism.io/).
+## Contributing
 
-Each exercise should have an example solution and a test suite, as well as a stub file for the solution declaring the module and exports.
+Please read about how to [get involved in a track](https://github.com/exercism/docs/tree/master/contributing-to-language-tracks). Also, be sure to read the Exercism [Code of Conduct](https://github.com/exercism/exercism.io/blob/master/CODE_OF_CONDUCT.md).
+
+We welcome both improvements to the existing exercises and the addition of new exercises. If you are creating a new exercise from scratch please see [adding new exercises](https://github.com/exercism/docs/blob/master/you-can-help/make-up-new-exercises.md).  If you are porting an exercise that exists in other exercism language tracks, see [porting an exercise](https://github.com/exercism/docs/blob/master/you-can-help/implement-an-exercise-from-specification.md).
+
+Please note that this track's exercises must conform to the Exercism-wide standards described in the [documentation](https://github.com/exercism/docs/tree/master/language-tracks/exercises). If you're unsure about how to make a change, then go ahead and open an issue on Github.
+
+Each exercise should have an example solution, a description file, a test suite and a stub file for the solution declaring the module and exports.
 
 ### Naming Conventions
 
-The example solution should be named `example.rkt`. The test should be named `<exercise-name>-test.rkt`, and the stub should be named `<exercise-name>.rkt`.
+The example solution should be named `example.rkt`. The description file: `README.md`. The test suite: `<exercise-name>-test.rkt`, and the stub: `<exercise-name>.rkt`.
 
-For example, if you were to work on the `binary` exercise, you would have the following three files:
+For example, if you were to work on the `binary` exercise, you would create and commit the following four files:
 
 ```bash
-$ tree
+$ racket/exercises/binary/
 .
 ├── binary.rkt
 ├── binary-test.rkt
+├── README.md
 └── example.rkt
 ```
 
@@ -28,7 +35,29 @@ The Racket code in this repo is meant to conform with the conventions set forth 
 ### Dependencies
 Try to avoid external dependencies.
 
-### Pull Requests
+### Creating the description file
+
+`README.md` may be [generated](https://github.com/exercism/docs/blob/master/maintaining-a-track/regenerating-exercise-readmes.md) from exercism data. The generator will use the `description.md` from the exercise directory in the [problem-specifications repository](https://github.com/exercism/problem-specifications/tree/master/exercises).  To generate `README.md` for your execise only use the following command from your racket track directory:
+
+```bash
+bin/configlet generate . --only <exercise-name>
+```
+
+### Adding the exercise to config.json
+Be sure to add the exercise to an appropriate place in the `config.json` file.  The position in the file determines the order exercises are fetched by users.  Generate a unique UUID for the exercise with ```configlet uuid```.  Finally check `config.json` with:
+
+```bash
+bin/configlet lint .
+```
+
+## Opening an Issue
+
+If you plan to make significant or breaking changes, please open an issue so we can discuss it first. If this is a discussion that is relevant to more than just the Racket track, please open an issue in [exercism/discussions](https://github.com/exercism/discussions/issues).
+
+## Submitting a Pull Request
+
+Pull requests should be focused on a single exercise, issue, or conceptually cohesive change. Please refer to Exercism's [pull request guidelines](https://github.com/exercism/docs/blob/master/contributing/pull-request-guidelines.md).
+
 Prior to submitting a pull request, ensure that your test requires the stub file, and not the example file - like so:
 
 ```Racket
@@ -49,31 +78,7 @@ Prior to submitting a pull request, ensure that your test requires the stub file
 
   (run-tests suite))
 ```
-The exercise should also be added as a value for the `problems` key in [config.json](https://github.com/exercism/racket/blob/master/config.json); otherwise, the pull request will not pass the Travis CI build. Use [Order of exercises](https://github.com/exercism/racket/wiki/Order-of-exercises) in our wiki to find a good place for the new exercise in the curriculum.
-
-You can perform additional checks by running the following in your terminal:
-
-```bash
-bin/check_exercises.sh
-```
-
-and:
-
-```bash
-bin/configlet lint .
-```
-Your pull request won't pass the Travis CI build if either of those fail.
-
-If you're new to Git, take a look at [this short guide](https://github.com/exercism/docs/blob/master/contributing-to-language-tracks/README.md#git-basics).
-
-## READMEs
-Please do not add a README or README.md file to the problem directory. The READMEs are constructed using shared metadata, which lives in the [exercism/x-common](https://github.com/exercism/x-common) repository.
-
-## Contributing Guide
-
-Please see the [contributing guide](https://github.com/exercism/x-api/blob/master/CONTRIBUTING.md#the-exercise-data)
-
 
 ## Racket icon
 The Racket logo was created by [Matthew Butterick](https://en.wikipedia.org/wiki/Matthew_Butterick) and released under the Creative Commons Attribution-Share Alike 3.0 Unported license.
-We have adapted it, changing the colour scheme, for use on Exercism.
+We have adapted it, changing the colour scheme for use on Exercism.
