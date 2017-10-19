@@ -2,15 +2,19 @@
 
 (provide collatz)
 
-(define (collatz n)
+(define (collatz-length n [acc 0])
   (if (= n 1)
-      0
-      (if (and (exact-integer? n) (positive? n))
-          (add1
-           (if (even? n) 
-               (collatz (/ n 2))
-               (collatz (add1 (* 3 n)))))
-          (error "number must be a positive integer"))))
+      acc
+      (collatz-length (if (even? n)
+                          (/ n 2)
+                          (add1 (* 3 n)))
+                      (add1 acc))))
+
+(define (collatz n)
+  (if (nand (exact-integer? n)
+            (positive? n))
+      (error "number must be a positive integer")
+      (collatz-length n)))
   
 
   
