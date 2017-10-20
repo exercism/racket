@@ -114,6 +114,20 @@
       ]
     },
     {
+      "uuid": "d330a93f-063f-0d80-f35b-02cc2f9da754e0be296",
+      "slug": "meetup",
+      "core": false,
+      "unlocked_by": null,
+      "difficulty": 1,
+      "topics": [
+        "strings",
+        "conditionals",
+        "dates",
+        "parsing",
+        "pattern_recognition"
+      ]
+    },
+    {
       "uuid": "67b41645-7a02-4c45-af55-86401db69eee",
       "slug": "anagram",
       "core": false,
