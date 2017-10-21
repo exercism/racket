@@ -1,12 +1,11 @@
 #lang racket
 
-(require math/number-theory
-         racket/date)
+(require racket/date)
 
 (define (leap-year? year)
-  (or (and (divides? 4 year)
-           (not (divides? 100 year)))
-      (divides? 400 year)))
+  (or (and (zero? (modulo year 4))
+           (not (zero? (modulo year 100))))
+      (zero? (modulo year 400))))
 
 (define (days-in-month year month)
   (case month
