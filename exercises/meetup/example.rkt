@@ -41,7 +41,6 @@
                (+ first-of-week
                     (modulo
                       (- weekday
-                       (date-week-day (make-date year month first-of-week))) 7)
-                 ))))
+                       (date-week-day (make-date year month first-of-week))) 7)))))
 
 (provide meetup-day)
