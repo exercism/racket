@@ -3,14 +3,14 @@
 Search a file for lines matching a regular expression pattern. Return the line
 number and contents of each matching line.
 
-The Unix [`grep`](http://pubs.opengroup.org/onlinepubs/9699919799/utilities/grep.html) command can be used to search for lines in one or more files 
+The Unix [`grep`](http://pubs.opengroup.org/onlinepubs/9699919799/utilities/grep.html) command can be used to search for lines in one or more files
 that match a user-provided search query (known as the *pattern*).
 
 The `grep` command takes three arguments:
 
-1. The pattern used to match lines in a file. 
+1. The pattern used to match lines in a file.
 2. Zero or more flags to customize the matching behavior.
-3. One or more files in which to search for matching lines. 
+3. One or more files in which to search for matching lines.
 
 Your task is to implement the `grep` function, which should read the contents
 of the specified files, find the lines that match the specified pattern
@@ -20,18 +20,18 @@ in the first file being output first.
 
 As an example, suppose there is a file named "input.txt" with the following contents:
 
-<pre>
+```text
 hello
 world
 hello again
-</pre>
+```
 
 If we were to call `grep "hello" input.txt`, the returned string should be:
 
-<pre>
+```text
 hello
 hello again
-</pre>
+```
 
 ### Flags
 
@@ -46,18 +46,18 @@ As said earlier, the `grep` command should also support the following flags:
 If we run `grep -n "hello" input.txt`, the `-n` flag will require the matching
 lines to be prefixed with its line number:
 
-<pre>
+```text
 1:hello
 3:hello again
-</pre>
+```
 
-And if we run `grep -i "HELLO" input.txt`, we'll do a case-insensitive match, 
+And if we run `grep -i "HELLO" input.txt`, we'll do a case-insensitive match,
 and the output will be:
 
-<pre>
+```text
 hello
 hello again
-</pre>
+```
 
 The `grep` command should support multiple flags at once.
 
@@ -73,16 +73,16 @@ You can run the provided tests through DrRacket, or via the command line.
 
 To run the test through DrRacket, simply open the test file and click the 'Run' button in the upper right.
 
-To run the test from the command line, simply run the test from the exercise directory. For example, if the test suite is called `hello-world-test.rkt`, you can run the following command:
+To run the test from the command line, run the test from the exercise directory with the following command:
 
 ```
-raco test hello-world-test.rkt
+raco test grep-test.rkt
 ```
 
 which will display the following:
 
 ```
-raco test: (submod "hello-world-test.rkt" test)
+raco test: (submod "grep-test.rkt" test)
 2 success(es) 0 failure(s) 0 error(s) 2 test(s) run
 0
 2 tests passed

@@ -6,14 +6,15 @@ The **North American Numbering Plan (NANP)** is a telephone numbering system use
 
 NANP numbers are ten-digit numbers consisting of a three-digit Numbering Plan Area code, commonly known as *area code*, followed by a seven-digit local number. The first three digits of the local number represent the *exchange code*, followed by the unique four-digit number which is the *subscriber number*.
 
-
 The format is usually represented as
-```
+
+```text
 (NXX)-NXX-XXXX
 ```
+
 where `N` is any digit from 2 through 9 and `X` is any digit from 0 through 9.
 
-Your task is to clean up differently formated telephone numbers by removing punctuation and the country code (1) if present.
+Your task is to clean up differently formatted telephone numbers by removing punctuation and the country code (1) if present.
 
 For example, the inputs
 - `+1 (613)-995-0253`
@@ -36,16 +37,16 @@ You can run the provided tests through DrRacket, or via the command line.
 
 To run the test through DrRacket, simply open the test file and click the 'Run' button in the upper right.
 
-To run the test from the command line, simply run the test from the exercise directory. For example, if the test suite is called `hello-world-test.rkt`, you can run the following command:
+To run the test from the command line, run the test from the exercise directory with the following command:
 
 ```
-raco test hello-world-test.rkt
+raco test phone-number-test.rkt
 ```
 
 which will display the following:
 
 ```
-raco test: (submod "hello-world-test.rkt" test)
+raco test: (submod "phone-number-test.rkt" test)
 2 success(es) 0 failure(s) 0 error(s) 2 test(s) run
 0
 2 tests passed

@@ -1,30 +1,16 @@
 # Nucleotide Count
 
-Given a DNA string, compute how many times each nucleotide occurs in the string.
+Given a single stranded DNA string, compute how many times each nucleotide occurs in the string.
 
-DNA is represented by an alphabet of the following symbols: 'A', 'C',
-'G', and 'T'.
+The genetic language of every living thing on the planet is DNA.
+DNA is a large molecule that is built from an extremely long sequence of individual elements called nucleotides.
+4 types exist in DNA and these differ only slightly and can be represented as the following symbols: 'A' for adenine, 'C' for cytosine, 'G' for guanine, and 'T' thymine.
 
-Each symbol represents a nucleotide, which is a fancy name for the
-particular molecules that happen to make up a large part of DNA.
-
-Shortest intro to biochemistry EVAR:
-
+Here is an analogy:
 - twigs are to birds nests as
-- nucleotides are to DNA and RNA as
-- amino acids are to proteins as
-- sugar is to starch as
-- oh crap lipids
-
-I'm not going to talk about lipids because they're crazy complex.
-
-So back to nucleotides.
-
-DNA contains four types of them: adenine (`A`), cytosine (`C`), guanine
-(`G`), and thymine (`T`).
-
-RNA contains a slightly different set of nucleotides, but we don't care
-about that for now.
+- nucleotides are to DNA as
+- legos are to lego houses as
+- words are to sentences as...
 
 * * * *
 
@@ -35,16 +21,16 @@ You can run the provided tests through DrRacket, or via the command line.
 
 To run the test through DrRacket, simply open the test file and click the 'Run' button in the upper right.
 
-To run the test from the command line, simply run the test from the exercise directory. For example, if the test suite is called `hello-world-test.rkt`, you can run the following command:
+To run the test from the command line, run the test from the exercise directory with the following command:
 
 ```
-raco test hello-world-test.rkt
+raco test nucleotide-count-test.rkt
 ```
 
 which will display the following:
 
 ```
-raco test: (submod "hello-world-test.rkt" test)
+raco test: (submod "nucleotide-count-test.rkt" test)
 2 success(es) 0 failure(s) 0 error(s) 2 test(s) run
 0
 2 tests passed
