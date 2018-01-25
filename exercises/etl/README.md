@@ -1,8 +1,9 @@
-# Etl
+# ETL
 
 We are going to do the `Transform` step of an Extract-Transform-Load.
 
 ### ETL
+
 Extract-Transform-Load (ETL) is a fancy way of saying, "We have some crufty, legacy data over in this system, and now we need it in this shiny new system over here, so
 we're going to migrate this."
 
@@ -11,6 +12,7 @@ once." That's then typically followed by much forehead slapping and
 moaning about how stupid we could possibly be.)
 
 ### The goal
+
 We're going to extract some scrabble scores from a legacy system.
 
 The old system stored a list of letters per score:
@@ -53,16 +55,16 @@ You can run the provided tests through DrRacket, or via the command line.
 
 To run the test through DrRacket, simply open the test file and click the 'Run' button in the upper right.
 
-To run the test from the command line, simply run the test from the exercise directory. For example, if the test suite is called `hello-world-test.rkt`, you can run the following command:
+To run the test from the command line, run the test from the exercise directory with the following command:
 
 ```
-raco test hello-world-test.rkt
+raco test etl-test.rkt
 ```
 
 which will display the following:
 
 ```
-raco test: (submod "hello-world-test.rkt" test)
+raco test: (submod "etl-test.rkt" test)
 2 success(es) 0 failure(s) 0 error(s) 2 test(s) run
 0
 2 tests passed
