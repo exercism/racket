@@ -29,15 +29,15 @@
                   (pascal 4)
                   '((1) (1 1) (1 2 1) (1 3 3 1)))
 
-     (test-equal? "four-rows"
+     (test-equal? "five-rows"
                   (pascal 5)
                   '((1) (1 1) (1 2 1) (1 3 3 1) (1 4 6 4 1)))
 
-     (test-equal? "four-rows"
+     (test-equal? "six-rows"
                   (pascal 6)
                   '((1) (1 1) (1 2 1) (1 3 3 1) (1 4 6 4 1) (1 5 10 10 5 1)))
 
-     (test-equal? "four-rows"
+     (test-equal? "ten-rows"
                   (pascal 10)
                   '((1)
                     (1 1)
