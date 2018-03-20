@@ -23,6 +23,14 @@
     {
       "core": false,
       "difficulty": 1,
+      "slug": "pascals-triangle",
+      "topics": null,
+      "unlocked_by": null,
+      "uuid": "e38de69c-74d2-4811-8449-ae0b898f0b41"
+    },
+    {
+      "core": false,
+      "difficulty": 1,
       "slug": "leap",
       "topics": null,
       "unlocked_by": null,
