@@ -31,6 +31,14 @@
     {
       "core": false,
       "difficulty": 1,
+      "slug": "bracket-push",
+      "topics": null,
+      "unlocked_by": null,
+      "uuid": "cf558d03-45d7-4121-8745-4efa8d9c134e"
+    },
+    {
+      "core": false,
+      "difficulty": 1,
       "slug": "difference-of-squares",
       "topics": null,
       "unlocked_by": null,
