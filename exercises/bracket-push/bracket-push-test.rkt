@@ -1,6 +1,6 @@
 #lang racket/base
 
-(require "example.rkt")
+(require "bracket-push.rkt")
 
 (module+ test
   (require rackunit rackunit/text-ui)
