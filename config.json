@@ -37,7 +37,9 @@
       "core": false,
       "unlocked_by": null,
       "difficulty": 1,
-      "topics": null
+      "topics": [
+        "math"
+      ]
     },
     {
       "slug": "perfect-numbers",
@@ -45,7 +47,9 @@
       "core": false,
       "unlocked_by": null,
       "difficulty": 1,
-      "topics": null
+      "topics": [
+        "math"
+      ]
     },
     {
       "slug": "gigasecond",
@@ -69,7 +73,9 @@
       "core": false,
       "unlocked_by": null,
       "difficulty": 1,
-      "topics": null
+      "topics": [
+        "math"
+      ]
     },
     {
       "slug": "hamming",
