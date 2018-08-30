@@ -1,3 +1,3 @@
 #lang racket
 
-(provide sum-of-squares square-of-sums difference)
+(provide sum-of-squares square-of-sum difference)
