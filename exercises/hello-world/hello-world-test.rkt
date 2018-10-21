@@ -9,7 +9,6 @@
     (test-suite
      "hello world tests"
 
-     (test-equal? "no arg returns Hello, World!" (hello) "Hello, World!")
-     (test-equal? "with arg returns Hello, arg!" (hello "exercism") "Hello, exercism!")))
+     (test-equal? "returns Hello, World!" (hello) "Hello, World!")))
 
   (run-tests suite))
