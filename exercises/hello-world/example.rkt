@@ -2,5 +2,5 @@
 
 (provide hello)
 
-(define (hello [name "World"])
-  (string-append "Hello, " name "!"))
+(define (hello)
+  "Hello, World!")
