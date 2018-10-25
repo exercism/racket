@@ -9,20 +9,48 @@
     (test-suite
      "perfect numbers tests"
 
-     (test-equal? "no perfect numbers in 1 - 5"
-                  (perfect-numbers 5)
-                  '())
+     (test-equal? "Smallest perfect number"
+                  (classify 6)
+                  'perfect)
 
-     (test-equal? "return one perfect number for range 1 - 6"
-                  (perfect-numbers 6)
-                  '(6))
+     (test-equal? "Medium perfect number"
+                  (classify 28)
+                  'perfect)
 
-     (test-equal? "return 3 perfect numbers for range 1 - 1000"
-                  (perfect-numbers 1000)
-                  '(6 28 496))
+     (test-equal? "Large perfect number"
+                  (classify 33550336)
+                  'perfect)
 
-     (test-equal? "return 4 perfect numbers for range 1 - 10000"
-                  (perfect-numbers 10000)
-                  '(6 28 496 8128))))
+     (test-equal? "Smallest prime deficient number"
+                  (classify 2)
+                  'deficient)
+
+     (test-equal? "Smallest non-prime deficient number"
+                  (classify 4)
+                  'deficient)
+
+     (test-equal? "Medium deficient number"
+                  (classify 33550337)
+                  'deficient)
+
+     (test-equal? "Large deficient number"
+                  (classify 33550337)
+                  'deficient)
+
+     (test-equal? "Edge case (no factors other than itself)"
+                  (classify 1)
+                  'deficient)
+
+     (test-equal? "Smallest abundant number"
+                  (classify 12)
+                  'abundant)
+
+     (test-equal? "Medium abundant number"
+                  (classify 30)
+                  'abundant)
+
+     (test-equal? "Large abundant number"
+                  (classify 33550335)
+                  'abundant)))
 
   (run-tests suite))
