@@ -11,6 +11,16 @@
       "unlocked_by": null,
       "difficulty": 1,
       "topics": [
+        "strings"
+      ]
+    },
+    {
+      "slug": "two-fer",
+      "uuid": "27ffc2d2-e950-40a1-90fa-a1f3eec4fd36",
+      "core": false,
+      "unlocked_by": null,
+      "difficulty": 1,
+      "topics": [
         "optional_values",
         "text_formatting"
       ]
