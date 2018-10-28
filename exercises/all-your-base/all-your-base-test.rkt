@@ -1,6 +1,6 @@
 #lang racket
 
-(require "example.rkt")
+(require "all-your-base.rkt")
 
 (module+ test
   (require rackunit rackunit/text-ui)
