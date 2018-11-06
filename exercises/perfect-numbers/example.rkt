@@ -3,7 +3,7 @@
 (provide classify)
 
 (define (divisor-sum n)
-  (for/sum ([i (range 1 (add1 (quotient n 2)))]
+  (for/sum ([i (in-range 1 (add1 (quotient n 2)))]
             #:when (zero? (remainder n i)))
     i))
 
