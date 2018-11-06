@@ -4,7 +4,7 @@
 
 (define (divisor-sum n)
   (for/sum ([i (range 1 (add1 (quotient n 2)))]
-            #:when (= (remainder n i) 0))
+            #:when (zero? (remainder n i)))
     i))
 
 (define (classify n)
