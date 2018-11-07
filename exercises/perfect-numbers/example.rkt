@@ -1,10 +1,14 @@
 #lang racket
 
-(provide perfect-numbers)
+(provide classify)
 
-(define (perfect-numbers n)
-  (filter perfect? (range 1 (add1 n))))
+(define (divisor-sum n)
+  (for/sum ([i (in-range 1 (add1 (quotient n 2)))]
+            #:when (zero? (remainder n i)))
+    i))
 
-(define (perfect? n)
-  (= (apply + (filter (lambda (x)
-            (zero? (modulo n x))) (range 1 n))) n))
+(define (classify n)
+  (let ([sumdivisors (divisor-sum n)])
+    (cond [(= n sumdivisors) 'perfect]
+          [(> n sumdivisors) 'deficient]
+          [else 'abundant])))

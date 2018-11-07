@@ -1,3 +1,5 @@
 #lang racket
 
-(provide perfect-numbers)
+(provide classify)
+
+
