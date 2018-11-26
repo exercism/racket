@@ -31,7 +31,7 @@
 
      (test-equal? "responds to forceful questions"
                   (response-for "WHAT THE HELL WERE YOU THINKING?")
-                  "Whoa, chill out!")
+                  "Calm down, I know what I'm doing!")
 
      (test-equal? "responds to shouting with special characters"
                   (response-for "ZOMG THE %^*@#$(*^ ZOMBIES ARE COMING!!11!!1!")
