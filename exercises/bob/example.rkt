@@ -5,6 +5,8 @@
 (define (response-for phrase)
   (cond
     [(silent? phrase) "Fine. Be that way!"]
+    [(and (shouting? phrase)
+          (question? phrase)) "Calm down, I know what I'm doing!"]
     [(shouting? phrase) "Whoa, chill out!"]
     [(question? phrase) "Sure."]
     [else "Whatever."]))
