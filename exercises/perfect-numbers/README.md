@@ -17,6 +17,13 @@ The Greek mathematician [Nicomachus](https://en.wikipedia.org/wiki/Nicomachus) d
 
 Implement a way to determine whether a given number is **perfect**. Depending on your language track, you may also need to implement a way to determine whether a given number is **abundant** or **deficient**.
 
+## Implementation
+
+Implement a procedure named `classify` that takes a number as argument and returns either `'perfect`,
+`'abundant`, or `'deficient`.
+
+
+
 * * * *
 
 For installation and learning resources, refer to the
