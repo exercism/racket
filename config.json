@@ -15,6 +15,14 @@
       ]
     },
     {
+      "slug": "grains",
+      "uuid": "b5b537d0-7c5d-45e5-af1d-b4da4f32514b",
+      "core": false,
+      "unlocked_by": null,
+      "difficulty": 1,
+      "topics": null
+    },
+    {
       "slug": "two-fer",
       "uuid": "27ffc2d2-e950-40a1-90fa-a1f3eec4fd36",
       "core": false,
@@ -24,14 +32,6 @@
         "optional_values",
         "text_formatting"
       ]
-    },
-    {
-      "slug": "grains",
-      "uuid": "b5b537d0-7c5d-45e5-af1d-b4da4f32514b",
-      "core": false,
-      "unlocked_by": null,
-      "difficulty": 1,
-      "topics": null
     },
     {
       "slug": "leap",
