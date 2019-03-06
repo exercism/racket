@@ -14,6 +14,19 @@
       ]
     },
     {
+      "slug": "all-your-base",
+      "uuid": "f6617861-da32-4735-8c7f-5ae57a8cf44a",
+      "core": false,
+      "unlocked_by": null,
+      "difficulty": 1,
+      "topics": [
+        "integers",
+        "math",
+        "map",
+        "transforming"
+      ]
+    },
+    {
       "slug": "grains",
       "uuid": "b5b537d0-7c5d-45e5-af1d-b4da4f32514b",
       "core": true,
