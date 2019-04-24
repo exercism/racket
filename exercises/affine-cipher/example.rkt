@@ -39,13 +39,15 @@
        (substring msg i (min N (+ i 5)))))))
 
 (define (encode msg a b)
-  (chunk
-   (integers->message
-    (map (λ(d)
-           (if (< d 26)
-               (modulo (+ b (* a d)) 26)
-               d))
-         (message->integers msg)))))
+  (if (= (gcd a 26) 1)
+      (chunk
+       (integers->message
+        (map (λ(d)
+               (if (< d 26)
+                   (modulo (+ b (* a d)) 26)
+                   d))
+             (message->integers msg))))
+      (error "a and m must be coprime")))
 
 (define (decode msg a b)
   (let ([M (message->integers msg)]

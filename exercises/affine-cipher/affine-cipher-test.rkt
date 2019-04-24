@@ -38,11 +38,10 @@
  
                 (test-equal? "encode 'The quick brown fox jumps over the lazy dog.'"
                              (encode "The quick brown fox jumps over the lazy dog." 17 33)
-                             "swxtj npvyk lruol iejdc blaxk swxmh qzglf")))
+                             "swxtj npvyk lruol iejdc blaxk swxmh qzglf")
 
-  ; def test_encode_raises_meaningful_exception(self):
-  ;  with self.assertRaisesWithMessage(ValueError):
-  ;      encode("This is a test", 6, 17)
+                (test-exn "test that encode raises a meaningful exception"
+                          exn:fail? (lambda () (encode "This is a test" 6 17)))))
 
   (define decode-suite
     (test-suite "affine-cipher decoding tests"
@@ -68,11 +67,10 @@
 
                 (test-equal? "decode 'vszzm    cly   yd cg    qdp'"
                              (decode "vszzm    cly   yd cg    qdp" 15 16)
-                             "jollygreengiant")))
+                             "jollygreengiant")
 
-  ; def test_decode_raises_meaningful_exception(self):
-  ;    with self.assertRaisesWithMessage(ValueError):
-  ;       decode("Test", 13, 5)
+                (test-exn "test that decode raises a meaningfun exception"
+                          exn:fail? (lambda () (decode "Test" 13 5)))))
 
   (begin
     (run-tests encode-suite)
