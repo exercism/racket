@@ -79,14 +79,16 @@ To run the test through DrRacket, simply open the test file and click the 'Run' 
 To run the test from the command line, run the test from the exercise directory with the following command:
 
 ```
-raco test anagram-test.rkt
+raco test affine-cipher-test.rkt
 ```
 
 which will display the following:
 
 ```
-raco test: (submod "anagram-test.rkt" test)
-2 success(es) 0 failure(s) 0 error(s) 2 test(s) run
+raco test: (submod "affine-cipher-test.rkt" test)
+9 success(es) 0 failure(s) 0 error(s) 9 test(s) run
 0
-2 tests passed
+7 success(es) 0 failure(s) 0 error(s) 7 test(s) run
+0
+16 tests passed
 ```
