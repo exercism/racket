@@ -225,6 +225,18 @@
       "topics": null
     },
     {
+      "slug": "affine-cipher",
+      "uuid": "529c3ced-eefa-402c-b901-ea39ae2fb24e",
+      "core": false,
+      "unlocked_by": "bob",
+      "difficulty": 4,
+      "topics": [
+        "algorithms",
+        "cryptography",
+        "strings"
+      ]
+    },
+    {
       "slug": "accumulate",
       "uuid": "b234225c-fcde-445f-9222-f80c25d0f499",
       "core": false,
