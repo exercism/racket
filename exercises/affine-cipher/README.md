@@ -1,3 +1,5 @@
+# Affine Cipher
+
 Create an implementation of the affine cipher,
 an ancient encryption system created in the Middle East.
  
@@ -67,6 +69,11 @@ harder to guess things based on word boundaries.
     - `15 * 7 mod 26 = 105 mod 26 = 1`
     - `7` is the MMI of `15 mod 26`
 
+## Note
+
+The tests for this problem assume that numbers are passed through without being encrypted/decrypted.
+
+
 * * * *
 
 For installation and learning resources, refer to the
@@ -86,9 +93,14 @@ which will display the following:
 
 ```
 raco test: (submod "affine-cipher-test.rkt" test)
-9 success(es) 0 failure(s) 0 error(s) 9 test(s) run
+2 success(es) 0 failure(s) 0 error(s) 2 test(s) run
 0
-7 success(es) 0 failure(s) 0 error(s) 7 test(s) run
-0
-16 tests passed
+2 tests passed
 ```
+
+## Source
+
+Wikipedia [http://en.wikipedia.org/wiki/Affine_cipher](http://en.wikipedia.org/wiki/Affine_cipher)
+
+## Submitting Incomplete Solutions
+It's possible to submit an incomplete solution so you can see how others have completed the exercise.
