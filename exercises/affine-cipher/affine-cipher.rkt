@@ -1,4 +1,4 @@
-#lang racket/base
+#lang racket
 
 (define (encode msg a b)
   "not implemented")
