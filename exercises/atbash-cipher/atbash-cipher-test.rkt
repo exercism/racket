@@ -59,7 +59,7 @@
 
                (test-equal? "decode with too many spaces"
                             (decode "vc vix    r hn")
-                            "jollygreengiant")
+                            "exercism")
 
                (test-equal? "decode with no spaces"
                             (decode "zmlyhgzxovrhlugvmzhgvkkrmthglmv")
