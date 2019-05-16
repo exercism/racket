@@ -173,6 +173,19 @@
       "topics": null
     },
     {
+      "slug": "isogram",
+      "uuid": "2fa21cb9-5469-4b95-9b78-c6f4dec6f67f",
+      "core": true,
+      "unlocked_by": null,
+      "difficulty": 3,
+      "topics": [
+        "algorithms",
+        "conditionals",
+        "loops",
+        "strings"
+      ]
+    },
+    {
       "slug": "phone-number",
       "uuid": "aad41852-c939-4168-89c8-ae873892c5f9",
       "core": false,
