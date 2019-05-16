@@ -14,6 +14,16 @@
       ]
     },
     {
+      "slug": "reverse-string",
+      "uuid": "135c7e52-04ac-4cde-9617-e16870dacb3f",
+      "core": false,
+      "unlocked_by": null,
+      "difficulty": 1,
+      "topics": [
+        "strings"
+      ]
+    },
+    {
       "slug": "all-your-base",
       "uuid": "f6617861-da32-4735-8c7f-5ae57a8cf44a",
       "core": false,
