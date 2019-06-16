@@ -69,6 +69,18 @@
       ]
     },
     {
+      "slug": "armstrong-numbers",
+      "uuid": "0fa9d2c6-f170-43b4-a28a-eb4994b4140e",
+      "core": false,
+      "unlocked_by": "two-fer",
+      "difficulty": 1,
+      "topics": [
+        "algorithms",
+        "loops",
+        "math"
+      ]
+    },
+    {
       "slug": "gigasecond",
       "uuid": "c7550977-bc29-47e9-9aeb-9e3ee34032b2",
       "core": true,
