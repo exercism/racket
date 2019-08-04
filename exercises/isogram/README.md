@@ -1,9 +1,17 @@
-# Gigasecond
+# Isogram
 
-Given a moment, determine the moment that would be after a gigasecond
-has passed.
+Determine if a word or phrase is an isogram.
 
-A gigasecond is 10^9 (1,000,000,000) seconds.
+An isogram (also known as a "nonpattern word") is a word or phrase without a repeating letter, however spaces and hyphens are allowed to appear multiple times.
+
+Examples of isograms:
+
+- lumberjacks
+- background
+- downstream
+- six-year-old
+
+The word *isograms*, however, is not an isogram, because the s repeats.
 
 * * * *
 
@@ -17,13 +25,13 @@ To run the test through DrRacket, simply open the test file and click the 'Run' 
 To run the test from the command line, run the test from the exercise directory with the following command:
 
 ```
-raco test gigasecond-test.rkt
+raco test isogram-test.rkt
 ```
 
 which will display the following:
 
 ```
-raco test: (submod "gigasecond-test.rkt" test)
+raco test: (submod "isogram-test.rkt" test)
 2 success(es) 0 failure(s) 0 error(s) 2 test(s) run
 0
 2 tests passed
@@ -31,7 +39,7 @@ raco test: (submod "gigasecond-test.rkt" test)
 
 ## Source
 
-Chapter 9 in Chris Pine's online Learn to Program tutorial. [http://pine.fm/LearnToProgram/?Chapter=09](http://pine.fm/LearnToProgram/?Chapter=09)
+Wikipedia [https://en.wikipedia.org/wiki/Isogram](https://en.wikipedia.org/wiki/Isogram)
 
 ## Submitting Incomplete Solutions
 It's possible to submit an incomplete solution so you can see how others have completed the exercise.

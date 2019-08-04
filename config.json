@@ -14,6 +14,19 @@
       ]
     },
     {
+      "slug": "all-your-base",
+      "uuid": "f6617861-da32-4735-8c7f-5ae57a8cf44a",
+      "core": false,
+      "unlocked_by": null,
+      "difficulty": 1,
+      "topics": [
+        "integers",
+        "math",
+        "map",
+        "transforming"
+      ]
+    },
+    {
       "slug": "grains",
       "uuid": "b5b537d0-7c5d-45e5-af1d-b4da4f32514b",
       "core": true,
@@ -52,6 +65,18 @@
       "core": true,
       "difficulty": 1,
       "topics": [
+        "math"
+      ]
+    },
+    {
+      "slug": "armstrong-numbers",
+      "uuid": "0fa9d2c6-f170-43b4-a28a-eb4994b4140e",
+      "core": false,
+      "unlocked_by": "two-fer",
+      "difficulty": 1,
+      "topics": [
+        "algorithms",
+        "loops",
         "math"
       ]
     },
@@ -148,6 +173,19 @@
       "topics": null
     },
     {
+      "slug": "isogram",
+      "uuid": "2fa21cb9-5469-4b95-9b78-c6f4dec6f67f",
+      "core": true,
+      "unlocked_by": null,
+      "difficulty": 3,
+      "topics": [
+        "algorithms",
+        "conditionals",
+        "loops",
+        "strings"
+      ]
+    },
+    {
       "slug": "phone-number",
       "uuid": "aad41852-c939-4168-89c8-ae873892c5f9",
       "core": false,
@@ -210,6 +248,18 @@
       "unlocked_by": null,
       "difficulty": 1,
       "topics": null
+    },
+    {
+      "slug": "affine-cipher",
+      "uuid": "529c3ced-eefa-402c-b901-ea39ae2fb24e",
+      "core": false,
+      "unlocked_by": "bob",
+      "difficulty": 4,
+      "topics": [
+        "algorithms",
+        "cryptography",
+        "strings"
+      ]
     },
     {
       "slug": "accumulate",

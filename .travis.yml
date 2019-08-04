@@ -7,10 +7,7 @@ env:
   matrix:
   - RACKET_VERSION=6.6 RACKET_MINIMAL=1
 before_install:
-  - git clone https://github.com/zenspider/travis-racket.git
-  - cd travis-racket
-  - git checkout fix/minimal-on-master
-  - cd ..
+  - git clone https://github.com/greghendershott/travis-racket.git
   - cat travis-racket/install-racket.sh | bash
   - export PATH="${RACKET_DIR}/bin:${PATH}"
 install:
