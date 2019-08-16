@@ -9,6 +9,8 @@ for exercise in *; do
         if [ -f "$exercise/$exercise"-test.rkt ]; then
             if [ -f "$exercise/$exercise".rkt ]; then
                 mv "$exercise/$exercise".rkt "$exercise/$exercise".rkt_
+            else
+                echo "$exercise needs a stub!"
             fi
             mv "$exercise"/example.rkt "$exercise/$exercise".rkt
         fi
