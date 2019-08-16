@@ -1,4 +1,4 @@
 #lang racket
 
 (define (my-reverse s)
-  (error "not implemented"))
+  "insert code for reversing string")
