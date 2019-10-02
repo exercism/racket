@@ -279,6 +279,18 @@
       "difficulty": 0,
       "topics": null,
       "deprecated": true
+    },
+    {
+      "slug": "atbash-cipher",
+      "uuid": "92d97f99-04f9-4a52-942d-d1a9fa96375f",
+      "core": false,
+      "unlocked_by": "null",
+      "difficulty": 3,
+      "topics": [
+        "algorithms",
+        "cryptography",
+        "strings"
+      ]
     }
   ]
 }
