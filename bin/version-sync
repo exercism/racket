@@ -1,0 +1,105 @@
+#! /usr/bin/env bash
+#
+# This script copies versions from test files into the .meta folders
+
+# handle colors and the unicode symbols '✓' and '✗'
+readonly NORMAL="$(tput sgr0)"
+readonly RED_FAIL="$(tput setaf 1)$(printf '\u2717')"
+readonly GRN_PASS="$(tput setaf 2)$(printf '\u2713')"
+
+# convenience to pretend like this is perl
+die () {
+    local -r err="${1:-something has gone horribly wrong}"
+    printf '%s\n' "${RED_FAIL} ${err}${NORMAL}"
+    exit 1
+}
+
+# handle non dying success and failure messages
+report () {
+    case "$1" in
+        success) local -r msg="${GRN_PASS}${NORMAL} ${2}" ;;
+        failure) local -r msg="${RED_FAIL}${NORMAL} ${2}" ;;
+              *)
+                  die "bad report flag: ${1}"
+                  ;;
+    esac
+    printf '%s\n' "$msg"
+}
+
+# generate test name from the exercise slug
+slug_to_test () {
+    local -r slug="${1:-Nothing}"
+    # die if the slug is not a direcotry
+    [[ -d $slug ]] ||
+        die "${slug} is not a direcotry in racket/exercises/"
+    # convert to test file path
+    local -r test_name="${slug}/${slug}-test.rkt"
+    # die if the test is not present
+    [[ -f $test_name ]] ||
+        die "${test_name} does not exist"
+    # print it
+    printf '%s' "$test_name"
+}
+
+# check for version info from the files
+get_version_info () {
+    cat "$test_name"                |
+        # pull out the lines with the versions
+        grep problem-specifications |
+        # grab the last field and remove the first character
+        awk '{print substr($NF,2)}'
+}
+
+copy_version_info () {
+    local -r meta="${1}/.meta"
+    local -r version="$2"
+    local -r version_file="${meta}/version"
+    # make .meta if it doesn't already exist
+    [[ -d  $meta ]] || mkdir "$meta"
+    # check if .meta/version already exists
+    if [[ -f $version_file ]]; then
+        local old_version="$(cat "$version_file")"
+        # handle the logic
+        if [[ $version == $old_version ]]; then
+            # report msg
+            printf '%s' "${version} - already up to date"
+        else
+            # update file
+            printf '%s\n' "$version" > "$version_file"
+            # report msg
+            printf '%s' "${old_version} -> ${version}"
+        fi
+    else
+        # populate new version file
+        printf '%s\n' "$version" > "$version_file"
+        # report msg
+        printf '%s' "${version} - started tracking version"
+    fi
+}
+
+main () {
+    # make sure we are in the right place
+    #
+    # special '##' syntax removes the prefix from $PWD
+    if [[ racket == ${PWD##*/} ]]; then
+        cd exercises
+    else
+        die "can't run 'copy-versions' from ${PWD}"
+    fi
+
+    # workload
+    for slug in *; do
+        test_name="$(slug_to_test "$slug")"
+        version="$(get_version_info "$test_name")"
+        # handle version info
+        if [[ -z $version ]]; then
+            report failure "$slug"
+        else
+            status="$(copy_version_info "$slug" "$version")"
+            report success "${slug}: ${status}"
+        fi
+    done
+}
+
+# execute
+main
