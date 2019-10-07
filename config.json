@@ -272,6 +272,21 @@
       ]
     },
     {
+      "slug": "robot-name",
+      "uuid": "5ffc29de-9a26-40ba-83af-a4d15ad5d77f",
+      "core": false,
+      "unlocked_by": "hello-world",
+      "difficulty": 4,
+      "topics": [
+        "pattern_matching",
+        "randomness",
+        "regular_expressions",
+        "strings",
+        "text_formatting",
+        "object_oriented_programming"
+      ]
+    },
+    {
       "slug": "accumulate",
       "uuid": "b234225c-fcde-445f-9222-f80c25d0f499",
       "core": false,
