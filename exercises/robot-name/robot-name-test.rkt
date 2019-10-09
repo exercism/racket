@@ -1,4 +1,5 @@
 #lang racket
+
 (require racket/class
          "robot-name.rkt")
 
@@ -6,33 +7,40 @@
   (require rackunit
            rackunit/text-ui)
 
-  (define proper-robot-name #px"\\p{Lu}{2}\\p{Nd}{4}")
-  
+  (define max-names (* 26 26 10 10 10))
+
+  (define proper-robot-name #px"\\p{Lu}{2}\\p{Nd}{3}")
+
   (define (check-proper-robot-name r)
-    (check-regexp-match proper-robot-name (send r get-name)))
-  
-  (define robot-name-suite 
+    (check-regexp-match proper-robot-name (name r)))
+
+  (define robot-name-suite
     (test-suite
      "Check proper operation of 'robots'"
-     
+
      (test-case
       "Check that robot names conforms to the expected standard."
-      (check-proper-robot-name (new robot%)))
+      (check-proper-robot-name (make-robot)))
 
      (test-case
       "Check that resetting a robot name also gives a proper name."
-      (let ([robby (new robot%)])
-        (check-regexp-match proper-robot-name (send robby get-name))
-        (send robby reset)
-        (check-regexp-match proper-robot-name (send robby get-name))))
+      (let* ([robby (make-robot)]
+             [name1 (name robby)]
+             [_ (reset! robby)]
+             [name2 (name robby)])
+        (and
+         (and (check-regexp-match proper-robot-name name1)
+              (check-regexp-match proper-robot-name name2))
+         (not (string=? name1 name2)))))
+
+     (reset-name-cache!)
 
      (test-case
       "Check that robots are created with unique names."
       (check-eq?
        (set-count
         (list->set
-         (for/list ([i (in-range 1000)])
-           (send (new robot%) get-name))))
-       1000))))
+         (map (λ (_) (name (make-robot))) (range max-names))))
+       max-names))))
 
     (run-tests robot-name-suite))
