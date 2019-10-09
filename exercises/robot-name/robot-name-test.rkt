@@ -31,8 +31,8 @@
       (check-eq?
        (set-count
         (list->set
-         (for/list ([i (in-range 10)])
+         (for/list ([i (in-range 1000)])
            (send (new robot%) get-name))))
-       10))))
+       1000))))
 
     (run-tests robot-name-suite))
