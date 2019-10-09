@@ -39,24 +39,24 @@
 
 (define name-generator
   (let* (;; cache to keep track of names in use
-         (name-cache (mutable-set))
+         (name-cache (make-hash))
          ;; add name to cache and return the name
          (register
           (λ (name)
-            (begin (set-add! name-cache name)
+            (begin (hash-set! name-cache name #t)
                    name)))
          ;; ensure a unique name is produced
          (handle
           (λ (name)
-            (if (set-member? name-cache name)
+            (if (hash-has-key? name-cache name)
                 (name-generator 'get)
                 (register name)))))
     (λ (msg)
       (case msg
-        ((get) (if (< (set-count name-cache) max-names)
+        ((get) (if (< (hash-count name-cache) max-names)
                    (handle (generate-valid-name))
                    (error 'name-generator "name-cache is full")))
-        ((clear!) (set! name-cache (mutable-set)))
+        ((clear!) (hash-clear! name-cache))
         (else
          (error 'name-generator "invalid message passed" msg))))))
 
