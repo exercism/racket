@@ -1,7 +1,6 @@
-#lang racket
+#lang racket/base
 
-(require racket/class
-         "robot-name.rkt")
+(require "robot-name.rkt")
 
 (module+ test
   (require rackunit
@@ -33,14 +32,16 @@
               (check-regexp-match proper-robot-name name2))
          (not (string=? name1 name2)))))
 
-     (reset-name-cache!)
+     ;; reset cache in order to generate all the names
 
      (test-case
       "Check that robots are created with unique names."
-      (check-eq?
-       (set-count
-        (list->set
-         (map (λ (_) (name (make-robot))) (range max-names))))
-       max-names))))
+      (begin
+        (reset-name-cache!)
+        (= max-names
+           (let ((names (make-hash)))
+             (for ((_ (in-range max-names)))
+               (hash-set! names (name (make-robot)) #t))
+             (hash-count names)))))))
 
     (run-tests robot-name-suite))
