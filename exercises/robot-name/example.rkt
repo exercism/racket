@@ -18,7 +18,7 @@
     (list->string
      (let loop ([index 0])
        (cond [(< index 2) (cons (random-letter-char) (loop (add1 index)))]
-             [(< index 6) (cons (random-digit-char) (loop (add1 index)))]
+             [(< index 5) (cons (random-digit-char) (loop (add1 index)))]
              [else empty])))))
 
 (define generate-unique-name

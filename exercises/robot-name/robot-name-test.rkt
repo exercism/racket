@@ -6,7 +6,7 @@
   (require rackunit
            rackunit/text-ui)
 
-  (define proper-robot-name #px"\\p{Lu}{2}\\p{Nd}{4}")
+  (define proper-robot-name #px"\\p{Lu}{2}\\p{Nd}{3}")
   
   (define (check-proper-robot-name r)
     (check-regexp-match proper-robot-name (send r get-name)))
