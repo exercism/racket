@@ -279,6 +279,18 @@
       "difficulty": 0,
       "topics": null,
       "deprecated": true
+    },
+    {
+      "slug": "twelve-days",
+      "uuid": "5961220f-5d33-4e97-a4bb-8b375714a8fc",
+      "core": false,
+      "unlocked_by": "word-count",
+      "difficulty": 2,
+      "topics": [
+        "enumerations",
+        "reduce",
+        "strings"
+      ]
     }
   ]
 }
