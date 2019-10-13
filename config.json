@@ -260,6 +260,17 @@
       "topics": null
     },
     {
+      "slug": "variable-length-quantity",
+      "uuid": "a6f90be2-1360-479e-8a6f-4f2d8b492c71",
+      "core": false,
+      "unlocked_by": null,
+      "difficulty": 7,
+      "topics": [
+        "algorithms",
+        "bitwise_operations"
+      ]
+    },
+    {
       "slug": "affine-cipher",
       "uuid": "529c3ced-eefa-402c-b901-ea39ae2fb24e",
       "core": false,

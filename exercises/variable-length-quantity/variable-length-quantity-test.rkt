@@ -1,0 +1,164 @@
+#lang racket
+
+(require "roman-numerals.rkt")
+
+(module+ test
+  (require rackunit rackunit/text-ui)
+
+  (define encode
+    (test-suite
+     "Encode a series of integers, producing a series of bytes."
+
+        (test-equal "zero"
+                    (encode 0)
+                    '(0))
+
+        ;;; {
+        ;;;   "description": "arbitrary single byte",
+        ;;;   "property": "encode",
+        ;;;   "input": {
+        ;;;     "integers": [64]
+        ;;;   },
+        ;;;   "expected": [64]
+        ;;; },
+
+        ;;; {
+        ;;;   "description": "largest single byte",
+        ;;;   "property": "encode",
+        ;;;   "input": {
+        ;;;     "integers": [127]
+        ;;;   },
+        ;;;   "expected": [127]
+        ;;; },
+
+        ;;; {
+        ;;;   "description": "smallest double byte",
+        ;;;   "property": "encode",
+        ;;;   "input": {
+        ;;;     "integers": [128]
+        ;;;   },
+        ;;;   "expected": [129,0]
+        ;;; },
+
+        ;;; {
+        ;;;   "description": "arbitrary double byte",
+        ;;;   "property": "encode",
+        ;;;   "input": {
+        ;;;     "integers": [8192]
+        ;;;   },
+        ;;;   "expected": [192, 0]
+        ;;; },
+
+        ;;; {
+        ;;;   "description": "largest double byte",
+        ;;;   "property": "encode",
+        ;;;   "input": {
+        ;;;     "integers": [16383]
+        ;;;   },
+        ;;;   "expected": [255, 127]
+        ;;; },
+
+        ;;; {
+        ;;;   "description": "smallest triple byte",
+        ;;;   "property": "encode",
+        ;;;   "input": {
+        ;;;     "integers": [16384]
+        ;;;   },
+        ;;;   "expected": [129, 128, 0]
+        ;;; },
+
+        ;;; {
+        ;;;   "description": "arbitrary triple byte",
+        ;;;   "property": "encode",
+        ;;;   "input": {
+        ;;;     "integers": [1048576]
+        ;;;   },
+        ;;;   "expected": [192, 128, 0]
+        ;;; },
+        ;;; {
+        ;;;   "description": "largest triple byte",
+        ;;;   "property": "encode",
+        ;;;   "input": {
+        ;;;     "integers": [2097151]
+        ;;;   },
+        ;;;   "expected": [255, 255, 127]
+        ;;; },
+        ;;; {
+        ;;;   "description": "smallest quadruple byte",
+        ;;;   "property": "encode",
+        ;;;   "input": {
+        ;;;     "integers": [2097152]
+        ;;;   },
+        ;;;   "expected": [129, 128, 128, 0]
+        ;;; },
+        ;;; {
+        ;;;   "description": "arbitrary quadruple byte",
+        ;;;   "property": "encode",
+        ;;;   "input": {
+        ;;;     "integers": [134217728]
+        ;;;   },
+        ;;;   "expected": [192, 128, 128, 0]
+        ;;; },
+        ;;; {
+        ;;;   "description": "largest quadruple byte",
+        ;;;   "property": "encode",
+        ;;;   "input": {
+        ;;;     "integers": [268435455]
+        ;;;   },
+        ;;;   "expected": [255, 255, 255, 127]
+        ;;; },
+        ;;; {
+        ;;;   "description": "smallest quintuple byte",
+        ;;;   "property": "encode",
+        ;;;   "input": {
+        ;;;     "integers": [268435456]
+        ;;;   },
+        ;;;   "expected": [129, 128, 128, 128, 0]
+        ;;; },
+        ;;; {
+        ;;;   "description": "arbitrary quintuple byte",
+        ;;;   "property": "encode",
+        ;;;   "input": {
+        ;;;     "integers": [4278190080]
+        ;;;   },
+        ;;;   "expected": [143, 248, 128, 128, 0]
+        ;;; },
+        ;;; {
+        ;;;   "description": "maximum 32-bit integer input",
+        ;;;   "property": "encode",
+        ;;;   "input": {
+        ;;;     "integers": [4294967295]
+        ;;;   },
+        ;;;   "expected": [143, 255, 255, 255, 127]
+        ;;; },
+        ;;; {
+        ;;;   "description": "two single-byte values",
+        ;;;   "property": "encode",
+        ;;;   "input": {
+        ;;;     "integers": [64, 127]
+        ;;;   },
+        ;;;   "expected": [64, 127]
+        ;;; },
+        ;;; {
+        ;;;   "description": "two multi-byte values",
+        ;;;   "property": "encode",
+        ;;;   "input": {
+        ;;;     "integers": [16384, 1193046]
+        ;;;   },
+        ;;;   "expected": [129, 128, 0, 200, 232, 86]
+        ;;; },
+        ;;; {
+        ;;;   "description": "many multi-byte values",
+        ;;;   "property": "encode",
+        ;;;   "input": {
+        ;;;     "integers": [8192, 1193046, 268435455, 0, 16383, 16384]
+        ;;;   },
+        ;;;   "expected": [192, 0, 200, 232, 86, 255, 255, 255, 127, 0, 255, 127, 129, 128, 0]
+        ;;; }
+
+
+    ))
+
+  (begin
+    (run-tests encode)
+    (run-tests decode)))
