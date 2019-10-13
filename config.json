@@ -272,6 +272,12 @@
       ]
     },
     {
+      "slug": "triangle",
+      "uuid": "952078f7-e388-4e49-8c9b-3d48499a4225",
+      "core": false,
+      "difficulty": 1
+    },
+    {
       "slug": "accumulate",
       "uuid": "b234225c-fcde-445f-9222-f80c25d0f499",
       "core": false,
