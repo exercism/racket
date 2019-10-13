@@ -1,4 +1,6 @@
 #lang racket
-(require racket/class)
 
-(provide robot%)
+(provide make-robot
+         name
+         reset!
+         reset-name-cache!)
