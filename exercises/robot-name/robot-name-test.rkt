@@ -1,5 +1,6 @@
 #lang racket/base
 
+; There were no cannonical tests to perform.
 (require "robot-name.rkt")
 
 (module+ test
@@ -38,8 +39,8 @@
       (begin
         (reset-name-cache!)
         (= max-names
-           (let ((names (make-hash)))
-             (for ((_ (in-range max-names)))
+           (let ([names (make-hash)])
+             (for ((_ (in-range (/ max-names 4))))
                (hash-set! names (name (make-robot)) #t))
              (hash-count names)))))))
 

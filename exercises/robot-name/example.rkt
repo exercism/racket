@@ -7,12 +7,12 @@
 
 ;;; Public
 (define (make-robot)
-  (let ((name (name-generator 'get)))
+  (let ([name (name-generator 'get)])
     (λ (msg)
       (case msg
-        ((name) name)
-        ((reset!) (set! name (name-generator 'get)))
-        (else (error 'robot "invalid message" msg))))))
+        [(name) name]
+        [(reset!) (set! name (name-generator 'get))]
+        [else (error 'robot "invalid message" msg)]))))
 
 (define (name robot)
   (robot 'name))
@@ -27,12 +27,12 @@
 (define max-names (* 26 26 10 10 10))
 
 (define generate-valid-name
-  (let ((random-digit
-         (let ((zero (char->integer #\0)))
-           (λ () (integer->char (+ zero (random 10))))))
-        (random-capital-letter
-         (let ((A (char->integer #\A)))
-           (λ () (integer->char (+ A (random 26)))))))
+  (let ([random-digit
+         (let ([zero (char->integer #\0)])
+           (λ () (integer->char (+ zero (random 10)))))]
+        [random-capital-letter
+         (let ([A (char->integer #\A)])
+           (λ () (integer->char (+ A (random 26)))))])
     (λ ()
       (string (random-capital-letter)
               (random-capital-letter)
@@ -41,19 +41,19 @@
               (random-digit)))))
 
 (define name-generator
-  (let* ((name-cache (make-hash))
-         (handle
+  (let* ([name-cache (make-hash)]
+         [handle
           (λ (name)
             (if (hash-has-key? name-cache name)
                 (name-generator 'get)
                 (begin (hash-set! name-cache name #t)
-                       name)))))
+                       name)))])
     (λ (msg)
       (case msg
-        ((get)
+        [(get)
          (if (< (hash-count name-cache) max-names)
              (handle (generate-valid-name))
-             (error 'name-generator "name-cache is full")))
-        ((clear!) (hash-clear! name-cache))
-        (else
-         (error 'name-generator "invalid message passed" msg))))))
+             (error 'name-generator "name-cache is full"))]
+        [(clear!) (hash-clear! name-cache)]
+        [else
+         (error 'name-generator "invalid message passed" msg)]))))
