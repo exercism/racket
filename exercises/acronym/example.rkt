@@ -10,9 +10,13 @@
 
 (define (process-word word)
   (define (first-letter s)
-    (~a (char-upcase (string-ref s 0))))
+    (~a (if (zero? (string-length s))
+            ""
+            (char-upcase (string-ref s 0)))))
+  
   (define (filter-caps s)
     (list->string (filter char-upper-case? (string->list s))))
+  
   (cond
     [(all-upper-case? word) (first-letter word)]
     [(all-lower-case? word) (first-letter word)]
