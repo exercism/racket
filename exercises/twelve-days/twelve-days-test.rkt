@@ -1,6 +1,6 @@
 #lang racket/base
 
-(require "example.rkt")
+(require "twelve-days.rkt")
 
 (module+ test
 
