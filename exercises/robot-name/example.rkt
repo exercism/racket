@@ -1,42 +1,59 @@
-#lang racket
-(require racket/class)
+#lang racket/base
 
-(provide robot%)
+(provide make-robot
+         name
+         reset!
+         reset-name-cache!)
 
-(define (random-digit-char)
-  (integer->char
-   (random (char->integer #\0)
-           (add1 (char->integer #\9)))))
+;;; Public
+(define (make-robot)
+  (let ((name (name-generator 'get)))
+    (λ (msg)
+      (case msg
+        ((name) name)
+        ((reset!) (set! name (name-generator 'get)))
+        (else (error 'robot "invalid message" msg))))))
 
-(define (random-letter-char)
-  (integer->char
-   (random (char->integer #\A)
-           (add1 (char->integer #\Z)))))
+(define (name robot)
+  (robot 'name))
 
-(define (generate-valid-name)
-  (let ([all-robot-names (set)])
-    (list->string
-     (let loop ([index 0])
-       (cond [(< index 2) (cons (random-letter-char) (loop (add1 index)))]
-             [(< index 5) (cons (random-digit-char) (loop (add1 index)))]
-             [else empty])))))
+(define (reset! robot)
+  (robot 'reset!))
 
-(define generate-unique-name
-  (let ([all-robot-names (mutable-set)])
-    (lambda ()
-      (let ([name (generate-valid-name)])
-        (cond [(set-member? all-robot-names name)
-               (generate-unique-name)]
-              [else
-               (set-add! all-robot-names name)
-               name])))))
+(define (reset-name-cache!)
+  (name-generator 'clear!))
 
-; https://docs.racket-lang.org/guide/classes.html
-(define robot%
-  (class object%
-    (super-new)
-    (define name (generate-unique-name))
-    (define/public (get-name)
-      name)
-    (define/public (reset)
-      (set! name (generate-unique-name)))))
+;;; Private
+(define max-names (* 26 26 10 10 10))
+
+(define generate-valid-name
+  (let ((random-digit
+         (let ((zero (char->integer #\0)))
+           (λ () (integer->char (+ zero (random 10))))))
+        (random-capital-letter
+         (let ((A (char->integer #\A)))
+           (λ () (integer->char (+ A (random 26)))))))
+    (λ ()
+      (string (random-capital-letter)
+              (random-capital-letter)
+              (random-digit)
+              (random-digit)
+              (random-digit)))))
+
+(define name-generator
+  (let* ((name-cache (make-hash))
+         (handle
+          (λ (name)
+            (if (hash-has-key? name-cache name)
+                (name-generator 'get)
+                (begin (hash-set! name-cache name #t)
+                       name)))))
+    (λ (msg)
+      (case msg
+        ((get)
+         (if (< (hash-count name-cache) max-names)
+             (handle (generate-valid-name))
+             (error 'name-generator "name-cache is full")))
+        ((clear!) (hash-clear! name-cache))
+        (else
+         (error 'name-generator "invalid message passed" msg))))))
