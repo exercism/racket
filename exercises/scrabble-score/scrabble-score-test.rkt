@@ -1,31 +1,32 @@
 #lang racket/base
 
-(module+ test
-  (require "scrabble-score.rkt")
+; Tests adapted from `problem-specifications/canonical-data.json v1.1.0
+(require "scrabble-score.rkt")
 
+(module+ test
   (require rackunit rackunit/text-ui)
 
   (define suite
     (test-suite
      "scrabble tests"
 
-     (test-eqv? "a is worth one point"
+     (test-eqv? "lowercase letter"
                 (score "a")
                 1)
 
-     (test-eqv? "scoring is case insensitive"
+     (test-eqv? "uppercase letter"
                 (score "A")
                 1)
 
-     (test-eqv? "f is worth four"
+     (test-eqv? "valuable letter"
                 (score "f")
                 4)
 
-     (test-eqv? "two one point letters make a two point word"
+     (test-eqv? "short word"
                 (score "at")
                 2)
 
-     (test-eqv? "three letter word"
+     (test-eqv? "short, valuable word"
                 (score "zoo")
                 12)
 
@@ -33,25 +34,25 @@
                 (score "street")
                 6)
 
-     (test-eqv? "longer words with valuable letters"
+     (test-eqv? "medium, valuable word"
                 (score "quirky")
                 22)
 
-     (test-eqv? "long mixed case word"
+     (test-eqv? "long, mixed-case word"
                 (score "OxyphenButazone")
                 41)
 
-     (test-eqv? "english scrabble letters score"
+     (test-eqv? "english-like word"
                 (score "pinata")
                 8)
 
-     (test-eqv? "non english scrabble letters do not score"
-                (score "piñata")
-                7)
-
-     (test-eqv? "empty words are worth zero"
+     (test-eqv? "empty input"
                 (score "")
                 0)
+
+     (test-eqv? "entire alphabet available"
+                (score "abcdefghijklmnopqrstuvwxyz")
+                87)
 
      ))
 
