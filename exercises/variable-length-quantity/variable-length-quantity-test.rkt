@@ -13,124 +13,58 @@
                     (encode 0)
                     '(0))
 
-        ;;; {
-        ;;;   "description": "arbitrary single byte",
-        ;;;   "property": "encode",
-        ;;;   "input": {
-        ;;;     "integers": [64]
-        ;;;   },
-        ;;;   "expected": [64]
-        ;;; },
+        (test-equal "arbitrary single byte"
+                    (encode 64)
+                    '(64))
 
-        ;;; {
-        ;;;   "description": "largest single byte",
-        ;;;   "property": "encode",
-        ;;;   "input": {
-        ;;;     "integers": [127]
-        ;;;   },
-        ;;;   "expected": [127]
-        ;;; },
+        (test-equal "largest single byte"
+                    (encode 127)
+                    '(127))
 
-        ;;; {
-        ;;;   "description": "smallest double byte",
-        ;;;   "property": "encode",
-        ;;;   "input": {
-        ;;;     "integers": [128]
-        ;;;   },
-        ;;;   "expected": [129,0]
-        ;;; },
+        (test-equal "smallest double byte"
+                    (encode 128)
+                    '(129 0))
 
-        ;;; {
-        ;;;   "description": "arbitrary double byte",
-        ;;;   "property": "encode",
-        ;;;   "input": {
-        ;;;     "integers": [8192]
-        ;;;   },
-        ;;;   "expected": [192, 0]
-        ;;; },
+        (test-equal "arbitrary double byte"
+                    (encode 8192)
+                    '(192 0))
 
-        ;;; {
-        ;;;   "description": "largest double byte",
-        ;;;   "property": "encode",
-        ;;;   "input": {
-        ;;;     "integers": [16383]
-        ;;;   },
-        ;;;   "expected": [255, 127]
-        ;;; },
+        (test-equal "largest double byte"
+                    (encode 16383)
+                    '(255 127))
 
-        ;;; {
-        ;;;   "description": "smallest triple byte",
-        ;;;   "property": "encode",
-        ;;;   "input": {
-        ;;;     "integers": [16384]
-        ;;;   },
-        ;;;   "expected": [129, 128, 0]
-        ;;; },
+        (test-equal "smallest triple byte"
+                    (encode 16384)
+                    '(129 128 0))
 
-        ;;; {
-        ;;;   "description": "arbitrary triple byte",
-        ;;;   "property": "encode",
-        ;;;   "input": {
-        ;;;     "integers": [1048576]
-        ;;;   },
-        ;;;   "expected": [192, 128, 0]
-        ;;; },
-        ;;; {
-        ;;;   "description": "largest triple byte",
-        ;;;   "property": "encode",
-        ;;;   "input": {
-        ;;;     "integers": [2097151]
-        ;;;   },
-        ;;;   "expected": [255, 255, 127]
-        ;;; },
-        ;;; {
-        ;;;   "description": "smallest quadruple byte",
-        ;;;   "property": "encode",
-        ;;;   "input": {
-        ;;;     "integers": [2097152]
-        ;;;   },
-        ;;;   "expected": [129, 128, 128, 0]
-        ;;; },
-        ;;; {
-        ;;;   "description": "arbitrary quadruple byte",
-        ;;;   "property": "encode",
-        ;;;   "input": {
-        ;;;     "integers": [134217728]
-        ;;;   },
-        ;;;   "expected": [192, 128, 128, 0]
-        ;;; },
-        ;;; {
-        ;;;   "description": "largest quadruple byte",
-        ;;;   "property": "encode",
-        ;;;   "input": {
-        ;;;     "integers": [268435455]
-        ;;;   },
-        ;;;   "expected": [255, 255, 255, 127]
-        ;;; },
-        ;;; {
-        ;;;   "description": "smallest quintuple byte",
-        ;;;   "property": "encode",
-        ;;;   "input": {
-        ;;;     "integers": [268435456]
-        ;;;   },
-        ;;;   "expected": [129, 128, 128, 128, 0]
-        ;;; },
-        ;;; {
-        ;;;   "description": "arbitrary quintuple byte",
-        ;;;   "property": "encode",
-        ;;;   "input": {
-        ;;;     "integers": [4278190080]
-        ;;;   },
-        ;;;   "expected": [143, 248, 128, 128, 0]
-        ;;; },
-        ;;; {
-        ;;;   "description": "maximum 32-bit integer input",
-        ;;;   "property": "encode",
-        ;;;   "input": {
-        ;;;     "integers": [4294967295]
-        ;;;   },
-        ;;;   "expected": [143, 255, 255, 255, 127]
-        ;;; },
+        (test-equal "arbitrary triple byte"
+                    (encode 1048576)
+                    '(192 128 0))
+
+        (test-equal "smallest quadruple byte"
+                    (encode 2097151)
+                    '(129 128 128 0))
+
+        (test-equal "arbitrary quadruple byte"
+                    (encode 134217728)
+                    '(192 128 128 0))
+
+        (test-equal "largest quadruple byte"
+                    (encode 268435455)
+                    '(255 255 255 127))
+
+        (test-equal "smallest quintuple byte"
+                    (encode 268435456)
+                    '(129 128 128 128 0))
+
+        (test-equal "arbitrary quintuple byte"
+                    (encode 4278190080)
+                    '(143 248 128 128 0))
+
+        (test-equal "maximum 32-bit integer input"
+                    (encode 4294967295)
+                    '(143 255 255 255 127))
+
         ;;; {
         ;;;   "description": "two single-byte values",
         ;;;   "property": "encode",
@@ -155,8 +89,6 @@
         ;;;   },
         ;;;   "expected": [192, 0, 200, 232, 86, 255, 255, 255, 127, 0, 255, 127, 129, 128, 0]
         ;;; }
-
-
     ))
 
   (begin
