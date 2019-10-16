@@ -1,6 +1,6 @@
 #lang racket
 
-(require "example.rkt")
+(require "variable-length-quantity.rkt")
 
 (module+ test
   (require rackunit rackunit/text-ui)
