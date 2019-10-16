@@ -87,17 +87,18 @@
     (test-suite
      "Decode a series of bytes, producing a series of integers."
 
-        ;;; (test-equal? "one byte"
-        ;;;               (decode 127)
-        ;;;               '(127))
+        ;;; Simple byte tests
+        (test-equal? "one byte"
+                      (decode 127)
+                      '(127))
 
         (test-equal? "two bytes"
                       (decode 192 0)
                       '(8192))
 
-        ;;; (test-equal? "three bytes"
-        ;;;               (decode 255 255 127)
-        ;;;               '(2097151))
+        (test-equal? "three bytes"
+                      (decode 255 255 127)
+                      '(2097151))
 
         (test-equal? "four bytes"
                       (decode 129 128 128 0)
@@ -110,38 +111,16 @@
         ;;; Error checking...
         (test-exn "incomplete sequence causes error"
                       exn:fail?
-                      (decode 255))
+                      (lambda () (decode 255)))
 
         (test-exn "incomplete sequence causes error, even if value is zero"
                       exn:fail?
-                      (decode 128))
+                      (lambda () (decode 128)))
+
+        (test-equal? "multiple values"
+                      (decode 192 0 200 232 86 255 255 255 127 0 255 127 129 128 0)
+                      '(8192 1193046 268435455 0 16383 16384))
     ))
-
-        ;;; {
-        ;;;   "description": "incomplete sequence causes error",
-        ;;;   "property": "decode",
-        ;;;   "input": {
-        ;;;     "integers": [255]
-        ;;;   },
-        ;;;   "expected": {"error": "incomplete sequence"}
-        ;;; },
-        ;;; {
-        ;;;   "description": "incomplete sequence causes error, even if value is zero",
-        ;;;   "property": "decode",
-        ;;;   "input": {
-        ;;;     "integers": [128]
-        ;;;   },
-        ;;;   "expected": {"error": "incomplete sequence"}
-        ;;; },
-        ;;; {
-        ;;;   "description": "multiple values",
-        ;;;   "property": "decode",
-        ;;;   "input": {
-        ;;;     "integers": [192, 0, 200, 232, 86, 255, 255, 255, 127, 0, 255, 127, 129, 128, 0]
-        ;;;   },
-        ;;;   "expected": [8192, 1193046, 268435455, 0, 16383, 16384]
-        ;;; }
-
 
   (begin
     (run-tests encode-tests)

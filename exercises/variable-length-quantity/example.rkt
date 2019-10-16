@@ -19,26 +19,34 @@
 
 (define (decode . vals)
   (let rec ([fst        (car vals)]
-            [val        0]
             [rst        (cdr vals)]
-            [continue?  (< 0 (bitwise-and (car vals) 128))]
+            [val        0]
             [result     '()])
 
-    ;;; some error checking...
-    (when (and continue? (null? rst))
-      (error "incomplete sequence"))
+    (let ([continue?  (< 0 (bitwise-and fst 128))])
+      (cond
+        ;;; error checking
+        [(and continue? (null? rst))
+          (error "incomplete sequence")]
+        ;;; base case
+        [(null? rst)
+          (reverse (cons (do-bits fst val) result))]
+        ;;; addition case
+        [continue?
+          (rec
+            (car rst)
+            (cdr rst)
+            (do-bits fst val)
+            result)]
+        ;;; new number case
+        [else
+          (rec
+            (car rst)
+            (cdr rst)
+            0
+            (cons (do-bits fst val) result))]))))
 
-    )))
-
-
-;;; (if (< 0 (bitwise-and val 128))
-;;;           (cons
-;;;             (bitwise-ior
-;;;               (bitwise-and val 127)
-;;;               (if (pair? lst)
-;;;                   (arithmetic-shift (car lst) 7)
-;;;                   0))
-;;;             (if (null? lst)
-;;;                 lst
-;;;                 (cdr lst)))
-;;;           (cons val lst))
+(define (do-bits new-byte total)
+  (bitwise-ior
+    (bitwise-and new-byte 127)
+    (arithmetic-shift total 7)))
