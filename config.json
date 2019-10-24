@@ -260,6 +260,18 @@
       "topics": null
     },
     {
+      "slug": "house",
+      "uuid": "8a8654fe-9820-4ee9-9db7-069b3ad2b96d",
+      "core": false,
+      "unlocked_by": null,
+      "difficulty": 4,
+      "topics": [
+        "algorithms",
+        "recursion",
+        "strings"
+      ]
+    },
+    {
       "slug": "affine-cipher",
       "uuid": "529c3ced-eefa-402c-b901-ea39ae2fb24e",
       "core": false,
