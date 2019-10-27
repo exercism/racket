@@ -1,3 +1,6 @@
 #lang racket
 
-(provide numbers area-code pprint)
+(provide nanp-clean)
+
+(define (nanp-clean s)
+  s)
