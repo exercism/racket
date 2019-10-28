@@ -272,15 +272,6 @@
       ]
     },
     {
-      "slug": "accumulate",
-      "uuid": "b234225c-fcde-445f-9222-f80c25d0f499",
-      "core": false,
-      "unlocked_by": null,
-      "difficulty": 0,
-      "topics": null,
-      "deprecated": true
-    },
-    {
       "slug": "twelve-days",
       "uuid": "5961220f-5d33-4e97-a4bb-8b375714a8fc",
       "core": false,
@@ -290,6 +281,15 @@
         "reduce",
         "strings"
       ]
+    },
+    {
+      "slug": "accumulate",
+      "uuid": "b234225c-fcde-445f-9222-f80c25d0f499",
+      "core": false,
+      "unlocked_by": null,
+      "difficulty": 0,
+      "topics": null,
+      "deprecated": true
     }
   ]
 }
