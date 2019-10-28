@@ -1,6 +1,6 @@
 #lang racket/base
 
-(require "example.rkt")
+(require "house.rkt")
 
 (define (line-smasher . lines)
   (let rec ([str (car lines)]
