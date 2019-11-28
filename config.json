@@ -8,6 +8,7 @@
       "uuid": "4fb471fc-4e6d-486d-abf5-939e89f028fc",
       "core": true,
       "auto_approve": true,
+      "unlocked_by": null,
       "difficulty": 1,
       "topics": [
         "strings"
@@ -40,6 +41,7 @@
       "slug": "grains",
       "uuid": "b5b537d0-7c5d-45e5-af1d-b4da4f32514b",
       "core": true,
+      "unlocked_by": null,
       "difficulty": 1,
       "topics": null
     },
@@ -47,6 +49,7 @@
       "slug": "two-fer",
       "uuid": "27ffc2d2-e950-40a1-90fa-a1f3eec4fd36",
       "core": true,
+      "unlocked_by": null,
       "difficulty": 1,
       "topics": [
         "optional_values",
@@ -57,6 +60,7 @@
       "slug": "leap",
       "uuid": "e84ac1ee-6e7e-40b4-826a-ed3d41890b83",
       "core": true,
+      "unlocked_by": null,
       "difficulty": 1,
       "topics": null
     },
@@ -64,6 +68,7 @@
       "slug": "difference-of-squares",
       "uuid": "a3d9a2bb-a80a-487f-b529-64e20f7cf9b5",
       "core": true,
+      "unlocked_by": null,
       "difficulty": 1,
       "topics": [
         "math"
@@ -73,6 +78,7 @@
       "slug": "perfect-numbers",
       "uuid": "72b2c36b-fcd5-4c8c-89e7-98bf24faaa3e",
       "core": true,
+      "unlocked_by": null,
       "difficulty": 1,
       "topics": [
         "math"
@@ -94,6 +100,7 @@
       "slug": "gigasecond",
       "uuid": "c7550977-bc29-47e9-9aeb-9e3ee34032b2",
       "core": true,
+      "unlocked_by": null,
       "difficulty": 1,
       "topics": null
     },
@@ -109,6 +116,7 @@
       "slug": "collatz-conjecture",
       "uuid": "28102e69-dad0-4f3c-8cdf-5a18a73178a4",
       "core": true,
+      "unlocked_by": null,
       "difficulty": 1,
       "topics": [
         "math"
@@ -118,6 +126,7 @@
       "slug": "hamming",
       "uuid": "f0a6e55d-6702-4043-bdcf-2ed99bf60645",
       "core": true,
+      "unlocked_by": null,
       "difficulty": 1,
       "topics": null
     },
@@ -125,6 +134,7 @@
       "slug": "scrabble-score",
       "uuid": "74d67f30-1f31-4289-a9bc-1bf69ec54ae2",
       "core": true,
+      "unlocked_by": null,
       "difficulty": 1,
       "topics": null
     },
