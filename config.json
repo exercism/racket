@@ -1,7 +1,7 @@
 {
   "language": "Racket",
   "active": true,
-  "blurb": "Racket is a prgramming langauge that can be used to build programming languages.  Racket is based on Scheme and LISP but it's got some really neat innovations. If you're learning there's some great education support in How to Design Programs and Realm of Racket.",
+  "blurb": "Racket is a programming language that can be used to build programming languages. Racket is based on Scheme and LISP but it's got some really neat innovations. If you're learning there's some great education support in How to Design Programs and Realm of Racket.",
   "exercises": [
     {
       "slug": "hello-world",
