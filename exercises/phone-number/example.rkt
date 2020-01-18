@@ -1,37 +1,42 @@
 #lang racket
 
-(provide numbers area-code pprint)
+(provide nanp-clean)
 
-(define (strip-non-digits str)
-  (list->string (filter char-numeric? (string->list str))))
+;; public
+(define (nanp-clean s)
+  (let* ([input-number (extract-numbers s)]
+         [cleaned-number (trim-leading-one input-number)])
+    (check-area-code-or-exchange (substring cleaned-number 0 3))
+    (check-area-code-or-exchange (substring cleaned-number 3 6))
+    cleaned-number))
 
-(define (trim-leading-one str)
-  (if (and (= 11 (string-length str))
-           (char=? #\1 (car (string->list str))))
-      (substring str 1)
-      str))
+;; private
+(define (valid-character c)
+  (or (char=? #\( c)
+      (char=? #\) c)
+      (char=? #\- c)
+      (char=? #\. c)
+      (char=? #\+ c)
+      (char-numeric? c)
+      (char-whitespace? c)))
 
-(define (ensure-valid str)
-  (if (= 10 (string-length str))
-      str
-      "0000000000"))
+(define (check-area-code-or-exchange s)
+  (let ([first-char (string-ref s 0)])
+    (when (or (char=? #\0 first-char)
+              (char=? #\1 first-char))
+      (error 'nanp-clean "invalid exchange or area code"))))
 
-(define (numbers number-string)
-  (ensure-valid
-   (trim-leading-one
-    (strip-non-digits number-string))))
+(define (extract-numbers s)
+  (unless (andmap valid-character (string->list s))
+    (error 'nanp-clean "invalid punctuation"))
+  (list->string
+   (filter (λ (c)
+             (char-numeric? c)) (string->list s))))
 
-(define (area-code number-string)
-  (substring (numbers number-string) 0 3))
-
-(define (exchange number-string)
-  (substring (numbers number-string) 3 6))
-
-(define (subscriber number-string)
-  (substring (numbers number-string) 6 10))
-
-(define (pprint number-string)
-  (format "(~a) ~a-~a"
-          (area-code number-string)
-          (exchange number-string)
-          (subscriber number-string)))
+(define (trim-leading-one s)
+  (let ([s-length (string-length s)])
+    (cond [(= 10 s-length) s]
+          [(and (= 11 s-length)
+                (char=? #\1 (string-ref s 0)))
+           (substring s 1)]
+          [else (error 'nanp-clean "bad number")])))
