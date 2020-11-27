@@ -1,6 +1,7 @@
 # Exercism Racket Track
 
-[![Build Status](https://travis-ci.org/exercism/racket.svg?branch=master)](https://travis-ci.org/exercism/racket)
+[![Configlet Status](https://github.com/exercism/racket/workflows/configlet/badge.svg)]
+[![Exercise Test Status](https://github.com/exercism/racket/workflows/racket%20%2F%20main/badge.svg)]
 
 Exercism exercises in Racket.
 
