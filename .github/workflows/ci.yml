@@ -13,7 +13,6 @@ jobs:
     runs-on: ubuntu-latest
 
     strategy:
-      fail-fast: true
       matrix:
         racket-variant: ['BC', 'CS']
         racket-version: ['6.6', '7.9']
