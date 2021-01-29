@@ -10,6 +10,10 @@
   },
   "blurb": "Racket is a programming language that can be used to build programming languages. Racket is based on Scheme and LISP but it's got some really neat innovations. If you're learning there's some great education support in How to Design Programs and Realm of Racket.",
   "version": 3,
+  "online_editor": {
+    "indent_style": "space",
+    "indent_size": 4
+  },
   "exercises": [
     {
       "slug": "hello-world",
