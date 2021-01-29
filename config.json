@@ -27,29 +27,6 @@
       ]
     },
     {
-      "slug": "reverse-string",
-      "uuid": "135c7e52-04ac-4cde-9617-e16870dacb3f",
-      "core": false,
-      "unlocked_by": null,
-      "difficulty": 1,
-      "topics": [
-        "strings"
-      ]
-    },
-    {
-      "slug": "all-your-base",
-      "uuid": "f6617861-da32-4735-8c7f-5ae57a8cf44a",
-      "core": false,
-      "unlocked_by": null,
-      "difficulty": 1,
-      "topics": [
-        "integers",
-        "map",
-        "math",
-        "transforming"
-      ]
-    },
-    {
       "slug": "grains",
       "uuid": "b5b537d0-7c5d-45e5-af1d-b4da4f32514b",
       "core": true,
@@ -97,18 +74,6 @@
       ]
     },
     {
-      "slug": "armstrong-numbers",
-      "uuid": "0fa9d2c6-f170-43b4-a28a-eb4994b4140e",
-      "core": false,
-      "unlocked_by": "two-fer",
-      "difficulty": 1,
-      "topics": [
-        "algorithms",
-        "loops",
-        "math"
-      ]
-    },
-    {
       "slug": "gigasecond",
       "uuid": "c7550977-bc29-47e9-9aeb-9e3ee34032b2",
       "core": true,
@@ -151,8 +116,123 @@
       "topics": null
     },
     {
-      "slug": "roman-numerals",
-      "uuid": "c5a747dc-f283-4cf6-8435-fde885f63089",
+      "slug": "isogram",
+      "uuid": "2fa21cb9-5469-4b95-9b78-c6f4dec6f67f",
+      "core": true,
+      "unlocked_by": null,
+      "difficulty": 3,
+      "topics": [
+        "algorithms",
+        "conditionals",
+        "loops",
+        "strings"
+      ]
+    },
+    {
+      "slug": "robot-name",
+      "uuid": "5ffc29de-9a26-40ba-83af-a4d15ad5d77f",
+      "core": false,
+      "unlocked_by": "hello-world",
+      "difficulty": 4,
+      "topics": [
+        "pattern_matching",
+        "randomness",
+        "regular_expressions",
+        "strings",
+        "text_formatting",
+        "object_oriented_programming"
+      ]
+    },
+    {
+      "slug": "armstrong-numbers",
+      "uuid": "0fa9d2c6-f170-43b4-a28a-eb4994b4140e",
+      "core": false,
+      "unlocked_by": "two-fer",
+      "difficulty": 1,
+      "topics": [
+        "algorithms",
+        "loops",
+        "math"
+      ]
+    },
+    {
+      "slug": "affine-cipher",
+      "uuid": "529c3ced-eefa-402c-b901-ea39ae2fb24e",
+      "core": false,
+      "unlocked_by": "bob",
+      "difficulty": 4,
+      "topics": [
+        "algorithms",
+        "cryptography",
+        "strings"
+      ]
+    },
+    {
+      "slug": "accumulate",
+      "uuid": "b234225c-fcde-445f-9222-f80c25d0f499",
+      "core": false,
+      "unlocked_by": null,
+      "difficulty": 0,
+      "topics": null,
+      "deprecated": true,
+      "status": "deprecated"
+    },
+    {
+      "slug": "acronym",
+      "uuid": "daeb92dc-efea-4bea-b657-3383b1880e49",
+      "core": false,
+      "unlocked_by": null,
+      "difficulty": 1,
+      "topics": null
+    },
+    {
+      "slug": "all-your-base",
+      "uuid": "f6617861-da32-4735-8c7f-5ae57a8cf44a",
+      "core": false,
+      "unlocked_by": null,
+      "difficulty": 1,
+      "topics": [
+        "integers",
+        "map",
+        "math",
+        "transforming"
+      ]
+    },
+    {
+      "slug": "allergies",
+      "uuid": "881f83d7-1c80-4045-9a3f-def45c8f5764",
+      "core": false,
+      "unlocked_by": null,
+      "difficulty": 1,
+      "topics": null
+    },
+    {
+      "slug": "anagram",
+      "uuid": "67b41645-7a02-4c45-af55-86401db69eee",
+      "core": false,
+      "unlocked_by": null,
+      "difficulty": 1,
+      "topics": null
+    },
+    {
+      "slug": "etl",
+      "uuid": "7c1cdc16-30c8-460f-aa6a-cc0655436f22",
+      "core": false,
+      "unlocked_by": null,
+      "difficulty": 1,
+      "topics": null
+    },
+    {
+      "slug": "grep",
+      "uuid": "37ab62d8-deb3-4fa4-8016-0b22f3d2f66d",
+      "core": false,
+      "unlocked_by": null,
+      "difficulty": 1,
+      "topics": null
+    },
+    {
+      "slug": "list-ops",
+      "uuid": "874b53f5-d9ef-4fd9-be62-3fe16692e565",
       "core": false,
       "unlocked_by": null,
       "difficulty": 1,
@@ -173,61 +253,16 @@
       ]
     },
     {
-      "slug": "anagram",
-      "uuid": "67b41645-7a02-4c45-af55-86401db69eee",
+      "slug": "nucleotide-count",
+      "uuid": "9fbd3939-f71a-4506-bcc3-e9940d4027ed",
       "core": false,
       "unlocked_by": null,
       "difficulty": 1,
       "topics": null
-    },
-    {
-      "slug": "rna-transcription",
-      "uuid": "2936d930-2359-44ea-8342-656016d3ec79",
-      "core": false,
-      "unlocked_by": null,
-      "difficulty": 1,
-      "topics": null
-    },
-    {
-      "slug": "etl",
-      "uuid": "7c1cdc16-30c8-460f-aa6a-cc0655436f22",
-      "core": false,
-      "unlocked_by": null,
-      "difficulty": 1,
-      "topics": null
-    },
-    {
-      "slug": "word-count",
-      "uuid": "b931f727-b5b1-4f42-9799-faca692dd32e",
-      "core": false,
-      "unlocked_by": null,
-      "difficulty": 1,
-      "topics": null
-    },
-    {
-      "slug": "isogram",
-      "uuid": "2fa21cb9-5469-4b95-9b78-c6f4dec6f67f",
-      "core": true,
-      "unlocked_by": null,
-      "difficulty": 3,
-      "topics": [
-        "algorithms",
-        "conditionals",
-        "loops",
-        "strings"
-      ]
     },
     {
       "slug": "phone-number",
       "uuid": "aad41852-c939-4168-89c8-ae873892c5f9",
-      "core": false,
-      "unlocked_by": null,
-      "difficulty": 1,
-      "topics": null
-    },
-    {
-      "slug": "nucleotide-count",
-      "uuid": "9fbd3939-f71a-4506-bcc3-e9940d4027ed",
       "core": false,
       "unlocked_by": null,
       "difficulty": 1,
@@ -242,8 +277,26 @@
       "topics": null
     },
     {
-      "slug": "grep",
-      "uuid": "37ab62d8-deb3-4fa4-8016-0b22f3d2f66d",
+      "slug": "reverse-string",
+      "uuid": "135c7e52-04ac-4cde-9617-e16870dacb3f",
+      "core": false,
+      "unlocked_by": null,
+      "difficulty": 1,
+      "topics": [
+        "strings"
+      ]
+    },
+    {
+      "slug": "rna-transcription",
+      "uuid": "2936d930-2359-44ea-8342-656016d3ec79",
+      "core": false,
+      "unlocked_by": null,
+      "difficulty": 1,
+      "topics": null
+    },
+    {
+      "slug": "roman-numerals",
+      "uuid": "c5a747dc-f283-4cf6-8435-fde885f63089",
       "core": false,
       "unlocked_by": null,
       "difficulty": 1,
@@ -258,76 +311,12 @@
       "topics": null
     },
     {
-      "slug": "allergies",
-      "uuid": "881f83d7-1c80-4045-9a3f-def45c8f5764",
+      "slug": "word-count",
+      "uuid": "b931f727-b5b1-4f42-9799-faca692dd32e",
       "core": false,
       "unlocked_by": null,
       "difficulty": 1,
       "topics": null
-    },
-    {
-      "slug": "list-ops",
-      "uuid": "874b53f5-d9ef-4fd9-be62-3fe16692e565",
-      "core": false,
-      "unlocked_by": null,
-      "difficulty": 1,
-      "topics": null
-    },
-    {
-      "slug": "acronym",
-      "uuid": "daeb92dc-efea-4bea-b657-3383b1880e49",
-      "core": false,
-      "unlocked_by": null,
-      "difficulty": 1,
-      "topics": null
-    },
-    {
-      "slug": "variable-length-quantity",
-      "uuid": "a6f90be2-1360-479e-8a6f-4f2d8b492c71",
-      "core": false,
-      "unlocked_by": null,
-      "difficulty": 7,
-      "topics": [
-        "algorithms",
-        "bitwise_operations"
-      ]
-    },
-    {
-      "slug": "affine-cipher",
-      "uuid": "529c3ced-eefa-402c-b901-ea39ae2fb24e",
-      "core": false,
-      "unlocked_by": "bob",
-      "difficulty": 4,
-      "topics": [
-        "algorithms",
-        "cryptography",
-        "strings"
-      ]
-    },
-    {
-      "slug": "robot-name",
-      "uuid": "5ffc29de-9a26-40ba-83af-a4d15ad5d77f",
-      "core": false,
-      "unlocked_by": "hello-world",
-      "difficulty": 4,
-      "topics": [
-        "pattern_matching",
-        "randomness",
-        "regular_expressions",
-        "strings",
-        "text_formatting",
-        "object_oriented_programming"
-      ]
-    },
-    {
-      "slug": "accumulate",
-      "uuid": "b234225c-fcde-445f-9222-f80c25d0f499",
-      "core": false,
-      "unlocked_by": null,
-      "difficulty": 0,
-      "topics": null,
-      "deprecated": true,
-      "status": "deprecated"
     },
     {
       "slug": "atbash-cipher",
@@ -339,6 +328,17 @@
         "algorithms",
         "cryptography",
         "strings"
+      ]
+    },
+    {
+      "slug": "variable-length-quantity",
+      "uuid": "a6f90be2-1360-479e-8a6f-4f2d8b492c71",
+      "core": false,
+      "unlocked_by": null,
+      "difficulty": 7,
+      "topics": [
+        "algorithms",
+        "bitwise_operations"
       ]
     }
   ]
