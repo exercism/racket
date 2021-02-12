@@ -1,3 +1,5 @@
+# Installation
+
 Please reference Racket's [Getting Started](http://docs.racket-lang.org/getting-started/) page for instructions on downloading and installing Racket.
 
 Alternative installation options and further notes for specific OSes follow.
