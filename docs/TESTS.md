@@ -1,3 +1,5 @@
+# Tests
+
 You can run the provided tests through DrRacket, or via the command line.
 
 To run the test through DrRacket, simply open the test file and click the 'Run' button in the upper right.
