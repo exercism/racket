@@ -1,0 +1,17 @@
+{
+  "blurb": "Determine if a word or phrase is an isogram.",
+  "authors": [],
+  "files": {
+    "solution": [
+      "isogram.rkt"
+    ],
+    "test": [
+      "isogram-test.rkt"
+    ],
+    "example": [
+      "example.rkt"
+    ]
+  },
+  "source": "Wikipedia",
+  "source_url": "https://en.wikipedia.org/wiki/Isogram"
+}

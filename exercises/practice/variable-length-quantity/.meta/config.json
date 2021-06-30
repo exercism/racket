@@ -1,0 +1,17 @@
+{
+  "blurb": "Implement variable length quantity encoding and decoding.",
+  "authors": [],
+  "files": {
+    "solution": [
+      "variable-length-quantity.rkt"
+    ],
+    "test": [
+      "variable-length-quantity-test.rkt"
+    ],
+    "example": [
+      "example.rkt"
+    ]
+  },
+  "source": "A poor Splice developer having to implement MIDI encoding/decoding.",
+  "source_url": "https://splice.com"
+}

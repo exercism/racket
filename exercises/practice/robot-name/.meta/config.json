@@ -1,0 +1,16 @@
+{
+  "blurb": "Manage robot factory settings.",
+  "authors": [],
+  "files": {
+    "solution": [
+      "robot-name.rkt"
+    ],
+    "test": [
+      "robot-name-test.rkt"
+    ],
+    "example": [
+      "example.rkt"
+    ]
+  },
+  "source": "A debugging session with Paul Blackwell at gSchool."
+}
