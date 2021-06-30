@@ -400,7 +400,7 @@
   "tags": [
     "paradigm/functional",
     "paradigm/imperative",
-    "paradigm/object-oriented",
+    "paradigm/object_oriented",
     "typing/dynamic",
     "typing/strong",
     "execution_mode/interpreted",
