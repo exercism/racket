@@ -1,6 +1,15 @@
 {
   "blurb": "Given a phrase, count the occurrences of each word in that phrase.",
-  "authors": [],
+  "authors": [
+    "mbertheau"
+  ],
+  "contributors": [
+    "arguello",
+    "cousinitt",
+    "PurityControl",
+    "robertpostill",
+    "yurrriq"
+  ],
   "files": {
     "solution": [
       "word-count.rkt"

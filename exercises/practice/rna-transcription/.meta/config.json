@@ -1,6 +1,17 @@
 {
   "blurb": "Given a DNA strand, return its RNA Complement Transcription.",
-  "authors": [],
+  "authors": [
+    "arguello"
+  ],
+  "contributors": [
+    "cousinitt",
+    "mbertheau",
+    "PurityControl",
+    "robertpostill",
+    "sjwarner-bp",
+    "timotheosh",
+    "yurrriq"
+  ],
   "files": {
     "solution": [
       "rna-transcription.rkt"

@@ -1,6 +1,16 @@
 {
   "blurb": "Implement basic list operations",
-  "authors": [],
+  "authors": [
+    "arguello"
+  ],
+  "contributors": [
+    "mbertheau",
+    "PurityControl",
+    "robertpostill",
+    "sjwarner-bp",
+    "timotheosh",
+    "yurrriq"
+  ],
   "files": {
     "solution": [
       "list-ops.rkt"

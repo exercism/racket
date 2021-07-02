@@ -1,6 +1,11 @@
 {
   "blurb": "Implement variable length quantity encoding and decoding.",
-  "authors": [],
+  "authors": [
+    "serialhex"
+  ],
+  "contributors": [
+    "robertpostill"
+  ],
   "files": {
     "solution": [
       "variable-length-quantity.rkt"

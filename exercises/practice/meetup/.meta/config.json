@@ -1,6 +1,13 @@
 {
   "blurb": "Calculate the date of meetups.",
-  "authors": [],
+  "authors": [
+    "mbertheau"
+  ],
+  "contributors": [
+    "arguello",
+    "jgilray",
+    "yurrriq"
+  ],
   "files": {
     "solution": [
       "meetup.rkt"

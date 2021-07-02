@@ -1,6 +1,14 @@
 {
   "blurb": "The classical introductory exercise. Just say \"Hello, World!\"",
-  "authors": [],
+  "authors": [
+    "arguello"
+  ],
+  "contributors": [
+    "benreyn",
+    "mbertheau",
+    "PurityControl",
+    "yurrriq"
+  ],
   "files": {
     "solution": [
       "hello-world.rkt"

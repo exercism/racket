@@ -1,6 +1,13 @@
 {
   "blurb": "Given a word, compute the Scrabble score for that word.",
-  "authors": [],
+  "authors": [
+    "zenspider"
+  ],
+  "contributors": [
+    "cousinitt",
+    "robertpostill",
+    "yurrriq"
+  ],
   "files": {
     "solution": [
       "scrabble-score.rkt"

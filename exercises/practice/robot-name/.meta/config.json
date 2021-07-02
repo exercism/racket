@@ -1,6 +1,12 @@
 {
   "blurb": "Manage robot factory settings.",
-  "authors": [],
+  "authors": [
+    "cousinitt"
+  ],
+  "contributors": [
+    "guygastineau",
+    "robertpostill"
+  ],
   "files": {
     "solution": [
       "robot-name.rkt"
