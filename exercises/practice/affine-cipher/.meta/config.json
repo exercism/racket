@@ -16,7 +16,7 @@
       "affine-cipher-test.rkt"
     ],
     "example": [
-      "example.rkt"
+      ".meta/example.rkt"
     ]
   },
   "source": "Wikipedia",

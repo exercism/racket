@@ -16,7 +16,7 @@
       "meetup-test.rkt"
     ],
     "example": [
-      "example.rkt"
+      ".meta/example.rkt"
     ]
   },
   "source": "Jeremy Hinegardner mentioned a Boulder meetup that happens on the Wednesteenth of every month",

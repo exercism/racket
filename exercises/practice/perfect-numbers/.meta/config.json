@@ -20,7 +20,7 @@
       "perfect-numbers-test.rkt"
     ],
     "example": [
-      "example.rkt"
+      ".meta/example.rkt"
     ]
   },
   "source": "Taken from Chapter 2 of Functional Thinking by Neal Ford.",

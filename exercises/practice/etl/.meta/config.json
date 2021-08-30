@@ -14,7 +14,7 @@
       "etl-test.rkt"
     ],
     "example": [
-      "example.rkt"
+      ".meta/example.rkt"
     ]
   },
   "source": "The Jumpstart Lab team",

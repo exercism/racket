@@ -14,7 +14,7 @@
       "variable-length-quantity-test.rkt"
     ],
     "example": [
-      "example.rkt"
+      ".meta/example.rkt"
     ]
   },
   "source": "A poor Splice developer having to implement MIDI encoding/decoding.",

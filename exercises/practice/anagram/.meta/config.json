@@ -17,7 +17,7 @@
       "anagram-test.rkt"
     ],
     "example": [
-      "example.rkt"
+      ".meta/example.rkt"
     ]
   },
   "source": "Inspired by the Extreme Startup game",

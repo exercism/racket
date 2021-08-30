@@ -16,7 +16,7 @@
       "nucleotide-count-test.rkt"
     ],
     "example": [
-      "example.rkt"
+      ".meta/example.rkt"
     ]
   },
   "source": "The Calculating DNA Nucleotides_problem at Rosalind",
