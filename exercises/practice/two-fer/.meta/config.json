@@ -17,7 +17,7 @@
       "two-fer-test.rkt"
     ],
     "example": [
-      "example.rkt"
+      ".meta/example.rkt"
     ]
   },
   "source_url": "https://github.com/exercism/problem-specifications/issues/757"

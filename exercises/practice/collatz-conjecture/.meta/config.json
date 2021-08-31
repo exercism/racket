@@ -14,7 +14,7 @@
       "collatz-conjecture-test.rkt"
     ],
     "example": [
-      "example.rkt"
+      ".meta/example.rkt"
     ]
   },
   "source": "An unsolved problem in mathematics named after mathematician Lothar Collatz",

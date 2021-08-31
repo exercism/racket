@@ -18,7 +18,7 @@
       "word-count-test.rkt"
     ],
     "example": [
-      "example.rkt"
+      ".meta/example.rkt"
     ]
   },
   "source": "This is a classic toy problem, but we were reminded of it by seeing it in the Go Tour."

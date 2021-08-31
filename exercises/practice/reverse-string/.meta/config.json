@@ -16,7 +16,7 @@
       "reverse-string-test.rkt"
     ],
     "example": [
-      "example.rkt"
+      ".meta/example.rkt"
     ]
   },
   "source": "Introductory challenge to reverse an input string",

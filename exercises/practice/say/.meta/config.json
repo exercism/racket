@@ -20,7 +20,7 @@
       "say-test.rkt"
     ],
     "example": [
-      "example.rkt"
+      ".meta/example.rkt"
     ]
   },
   "source": "A variation on JavaRanch CattleDrive, exercise 4a",

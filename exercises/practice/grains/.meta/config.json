@@ -16,7 +16,7 @@
       "grains-test.rkt"
     ],
     "example": [
-      "example.rkt"
+      ".meta/example.rkt"
     ]
   },
   "source": "JavaRanch Cattle Drive, exercise 6",

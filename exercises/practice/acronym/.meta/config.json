@@ -16,7 +16,7 @@
       "acronym-test.rkt"
     ],
     "example": [
-      "example.rkt"
+      ".meta/example.rkt"
     ]
   },
   "source": "Julien Vanier",

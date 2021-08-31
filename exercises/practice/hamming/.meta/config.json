@@ -19,7 +19,7 @@
       "hamming-test.rkt"
     ],
     "example": [
-      "example.rkt"
+      ".meta/example.rkt"
     ]
   },
   "source": "The Calculating Point Mutations problem at Rosalind",
