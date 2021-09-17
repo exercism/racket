@@ -396,7 +396,38 @@
     ]
   },
   "concepts": [],
-  "key_features": [],
+  "key_features": [
+    {
+      "title": "Language-oriented",
+      "content": "Racket comes with the tools to write your own programming language.",
+      "icon": "extensible"
+    },
+    {
+      "title": "A modern Lisp",
+      "content": "Racket is a modern dialect of Lisp, an influential language with a rich history.",
+      "icon": "scientific"
+    },
+    {
+      "title": "Multi-paradigm",
+      "content": "Racket is primarily functional, but it supports imperative and object-oriented programming too.",
+      "icon": "multi-paradigm"
+    },
+    {
+      "title": "Simple syntax",
+      "content": "Racket's syntax is simple, expressive and easy to learn.",
+      "icon": "easy"
+    },
+    {
+      "title": "Innovative",
+      "content": "Racket is an actively-developed research testbed for intriguing new language features.",
+      "icon": "evolving"
+    },
+    {
+      "title": "Macros",
+      "content": "It's easy to customize the language to your liking with Racket's macro system.",
+      "icon": "homoiconic"
+    }
+  ],
   "tags": [
     "paradigm/functional",
     "paradigm/imperative",
