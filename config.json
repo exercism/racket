@@ -12,8 +12,8 @@
   "version": 3,
   "online_editor": {
     "indent_style": "space",
-    "indent_size": 4,
-    "highlightjs_language": "lisp"
+    "indent_size": 2,
+    "highlightjs_language": "scheme"
   },
   "test_runner": {
     "average_run_time": 2.0
