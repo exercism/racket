@@ -16,12 +16,12 @@ jobs:
       fail-fast: false
       matrix:
         racket-variant: ['BC', 'CS']
-        racket-version: ['7.9']
+        racket-version: ['8.2']
 
     steps:
       - uses: actions/checkout@v3
 
-      - uses: Bogdanp/setup-racket@00f7ec314c9d21e1f81e1805036d4dc2577a44aa
+      - uses: Bogdanp/setup-racket@bb021621e119e1fbcf90724c3c24ed600c5c8bdd
         with:
           architecture: x64
           distribution: minimal
