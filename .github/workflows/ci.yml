@@ -21,7 +21,7 @@ jobs:
     steps:
       - uses: actions/checkout@v3
 
-      - uses: Bogdanp/setup-racket@bb021621e119e1fbcf90724c3c24ed600c5c8bdd
+      - uses: Bogdanp/setup-racket@d4d313bdd534234f55b20b8fcc54410083fa6ffd
         with:
           architecture: x64
           distribution: minimal
