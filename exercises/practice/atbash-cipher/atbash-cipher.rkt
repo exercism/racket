@@ -1,7 +1,9 @@
 #lang racket
 
+(provide encode decode)
+
 (define (encode m)
-  (error "not implemented"))
+  (error "Not implemented yet"))
 
 (define (decode m)
-  (error "not implemented"))
+  (error "Not implemented yet"))

@@ -10,7 +10,7 @@
                    exact-nonnegative-integer? . -> . string?)]))
 
 (define (encode msg a b)
-  "not implemented")
+  (error "Not implemented yet"))
 
 (define (decode msg a b)
-  "not implemented")
+  (error "Not implemented yet"))

@@ -3,4 +3,4 @@
 (provide armstrong-number?)
 
 (define (armstrong-number? n)
-  "not implemented")
+  (error "Not implemented yet"))
