@@ -3,4 +3,4 @@
 (provide isogram?)
 
 (define (isogram? s)
-  (error "not implemented"))
+  (error "Not implemented yet"))
