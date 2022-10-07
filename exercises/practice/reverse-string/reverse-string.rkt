@@ -2,4 +2,4 @@
 (provide my-reverse)
 
 (define (my-reverse s)
-  (error "not implemented"))
+  (error "Not implemented yet"))
