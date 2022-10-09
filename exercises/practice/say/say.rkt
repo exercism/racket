@@ -33,13 +33,13 @@
 ;; =============================================================================
 
 (define (step1 n)
-  "step1: not implemented")
+  (error "Not implemented yet"))
 
 (define (step2 N)
-  '())
+  (error "Not implemented yet"))
 
 (define (step3 n)
-  '())
+  (error "Not implemented yet"))
 
 (define (step4 N)
-  "step4: not implemented")
+  (error "Not implemented yet"))
