@@ -1,6 +1,8 @@
 #lang racket
 
-(provide add-gigasecond)
-
 (require racket/date)
 
+(provide add-gigasecond)
+
+(define (add-gigasecond datetime)
+  (error "Not implemented yet"))
