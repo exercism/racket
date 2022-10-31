@@ -3,5 +3,4 @@
 (provide sublist?)
 
 (define (sublist? s l)
-  (error "Not implemented yet")
-  )
+  (error "Not implemented yet"))
