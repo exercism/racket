@@ -8,7 +8,7 @@
       "matching-brackets.rkt"
     ],
     "test": [
-      "matching-brackets.rkt"
+      "matching-brackets-test.rkt"
     ],
     "example": [
       ".meta/example.rkt"
