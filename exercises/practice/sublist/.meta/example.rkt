@@ -1,5 +1,7 @@
 #lang racket
 
+(provide sublist?)
+
 (define (sublist? s l)
   (match (list s l)
     [(list '() '()) 'equal]
