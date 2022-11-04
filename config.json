@@ -399,12 +399,33 @@
         "uuid": "5109fde0-e88c-405f-bfc2-abc84ec4498a",
         "practices": [],
         "prerequisites": [],
+        "difficulty": 3,
+        "topics": [
+          "strings",
+          "regular-expressions",
+          "cond",
+          "case",
+          "if",
+          "recursion",
+          "multiple-clause-functions",
+          "pattern-matching"
+        ]
+      },
+      {
+        "slug": "sublist",
+        "name": "Sublist",
+        "uuid": "fb1f08a1-fd0f-42dc-a402-718a86d7775b",
+        "practices": [],
+        "prerequisites": [],
         "difficulty": 2,
         "topics": [
-          "loops",
-          "conditionals",
-          "strings",
-          "characters"
+          "lists",
+          "cond",
+          "case",
+          "if",
+          "multiple-clause-functions",
+          "pattern-matching",
+          "recursion"
         ]
       }
     ]
