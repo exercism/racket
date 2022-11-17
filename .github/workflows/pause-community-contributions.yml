@@ -27,4 +27,4 @@ jobs:
         with:
           issue-number: ${{ github.event.issue.number }}
           github-token: ${{ secrets.GITHUB_TOKEN }}
-          comment: "TODO"
+          comment: "Hello. Thanks for opening an issue/PR on Exercism. We are currently in a phase of our journey where we have paused community contributions to allow us to take a breather and redesign our community model. You can learn more in [this blog post](...).\n\n**As such, all issues and PRs in this repository are being automatically closed.**\n\nThat doesn’t mean we’re not interested in your ideas though, and if you’re stuck on something we still want to help. The best place to discuss things is with our community on [the forum](https://forum.exercism.org), so please feel free to copy this into a new topic there.\n\n---\n\n_Note: If you’ve had this issue/PR pre-approved on the forum, please link back to this issue/PR on the forum and a maintainer or @jonathandmiddleton will reopen it._"
