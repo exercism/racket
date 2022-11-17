@@ -22,7 +22,7 @@ jobs:
           username: ${{ github.event.actor.login }}
           token: ${{ secrets.GITHUB_TOKEN }}
       - name: Close Issue
-        if: steps.is-organization-member.outputs.result == 'false'
+        if: steps.is-organization-member.outputs.result == false
         uses: peter-evans/close-issue@v2.2.0
         with:
           issue-number: ${{ github.event.issue.number }}
