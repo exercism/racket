@@ -1,0 +1,30 @@
+name: 'Pause Community Contributions'
+
+on:
+  issues:
+    types:
+      - opened
+  pull_request:
+    types:
+      - opened
+
+jobs:
+  pause:
+    name: 'Pause Community Contributions'
+    runs-on: ubuntu-latest
+    if: github.event.actor.login != 'dependabot' && github.event.actor.login != 'exercism-bot' && github.event.actor.login != 'github-actions[bot]'
+    steps:
+      - name: Is Organization Member
+        id: is-organization-member
+        uses: JamesSingleton/is-organization-member@1.0.0
+        with:
+          organization: exercism
+          username: ${{ github.event.actor.login }}
+          token: ${{ secrets.GITHUB_TOKEN }}
+      - name: Close Issue
+        if: steps.is-organization-member.outputs.result == 'false'
+        uses: peter-evans/close-issue@v2.2.0
+        with:
+          issue-number: ${{ github.event.issue.number }}
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          comment: "TODO"
