@@ -1,0 +1,26 @@
+{
+  "blurb": "Given a year, report if it is a leap year.",
+  "authors": [
+    "arguello"
+  ],
+  "contributors": [
+    "mbertheau",
+    "PurityControl",
+    "robertpostill",
+    "timotheosh",
+    "yurrriq"
+  ],
+  "files": {
+    "solution": [
+      "leap.rkt"
+    ],
+    "test": [
+      "leap-test.rkt"
+    ],
+    "example": [
+      ".meta/example.rkt"
+    ]
+  },
+  "source": "JavaRanch Cattle Drive, exercise 3",
+  "source_url": "http://www.javaranch.com/leap.jsp"
+}

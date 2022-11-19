@@ -1,0 +1,25 @@
+{
+  "blurb": "Implement basic list operations",
+  "authors": [
+    "arguello"
+  ],
+  "contributors": [
+    "mbertheau",
+    "PurityControl",
+    "robertpostill",
+    "sjwarner-bp",
+    "timotheosh",
+    "yurrriq"
+  ],
+  "files": {
+    "solution": [
+      "list-ops.rkt"
+    ],
+    "test": [
+      "list-ops-test.rkt"
+    ],
+    "example": [
+      ".meta/example.rkt"
+    ]
+  }
+}

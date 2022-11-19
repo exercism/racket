@@ -1,0 +1,22 @@
+{
+  "blurb": "We are going to do the `Transform` step of an Extract-Transform-Load.",
+  "authors": [],
+  "contributors": [
+    "arguello",
+    "PurityControl",
+    "yurrriq"
+  ],
+  "files": {
+    "solution": [
+      "etl.rkt"
+    ],
+    "test": [
+      "etl-test.rkt"
+    ],
+    "example": [
+      ".meta/example.rkt"
+    ]
+  },
+  "source": "The Jumpstart Lab team",
+  "source_url": "http://jumpstartlab.com"
+}

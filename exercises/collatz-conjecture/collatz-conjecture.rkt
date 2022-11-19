@@ -1,6 +1,0 @@
-#lang racket
-
-(provide collatz)
-
-  
-

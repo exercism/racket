@@ -1,0 +1,19 @@
+{
+  "blurb": "Write a function to determine if a list is a sublist of another list.",
+  "authors": [
+    "czrpb"
+  ],
+  "files": {
+    "solution": [
+      "sublist.rkt"
+    ],
+    "test": [
+      "sublist-test.rkt"
+    ],
+    "example": [
+      ".meta/example.rkt"
+    ]
+  },
+  "source": "Exercism's Elixir Exercise",
+  "source_url": "https://exercism.org/tracks/elixir/exercises/sublist"
+}
