@@ -149,6 +149,8 @@
         "slug": "twelve-days",
         "name": "Twelve Days",
         "uuid": "5961220f-5d33-4e97-a4bb-8b375714a8fc",
+        "practices": [],
+        "prerequisites": [],
         "difficulty": 2,
         "topics": [
           "enumerations",
