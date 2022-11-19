@@ -2,6 +2,9 @@
   "authors": [
     "serialhex"
   ],
+  "contributors": [
+    "kytrinyx"
+  ],
   "files": {
     "solution": [
       "house.rkt"
