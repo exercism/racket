@@ -146,6 +146,19 @@
         "topics": null
       },
       {
+        "slug": "twelve-days",
+        "name": "Twelve Days",
+        "uuid": "5961220f-5d33-4e97-a4bb-8b375714a8fc",
+        "practices": [],
+        "prerequisites": [],
+        "difficulty": 2,
+        "topics": [
+          "enumerations",
+          "reduce",
+          "strings"
+        ]
+      },
+      {
         "slug": "isogram",
         "name": "Isogram",
         "uuid": "2fa21cb9-5469-4b95-9b78-c6f4dec6f67f",
