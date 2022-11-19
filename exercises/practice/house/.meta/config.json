@@ -1,5 +1,7 @@
 {
-  "authors": [],
+  "authors": [
+    "serialhex"
+  ],
   "files": {
     "solution": [
       "house.rkt"
@@ -8,7 +10,7 @@
       "house-test.rkt"
     ],
     "example": [
-      "example.rkt"
+      ".meta/example.rkt"
     ]
   },
   "blurb": "Output the nursery rhyme 'This is the House that Jack Built'.",
