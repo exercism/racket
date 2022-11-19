@@ -1,12 +1,13 @@
 # Exercism Racket Track
 
-[![Build Status](https://travis-ci.org/exercism/racket.svg?branch=master)](https://travis-ci.org/exercism/racket)
+[![Configlet Status](https://github.com/exercism/racket/workflows/configlet/badge.svg)]
+[![Exercise Test Status](https://github.com/exercism/racket/workflows/racket%20%2F%20main/badge.svg)]
 
 Exercism exercises in Racket.
 
 ## Contributing
 
-Please read about how to [get involved in a track](https://github.com/exercism/docs/tree/master/contributing-to-language-tracks). Also, be sure to read the Exercism [Code of Conduct](https://exercism.io/code-of-conduct).
+Please read about how to [get involved in a track](https://github.com/exercism/docs/tree/master/contributing-to-language-tracks). Also, be sure to read the Exercism [Code of Conduct](https://exercism.org/code-of-conduct).
 
 We welcome both improvements to the existing exercises and the addition of new exercises. If you are creating a new exercise from scratch please see [adding new exercises](https://github.com/exercism/docs/blob/master/you-can-help/make-up-new-exercises.md).  If you are porting an exercise that exists in other exercism language tracks, see [porting an exercise](https://github.com/exercism/docs/blob/master/you-can-help/implement-an-exercise-from-specification.md).
 

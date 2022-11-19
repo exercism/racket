@@ -1,0 +1,24 @@
+{
+  "blurb": "Calculate the date of meetups.",
+  "authors": [
+    "mbertheau"
+  ],
+  "contributors": [
+    "arguello",
+    "jgilray",
+    "yurrriq"
+  ],
+  "files": {
+    "solution": [
+      "meetup.rkt"
+    ],
+    "test": [
+      "meetup-test.rkt"
+    ],
+    "example": [
+      ".meta/example.rkt"
+    ]
+  },
+  "source": "Jeremy Hinegardner mentioned a Boulder meetup that happens on the Wednesteenth of every month",
+  "source_url": "https://twitter.com/copiousfreetime"
+}

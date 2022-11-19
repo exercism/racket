@@ -1,0 +1,19 @@
+{
+  "blurb": "Make sure the brackets and braces all match.",
+  "authors": [
+    "czrpb"
+  ],
+  "files": {
+    "solution": [
+      "matching-brackets.rkt"
+    ],
+    "test": [
+      "matching-brackets-test.rkt"
+    ],
+    "example": [
+      ".meta/example.rkt"
+    ]
+  },
+  "source": "Exercism's Elixir Exercise",
+  "source_url": "https://exercism.org/tracks/elixir/exercises/matching-brackets"
+}

@@ -1,0 +1,21 @@
+{
+  "blurb": "Convert a number, represented as a sequence of digits in one base, to any other base.",
+  "authors": [
+    "serialhex"
+  ],
+  "contributors": [
+    "robertpostill",
+    "timotheosh"
+  ],
+  "files": {
+    "solution": [
+      "all-your-base.rkt"
+    ],
+    "test": [
+      "all-your-base-test.rkt"
+    ],
+    "example": [
+      ".meta/example.rkt"
+    ]
+  }
+}

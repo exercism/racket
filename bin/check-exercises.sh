@@ -2,7 +2,7 @@
 
 set -e
 
-cd exercises
+cd exercises/practice
 
 for exercise in *; do
     if [ -d "$exercise" ]; then
@@ -12,7 +12,7 @@ for exercise in *; do
             else
                 echo "$exercise needs a stub!"
             fi
-            mv "$exercise"/example.rkt "$exercise/$exercise".rkt
+            mv "$exercise"/.meta/example.rkt "$exercise/$exercise".rkt
         fi
     fi
 done
@@ -23,7 +23,7 @@ SUCCESS=$?
 for exercise in *; do
     if [ -d "$exercise" ]; then
 	if [ -f "$exercise/$exercise"-test.rkt ]; then
-	    mv "$exercise/$exercise".rkt "$exercise"/example.rkt
+	    mv "$exercise/$exercise".rkt "$exercise"/.meta/example.rkt
 	    if [ -f "$exercise/$exercise".rkt_ ]; then
 		mv "$exercise/$exercise".rkt_ "$exercise/$exercise".rkt
 	    fi

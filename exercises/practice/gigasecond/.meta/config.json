@@ -1,0 +1,27 @@
+{
+  "blurb": "Given a moment, determine the moment that would be after a gigasecond has passed.",
+  "authors": [
+    "mbertheau"
+  ],
+  "contributors": [
+    "arguello",
+    "PurityControl",
+    "robertpostill",
+    "sjwarner-bp",
+    "timotheosh",
+    "yurrriq"
+  ],
+  "files": {
+    "solution": [
+      "gigasecond.rkt"
+    ],
+    "test": [
+      "gigasecond-test.rkt"
+    ],
+    "example": [
+      ".meta/example.rkt"
+    ]
+  },
+  "source": "Chapter 9 in Chris Pine's online Learn to Program tutorial.",
+  "source_url": "http://pine.fm/LearnToProgram/?Chapter=09"
+}
