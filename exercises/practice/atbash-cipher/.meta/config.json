@@ -1,0 +1,22 @@
+{
+  "blurb": "Create an implementation of the atbash cipher, an ancient encryption system created in the Middle East.",
+  "authors": [
+    "cousinitt"
+  ],
+  "contributors": [
+    "robertpostill"
+  ],
+  "files": {
+    "solution": [
+      "atbash-cipher.rkt"
+    ],
+    "test": [
+      "atbash-cipher-test.rkt"
+    ],
+    "example": [
+      ".meta/example.rkt"
+    ]
+  },
+  "source": "Wikipedia",
+  "source_url": "http://en.wikipedia.org/wiki/Atbash"
+}

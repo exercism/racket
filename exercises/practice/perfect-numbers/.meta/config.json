@@ -1,0 +1,28 @@
+{
+  "blurb": "Determine if a number is perfect, abundant, or deficient based on Nicomachus' (60 - 120 CE) classification scheme for positive integers.",
+  "authors": [
+    "arguello"
+  ],
+  "contributors": [
+    "codingbum",
+    "mbertheau",
+    "PurityControl",
+    "robertpostill",
+    "sjwarner-bp",
+    "timotheosh",
+    "yurrriq"
+  ],
+  "files": {
+    "solution": [
+      "perfect-numbers.rkt"
+    ],
+    "test": [
+      "perfect-numbers-test.rkt"
+    ],
+    "example": [
+      ".meta/example.rkt"
+    ]
+  },
+  "source": "Taken from Chapter 2 of Functional Thinking by Neal Ford.",
+  "source_url": "http://shop.oreilly.com/product/0636920029687.do"
+}

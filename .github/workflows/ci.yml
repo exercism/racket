@@ -1,0 +1,33 @@
+name: racket / main
+
+on:
+  push:
+    branches: [master, main]
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  ci:
+    name: Racket ${{ matrix.racket-version }}-${{ matrix.racket-variant }}
+
+    runs-on: ubuntu-latest
+
+    strategy:
+      fail-fast: false
+      matrix:
+        racket-variant: ['BC', 'CS']
+        racket-version: ['8.5', '8.6']
+
+    steps:
+      - uses: actions/checkout@v3
+
+      - uses: Bogdanp/setup-racket@b0760a463ccf5e0259d5ad925be4b36b3b6e2d08
+        with:
+          architecture: x64
+          distribution: minimal
+          variant: ${{ matrix.racket-variant }}
+          version: ${{ matrix.racket-version }}
+          packages: 'rackunit-lib, compiler-lib'
+
+      - name: Run exercism/racket ci (runs tests) for all exercises
+        run: ./bin/check-exercises.sh

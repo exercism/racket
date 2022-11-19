@@ -1,0 +1,32 @@
+{
+  "docs": [
+    {
+      "uuid": "1e65bbe0-07fd-4fa5-9209-a0d176e6eba4",
+      "slug": "installation",
+      "path": "docs/INSTALLATION.md",
+      "title": "Installing Racket locally",
+      "blurb": "Learn how to install Racket locally to solve Exercism's exercises on your own machine"
+    },
+    {
+      "uuid": "6116dc2e-62b0-409a-9316-b4f2a2529809",
+      "slug": "learning",
+      "path": "docs/LEARNING.md",
+      "title": "How to learn Racket",
+      "blurb": "An overview of how to get started from scratch with Racket"
+    },
+    {
+      "uuid": "682f256f-0b36-4c8d-9d89-43df2856e14f",
+      "slug": "tests",
+      "path": "docs/TESTS.md",
+      "title": "Testing on the Racket track",
+      "blurb": "Learn how to test your Racket exercises on Exercism"
+    },
+    {
+      "uuid": "c2155033-cb84-4495-9b3f-1327c851cd1d",
+      "slug": "resources",
+      "path": "docs/RESOURCES.md",
+      "title": "Useful Racket resources",
+      "blurb": "A collection of useful resources to help you master Racket"
+    }
+  ]
+}

@@ -1,4 +1,0 @@
-#lang racket
-
-(provide accumulate)
-

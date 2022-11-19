@@ -1,0 +1,24 @@
+{
+  "blurb": "Create an implementation of the Affine cipher, an ancient encryption algorithm from the Middle East.",
+  "authors": [
+    "cousinitt"
+  ],
+  "contributors": [
+    "guygastineau",
+    "robertpostill",
+    "timotheosh"
+  ],
+  "files": {
+    "solution": [
+      "affine-cipher.rkt"
+    ],
+    "test": [
+      "affine-cipher-test.rkt"
+    ],
+    "example": [
+      ".meta/example.rkt"
+    ]
+  },
+  "source": "Wikipedia",
+  "source_url": "http://en.wikipedia.org/wiki/Affine_cipher"
+}
