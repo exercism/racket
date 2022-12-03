@@ -1,7 +1,7 @@
 # Exercism Racket Track
 
-[![Configlet Status](https://github.com/exercism/racket/workflows/configlet/badge.svg)]
-[![Exercise Test Status](https://github.com/exercism/racket/workflows/racket%20%2F%20main/badge.svg)]
+[![Configlet Status](https://github.com/exercism/racket/workflows/Configlet/badge.svg)](https://github.com/exercism/racket/workflows/Configlet/badge.svg)
+[![Exercise Test Status](https://github.com/exercism/racket/workflows/racket%20%2F%20main/badge.svg)](https://github.com/exercism/racket/workflows/racket%20%2F%20main/badge.svg)
 
 Exercism exercises in Racket.
 
