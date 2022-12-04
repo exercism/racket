@@ -1,5 +1,4 @@
 {
-  "blurb": "Implement basic list operations.",
   "authors": [
     "arguello"
   ],
@@ -21,5 +20,6 @@
     "example": [
       ".meta/example.rkt"
     ]
-  }
+  },
+  "blurb": "Implement basic list operations."
 }
