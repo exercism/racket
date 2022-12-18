@@ -23,8 +23,8 @@ Where:
   For the Roman alphabet `m` is `26`.
 - `a` and `b` are integers which make the encryption key
 
-Values `a` and `m` must be *coprime* (or, *relatively prime*) for automatic decryption to succeed, i.e., they have number `1` as their only common factor (more information can be found in the [Wikipedia article about coprime integers][coprime-integers]).
-In case `a` is not coprime to `m`, your program should indicate that this is an error.
+Values `a` and `b` must be *coprime* (or, *relatively prime*) for automatic decryption to succeed, i.e., they have number `1` as their only common factor (more information can be found in the [Wikipedia article about coprime integers][coprime-integers]).
+In case `a` is not coprime to `b`, your program should indicate that this is an error.
 Otherwise it should encrypt or decrypt with the provided key.
 
 For the purpose of this exercise, digits are valid input but they are not encrypted.
