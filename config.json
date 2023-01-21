@@ -248,6 +248,15 @@
         ]
       },
       {
+        "slug": "alphametics",
+        "name": "Alphametics",
+        "uuid": "6434cec2-f9b3-47a2-94f3-56e9b6451758",
+        "practices": [],
+        "prerequisites": [],
+        "difficulty": 1,
+        "topics": null
+      },
+      {
         "slug": "allergies",
         "name": "Allergies",
         "uuid": "881f83d7-1c80-4045-9a3f-def45c8f5764",
