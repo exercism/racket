@@ -8,7 +8,7 @@
       "alphametics-test.rkt"
     ],
     "example": [
-      "example.rkt"
+      ".meta/example.rkt"
     ]
   },
   "blurb": "Write a function to solve alphametics puzzles."
