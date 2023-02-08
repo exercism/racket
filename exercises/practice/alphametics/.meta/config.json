@@ -1,0 +1,15 @@
+{
+  "authors": ["chip"],
+  "files": {
+    "solution": [
+      "alphametics.rkt"
+    ],
+    "test": [
+      "alphametics-test.rkt"
+    ],
+    "example": [
+      ".meta/example.rkt"
+    ]
+  },
+  "blurb": "Write a function to solve alphametics puzzles."
+}
