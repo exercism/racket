@@ -1,36 +1,42 @@
 # Installation
 
-Please reference Racket's [Getting Started](http://docs.racket-lang.org/getting-started/) page for instructions on downloading and installing Racket.
+The Racket distribution can be downloaded from https://download.racket-lang.org
 
-Alternative installation options and further notes for specific OSes follow.
+Installers are provided for 
 
-## macOS
+* Windows
+* Linux
+* macOS
 
-Install via Homebrew:
+Please reference Racket's [Getting Started](http://docs.racket-lang.org/getting-started/) page for guidance materials.
 
+The [Racket Guide](https://docs.racket-lang.org/guide/intro.html) introduces you to interacting with Racket. 
+
+See [DrRacket: The Racket Programming Environment](https://docs.racket-lang.org/drracket/index.html) for guidance using the DrRacket IDE.
+
+See [Command-Line Tools and Your Editor of Choice](https://docs.racket-lang.org/guide/other-editors.html) for an introduction to racket command line tool and using other editors.
+
+
+## About the Linux installer:
+The Linux build is generic enough that it should work on most distributions, including relatively old distributions. 
+
+After downloading the installer file, run it with
 ```
-brew update
-brew install minimal-racket
-```
-The `minimal-racket` package will probably work for solving the problems, but it does not include the graphical interface IDE, DrRacket. If you want that, you have to install the full racket distribution from cask:
-
-```
-brew tap caskroom/cask
-brew install racket
-```
-
-### macOS official installer
-Note that on macOS, the official installer puts the files under `/Applications`, and as a result the `racket` and `raco` executables are not accessible on command-line terminals. You have to add the `bin` subdirectory below the Racket installation location (e.g., `/Applications/Racket v6.8/bin` for version 6.8) to the `$PATH`.  
-
-
-## Linux
-
-Debian:
-```
-sudo apt-get install racket
+sh racket-8.8-x86_64-linux-cs.sh
 ```
 
-Arch:
-```
-pacman -S racket
-```
+You man need to prefix `sudo` to the start of the command to install to a location that requires adminstrator access.
+
+**Warning: Racket may also be available through your distribution's package manager, although it may be older than the latest Racket version.** While you may choose to do this later, as a learner you will have a much better experience if you stick to the current release available from https://download.racket-lang.org
+
+
+## About the macOS installer:
+
+If your machine uses the M1 or M2 series processors, select **Apple Silicon** in the platform dropdown menu before downloading.
+
+
+
+
+
+
+
