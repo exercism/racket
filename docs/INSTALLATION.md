@@ -14,7 +14,7 @@ After downloading the installer file, run it with
 sh racket-8.8-x86_64-linux-cs.sh
 ```
 
-You man need to prefix `sudo` to the start of the command to install to a location that requires adminstrator access.
+You may need to prefix `sudo` to the start of the command to install to a location that requires administrator access.
 
 ~~~~exercism/caution
 Racket may also be available through your distribution's package manager, although it may be older than the latest Racket version.
