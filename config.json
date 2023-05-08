@@ -471,6 +471,14 @@
           "recursion",
           "strings"
         ]
+      },
+      {
+        "slug": "darts",
+        "name": "Darts",
+        "uuid": "40bc0f5c-173e-4782-a4dc-c07c3e3acec6",
+        "practices": [],
+        "prerequisites": [],
+        "difficulty": 1
       }
     ]
   },
