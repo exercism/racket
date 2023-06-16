@@ -1,7 +1,9 @@
 #lang racket
 
+(provide color-code)
+
 (define resistor-colors
-  '#(black brown red orange yellow green blue violet grey white))
+  '#("black" "brown" "red" "orange" "yellow" "green" "blue" "violet" "grey" "white"))
 
 (define (color-code colors)
   (match colors
