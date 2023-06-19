@@ -473,6 +473,14 @@
         ]
       },
       {
+        "slug": "rotational-cipher",
+        "name": "Rotational Cipher",
+        "uuid": "2bdb8cb6-10dc-48aa-b547-7b9f569c0164",
+        "practices": [],
+        "prerequisites": [],
+        "difficulty": 1
+      },
+      {
         "slug": "darts",
         "name": "Darts",
         "uuid": "40bc0f5c-173e-4782-a4dc-c07c3e3acec6",
