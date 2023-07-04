@@ -18,7 +18,7 @@ You may need to prefix `sudo` to the start of the command to install to a locati
 
 ~~~~exercism/caution
 Racket may also be available through your distribution's package manager, although it may be older than the latest Racket version.
-While you may choose to use your package manager's version now and upgrade to the current version later, as a learner you will have a much better experience if you stick to the current release available from [the official download site][racket-dl].
+While you may choose to use your package manager's version now and upgrade to the current version later, as a learner you will have a much better experience if you stick to the current release available from the official download site.
 ~~~~
 
 ## macOS
