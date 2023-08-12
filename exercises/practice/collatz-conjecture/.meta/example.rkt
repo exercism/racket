@@ -13,7 +13,7 @@
 (define (collatz n)
   (if (nand (exact-integer? n)
             (positive? n))
-      (error "number must be a positive integer")
+      (error "Only positive integers are allowed")
       (collatz-length n)))
   
 
