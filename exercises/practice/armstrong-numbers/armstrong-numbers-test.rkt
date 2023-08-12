@@ -7,7 +7,7 @@
 
   (define suite
   	(test-suite
-  		"armstrong-numbers tests"
+  		"armstrong numbers tests"
   		(test-true "Zero is an Armstrong number"
   					(armstrong-number? 0))
 
