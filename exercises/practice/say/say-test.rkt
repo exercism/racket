@@ -2,75 +2,95 @@
 
 (require "say.rkt")
 
+
 (module+ test
   (require rackunit rackunit/text-ui)
 
-  (define-syntax-rule (check-equal* f [arg == val] ...)
-    (begin (check-equal? (f arg) val) ...))
+  (define (exn-msg-matches? msg f)
+    (with-handlers ([exn:fail? (lambda (exn)
+                                 (string=? (exn-message exn) msg))])
+      (f)))
 
-  (define-syntax-rule (check-exn* f pat [arg] ...)
-    (begin (check-exn exn:fail:contract? (lambda () (f arg))) ...))
+  (define suite
+    (test-suite
+      "say tests"
 
-  (define step*
-    (list
-      (test-suite "step1"
-        (check-equal* step1
-         [0 == "zero"]
-         [2 == "two"]
-         [14 == "fourteen"]
-         [50 == "fifty"]
-         [98 == "ninety-eight"]
-         [99 == "ninety-nine"])
+        (test-equal? "zero"
+                    (spell-out 0)
+                    "zero")
 
-        (check-exn* step1
-         [-1]
-         [100]))
+        (test-equal? "one"
+                    (spell-out 1)
+                    "one")
 
-      (test-suite "step2"
-        (check-equal* step2
-         [1234567890 == '(1 234 567 890)]
-         [1000000890 == '(1   0   0 890)]
-         [22 == '(22)]
-         [3222 == '(3 222)]
-         [1000231 == '(1 0 231)]
-         [1000 == '(1 0)]))
+        (test-equal? "fourteen"
+                    (spell-out 14)
+                    "fourteen")
 
-      (test-suite "step3"
-        (check-equal* step3
-         [3222 == '((3 . thousand) (222 . END))]
-         [901003004111 == '((901 . billion) (3 . million)
-                            (4 . thousand) (111 . END))]
-         [999 == '((999 . END))]
-         [21 == '((21 . END))]
-         [19 == '((19 . END))]
-         [100 == '((100 . END))]
-         [123 == '((123 . END))]
-         [1234567890 == '((1 . billion) (234 . million)
-                          (567 . thousand) (890 . END))]))
+        (test-equal? "twenty"
+                    (spell-out 20)
+                    "twenty")
 
-      (test-suite "step4"
-        (check-equal* step4
-         [10 == "ten"]
-         [100 == "one hundred"]
-         [10000 == "ten thousand"]
-         [10000000 == "ten million"]
-         [10000000000 == "ten billion"]
-         [10000000000000 == "ten trillion"]
-         [999000000000000 == "nine hundred ninety-nine trillion"]
-         [0 == "zero"]
-         [16 == "sixteen"]
-         [300 == "three hundred"]
-         [440 == "four hundred forty"]
-         [999 == "nine hundred ninety-nine"]
-         [-1 == "negative one"]
-         [22 == "twenty-two"]
-         [123 == "one hundred twenty-three"]
-         [22 == "twenty-two"]
-         [14 == "fourteen"]
-         [50 == "fifty"]
-         [98 == "ninety-eight"]
-         [-432600 == "negative four hundred thirty-two thousand six hundred"]
-         [12345 == "twelve thousand three hundred forty-five"]))))
+        (test-equal? "twenty-two"
+                    (spell-out 22)
+                    "twenty-two")
 
-  (for ([suite (in-list step*)])
-    (run-tests suite)))
+        (test-equal? "thirty"
+                    (spell-out 30)
+                    "thirty")
+
+        (test-equal? "ninety-nine"
+                    (spell-out 99)
+                    "ninety-nine")
+
+        (test-equal? "one hundred"
+                    (spell-out 100)
+                    "one hundred")
+
+        (test-equal? "one hundred twenty-three"
+                    (spell-out 123)
+                    "one hundred twenty-three")
+
+        (test-equal? "two hundred"
+                    (spell-out 200)
+                    "two hundred")
+
+        (test-equal? "nine hundred ninety-nine"
+                    (spell-out 999)
+                    "nine hundred ninety-nine")
+
+        (test-equal? "one thousand"
+                    (spell-out 1000)
+                    "one thousand")
+
+        (test-equal? "one thousand two hundred thirty-four"
+                    (spell-out 1234)
+                    "one thousand two hundred thirty-four")
+
+        (test-equal? "one million"
+                    (spell-out 1000000)
+                    "one million")
+
+        (test-equal? "one million two thousand three hundred forty-five"
+                    (spell-out 1002345)
+                    "one million two thousand three hundred forty-five")
+
+        (test-equal? "one billion"
+                    (spell-out 1000000000)
+                    "one billion")
+
+        (test-equal? "a big number"
+                    (spell-out 987654321123)
+                    "nine hundred eighty-seven billion six hundred fifty-four million three hundred twenty-one thousand one hundred twenty-three")
+        
+        (test-true "numbers below zero are out of range"
+                (exn-msg-matches?
+                  "input out of range"
+                  (lambda () (spell-out -1))))
+        
+        (test-true "numbers above 999,999,999,999 are out of range"
+                (exn-msg-matches?
+                  "input out of range"
+                  (lambda () (spell-out 1000000000000))))))
+
+ (run-tests suite))
