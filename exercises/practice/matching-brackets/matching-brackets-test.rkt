@@ -9,45 +9,61 @@
     (test-suite
      "matching brackets tests"
 
-     ; Simple passing tests
-     (test-eqv? "empty is balanced" (balanced? "") #t)
-     (test-eqv? "'[]' is balanced" (balanced? "[]") #t)
-     (test-eqv? "'{}' is balanced" (balanced? "{}") #t)
-     (test-eqv? "'{ }' is balanced" (balanced? "{ }") #t)
-     (test-eqv? "'()' is balanced" (balanced? "()") #t)
+     (test-true "paired square brackets"
+                (balanced? "[]"))
 
-     ; Complicated passing tests
-     (test-eqv? "'()[]{}' is balanced" (balanced? "()[]{}") #t)
-     (test-eqv? "'([{}])' is balanced" (balanced? "([{}])") #t)
-     (test-eqv? "'([{}({}[])])' is balanced" (balanced? "([{}({}[])])") #t)
+     (test-true "empty string"
+                (balanced? ""))
 
-     ; Additional characters but still balanced
-     (test-eqv? "'123' is balanced" (balanced? "123") #t)
-     (test-eqv? "'[1]' is balanced" (balanced? "[1]") #t)
-     (test-eqv? "'(((185 + 223.85) * 15) - 543)/2' is balanced" (balanced? "(((185 + 223.85) * 15) - 543)/2") #t)
-     (test-eqv? "'a{b}c(d)e[f]g' is balanced" (balanced? "a{b}c(d)e[f]g") #t)
-     (test-eqv? "'a{b(c[de]f)g}h' is balanced" (balanced? "a{b(c[de]f)g}h") #t)
+     (test-false "unpaired brackets"
+                (balanced? "[["))
 
-     ; Simple failing tests
-     (test-eqv? "'][' is UN-balanced" (balanced? "][") #f)
-     (test-eqv? "')(' is UN-balanced" (balanced? ")(") #f)
-     (test-eqv? "'}{' is UN-balanced" (balanced? "}{") #f)
-     (test-eqv? "'(]' is UN-balanced" (balanced? "(]") #f)
-     (test-eqv? "']]' is UN-balanced" (balanced? "][") #f)
-     (test-eqv? "'((' is UN-balanced" (balanced? "((") #f)
+     (test-false "wrong ordered brackets"
+                (balanced? "}{"))
 
-     ; Complicated failing tests
-     (test-eqv? "'{}[' is UN-balanced" (balanced? "{}[") #f)
-     (test-eqv? "'[}]' is UN-balanced" (balanced? "[}]") #f)
-     (test-eqv? "'{[}' is UN-balanced" (balanced? "{[}") #f)
-     (test-eqv? "'{[])' is UN-balanced" (balanced? "{[])") #f)
-     (test-eqv? "'{}[()' is UN-balanced" (balanced? "{}[()") #f)
-     (test-eqv? "'{[)][]}' is UN-balanced" (balanced? "{[)][]}") #f)
+     (test-false "wrong closing bracket"
+                (balanced? "{]"))
 
-     ; Additional characters but unbalanced
-     (test-eqv? "'(1]' is UN-balanced" (balanced? "(1]") #f)
-     (test-eqv? "'{}[1' is UN-balanced" (balanced? "{}[1") #f)
+     (test-true "paired with whitespace"
+                (balanced? "{ }"))
 
-     ))
+     (test-false "partially paired brackets"
+                (balanced? "{[])"))
+
+     (test-true "several paired brackets"
+                (balanced? "{}[]"))
+
+     (test-true "paired and nested brackets"
+                (balanced? "([{}({}[])])"))
+
+     (test-false "unopened closing brackets"
+                (balanced? "{[)][]}"))
+
+     (test-false "unpaired and nested brackets"
+                (balanced? "([{])"))
+
+     (test-false "paired and wrong nested brackets"
+                (balanced? "[({]})"))
+
+     (test-false "paired and wrong nested brackets but innermost are correct"
+                (balanced? "[({}])"))
+
+     (test-false "paired and incomplete brackets"
+                (balanced? "{}["))
+
+     (test-false "too many closing brackets"
+                (balanced? "[]]"))
+
+     (test-false "early unexpected brackets"
+                (balanced? ")()"))
+
+     (test-false "early mismatched brackets"
+                (balanced? "{)()"))
+
+     (test-true "math expression"
+                (balanced? "(((185 + 223.85) * 15) - 543)/2"))
+
+     (test-true "complex latex expression"
+                (balanced? "\\left(\\begin{array}{cc} \\frac{1}{3} & x\\\\ \\mathrm{e}^{x} &... x^2 \\end{array}\\right)"))))
 
   (run-tests suite))
