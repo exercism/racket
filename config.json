@@ -497,6 +497,14 @@
         "difficulty": 1
       },
       {
+        "slug": "space-age",
+        "name": "Space Age",
+        "uuid": "d2bd28fb-489a-43bf-929c-2a6c6a60ef17",
+        "practices": [],
+        "prerequisites": [],
+        "difficulty": 1
+      },
+      {
         "slug": "darts",
         "name": "Darts",
         "uuid": "40bc0f5c-173e-4782-a4dc-c07c3e3acec6",
