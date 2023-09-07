@@ -58,8 +58,8 @@
         "name": "Two Fer",
         "uuid": "27ffc2d2-e950-40a1-90fa-a1f3eec4fd36",
         "practices": [
-          "optional_values",
-          "text_formatting"
+          "optional-values",
+          "text-formatting"
         ],
         "prerequisites": [],
         "difficulty": 1
@@ -164,12 +164,12 @@
         "name": "Robot Name",
         "uuid": "5ffc29de-9a26-40ba-83af-a4d15ad5d77f",
         "practices": [
-          "pattern_matching",
+          "pattern-matching",
           "randomness",
-          "regular_expressions",
+          "regular-expressions",
           "strings",
-          "text_formatting",
-          "object_oriented_programming"
+          "text-formatting",
+          "object-oriented-programming"
         ],
         "prerequisites": [],
         "difficulty": 4
@@ -284,7 +284,7 @@
           "conditionals",
           "dates",
           "parsing",
-          "pattern_recognition",
+          "pattern-recognition",
           "strings"
         ],
         "prerequisites": [],
@@ -382,7 +382,7 @@
         "uuid": "a6f90be2-1360-479e-8a6f-4f2d8b492c71",
         "practices": [
           "algorithms",
-          "bitwise_operations"
+          "bitwise-operations"
         ],
         "prerequisites": [],
         "difficulty": 7
