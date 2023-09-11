@@ -9,21 +9,6 @@ Exercism exercises in Racket.
 
 Please see the [contributing guide](https://exercism.org/docs/building). We welcome both improvements to the existing exercises and the addition of new exercises.
 
-### Naming Conventions
-
-The example solution should be named `example.rkt`. The description file: `README.md`. The test suite: `<exercise-name>-test.rkt`, and the stub: `<exercise-name>.rkt`.
-
-For example, if you were to work on the `binary` exercise, you would create and commit the following four files:
-
-```bash
-$ racket/exercises/binary/
-.
-├── binary.rkt
-├── binary-test.rkt
-├── README.md
-└── example.rkt
-```
-
 ### Code Style
 
 The Racket code in this repo is meant to conform with the conventions set forth in [How to Program Racket](http://docs.racket-lang.org/style/index.html).
