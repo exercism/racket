@@ -6,42 +6,89 @@
   (require rackunit rackunit/text-ui))
 
 (module+ test
-  (define allergies '("gallery" "ballerina" "regally" "clergy" "largely" "leading"))
-
   (define suite
     (test-suite
      "anagram tests"
 
      (test-equal? "no-matches"
-                  (anagrams-for "diaper" '("hello" "world" "zombies" "pants"))
+                  (anagrams-for "diaper"
+                                '("hello" "world" "zombies" "pants"))
                   '())
 
-     (test-equal? "detect simple anagram"
-                  (anagrams-for "ant" '("tan" "stand" "at"))
-                  '("tan"))
+     (test-equal? "detects two anagrams"
+                  (anagrams-for "solemn"
+                                '("lemons" "cherry" "melons"))
+                  '("lemons" "melons"))
 
-     (test-equal? "does not confuse different duplicates"
-                  (anagrams-for "galea" '("eagle"))
+     (test-equal? "does not detect anagram subsets"
+                  (anagrams-for "good"
+                                '("dog" "goody"))
                   '())
 
-     (test-equal? "eliminate anagram subsets"
-                  (anagrams-for "good" '("dog" "goody"))
-                  '())
-
-     (test-equal? "detect anagram"
-                  (anagrams-for "listen"'("enlists" "google" "inlets" "banana"))
+     (test-equal? "detects anagram"
+                  (anagrams-for "listen" 
+                                '("enlists" "google" "inlets" "banana"))
                   '("inlets"))
 
-     (test-equal? "multiple-anagrams"
-                  (anagrams-for "allergy" allergies)
+     (test-equal? "detects three anagrams"
+                  (anagrams-for "allergy"
+                                '("gallery" "ballerina" "regally" "clergy" "largely" "leading"))
                   '("gallery" "regally" "largely"))
 
-     (test-equal? "case-insensitive-anagrams"
-                  (anagrams-for "Orchestra" '("cashregister" "Carthorse" "radishes"))
+     (test-equal? "detects multiple anagrams with different case"
+                  (anagrams-for "nose"
+                                '("Eons" "ONES"))
+                  '("Eons" "ONES"))
+
+     (test-equal? "does not detect non-anagrams with identical checksum"
+                  (anagrams-for "mass"
+                                '("last"))
+                  '())
+
+     (test-equal? "detects anagrams case-insensitively"
+                  (anagrams-for "Orchestra"
+                                '("cashregister" "Carthorse" "radishes"))
                   '("Carthorse"))
 
-     (test-equal? "word is not own anagram"
-                  (anagrams-for "banana"'("banana"))
-                  '())))
+    (test-equal? "detects anagrams using case-insensitive subject"
+                  (anagrams-for "Orchestra"
+                                '("cashregister" "carthorse" "radishes"))
+                  '("carthorse"))
+
+    (test-equal? "detects anagrams using case-insensitive possible matches"
+                  (anagrams-for "orchestra"
+                                '("cashregister" "Carthorse" "radishes"))
+                  '("Carthorse"))
+                  
+     (test-equal? "does not detect an anagram if the original word is repeated"
+                  (anagrams-for "go"
+                                '("go Go GO"))
+                  '())
+
+    (test-equal? "anagrams must use all letters exactly once"
+                  (anagrams-for "tapper"
+                                '("patter"))
+                  '())
+
+    (test-equal? "words are not anagrams of themselves"
+                  (anagrams-for "BANANA"
+                                '("BANANA"))
+                  '())
+
+    (test-equal? "words are not anagrams of themselves even if letter case is partially different"
+                  (anagrams-for "BANANA"
+                                '("Banana"))
+                  '())
+                
+    (test-equal? "words are not anagrams of themselves even if letter case is completely different"
+                  (anagrams-for "BANANA"
+                                '("banana"))
+                  '())
+
+
+     (test-equal? "words other than themselves can be anagrams"
+                  (anagrams-for "LISTEN"
+                                '("LISTEN" "Silent"))
+                  '("Silent"))))
 
   (run-tests suite))

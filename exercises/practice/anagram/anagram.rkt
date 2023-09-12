@@ -2,5 +2,5 @@
 
 (provide anagrams-for)
 
-(define (anagrams-for string possibilities)
+(define (anagrams-for subject candidates)
   (error "Not implemented yet"))
