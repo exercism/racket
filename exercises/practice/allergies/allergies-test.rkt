@@ -138,23 +138,14 @@
                    '("eggs" "peanuts" "shellfish" "strawberries" "tomatoes"
                      "chocolate" "pollen" "cats"))
 
-     (lists-equiv? "non allergen score parts"
+     (lists-equiv? "no allergen score parts"
                    (list-allergies 509)
                    '("eggs" "shellfish" "strawberries" "tomatoes"
                      "chocolate" "pollen" "cats"))
 
-     (test-case "no allergies means not allergic"
-       (check-false (allergic-to? "peanuts" 0))
-       (check-false (allergic-to? "cats" 0))
-       (check-false (allergic-to? "strawberries" 0)))
-
-     (test-true "is allergic to eggs"
-                (allergic-to? "eggs" 1))
-
-     (test-case "allergic to eggs in addition to other stuff"
-       (check-true  (allergic-to? "eggs" 5))
-       (check-true  (allergic-to? "shellfish" 5))
-       (check-false (allergic-to? "strawberries" 5)))))
+     (lists-equiv? "no allergen score parts without highest valid score"
+                   (list-allergies 257)
+                   '("eggs"))))
 
   (run-tests egg-suite)
   (run-tests peanuts-suite)
