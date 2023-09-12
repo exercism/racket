@@ -11,53 +11,59 @@
 
   (define suite
     (test-suite "sublist tests"
+                (test-equal? "empty lists"
+                  (sublist? '() '()) 'equal)
 
-                ; empty
-                (test-eqv? "empty equals empty"       (sublist? '() '()) 'equal)
-                (test-eqv? "empty is a sublist"       (sublist? '() '(1 2 3)) 'sublist)
-                (test-eqv? "empty is a superlist"     (sublist? '(1 2 3) '()) 'superlist)
+                (test-equal? "empty within non empty list"
+                  (sublist? '() '(1 2 3)) 'sublist)
 
-                ; equal lists
-                (test-eqv? "equal are equal"          (sublist? '(1 2 3) '(1 2 3)) 'equal)
+                (test-equal? "non empty list contains empty list"
+                  (sublist? '(1 2 3) '()) 'superlist)
 
-                ; different lists
-                (test-eqv? "different are unequal"    (sublist? '(1 2 3) '(4 5 6)) 'unequal)
+                (test-equal? "list equals itself"
+                  (sublist? '(1 2 3) '(1 2 3)) 'equal)
 
-                ; sublist at start, middle, end
-                (test-eqv? "sublist at start"         (sublist? '(1 2 3) '(1 2 3 4 5 6 7)) 'sublist)
-                (test-eqv? "sublist at middle"        (sublist? '(3 4 5) '(1 2 3 4 5 6 7)) 'sublist)
-                (test-eqv? "sublist at end"           (sublist? '(5 6 7) '(1 2 3 4 5 6 7)) 'sublist)
+                (test-equal? "different lists"
+                  (sublist? '(1 2 3) '(2 3 4)) 'unequal)
+
+                (test-equal? "false start"
+                  (sublist? '(1 2 5) '(0 1 2 3 1 2 5 6)) 'sublist)
+              
+                (test-equal? "consecutive"
+                  (sublist? '(1 1 2) '(0 1 1 1 2 1 2)) 'sublist)
+
+                (test-equal? "sublist at start"
+                  (sublist? '(0 1 2) '(0 1 2 3 4 5)) 'sublist)
+
+                (test-equal? "sublist at middle"
+                  (sublist? '(2 3 4) '(0 1 2 3 4 5)) 'sublist)
+
+                (test-equal? "sublist at end"
+                (sublist? '(3 4 5) '(0 1 2 3 4 5)) 'sublist)
 
                 ; superlist at start, middle, end
-                (test-eqv? "superlist at start"       (sublist? '(1 2 3 4 5 6 7) '(1 2 3)) 'superlist)
-                (test-eqv? "superlist at middle"      (sublist? '(1 2 3 4 5 6 7) '(3 4 5)) 'superlist)
-                (test-eqv? "superlist at end"         (sublist? '(1 2 3 4 5 6 7) '(5 6 7)) 'superlist)
+                (test-equal? "at start of superlist"
+                  (sublist? '(0 1 2 3 4 5) '(0 1 2)) 'superlist)
 
-                ; large list
-                (test-eqv? "same big list"            (sublist? million million) 'equal)
-                (test-eqv? "different big lists"      (sublist? million million+1) 'unequal)
-                (test-eqv? "large found at start"     (sublist? (range 5000) million) 'sublist)
-                (test-eqv? "large found at middle"    (sublist? (range 650000 750000) million) 'sublist)
-                (test-eqv? "large found at end"       (sublist? million (range 995000 1000000)) 'superlist)
+                (test-equal? "in middle of superlist"
+                  (sublist? '(0 1 2 3 4 5) '(2 3)) 'superlist)
 
-                ; multiple matches
-                (test-eqv? "sublist w/ multiple matches"  (sublist? '(1 2 3) '(1 1 1 2 3)) 'sublist)
-                (test-eqv? "sublist w/ multiple matches"  (sublist? '(1 1 1 2 3) '(1 2 3)) 'superlist)
-                (test-eqv? "no match w/ multiple matches" (sublist? '(1 2 3) '(1 1 1 2 4)) 'unequal)
+                (test-equal? "at end of superlist"
+                  (sublist? '(0 1 2 3 4 5) '(3 4 5)) 'superlist)
 
-                ; order matters
-                (test-eqv? "order matters"            (sublist? '(1 2 3) '(3 2 1)) 'unequal)
+                (test-equal? "first list missing element from second list"
+                  (sublist? '(1 3) '(1 2 3)) 'unequal)
 
-                ; recurring values in sublist
-                (test-eqv? "recurring sublist"        (sublist? '(1 2 1 2 3) '(1 2 3 1 2 1 2 3 2 1)) 'sublist)
-                (test-eqv? "recurring unequal"        (sublist? '(1 2 1 2 3) '(1 2 3 1 2 3 2 3 2 1)) 'unequal)
+                (test-equal?  "second list missing element from first list"
+                  (sublist? '(1 2 3) '(1 3)) 'unequal)
 
-                ; slow tests
-                ; (test-case "slow: large at beginning"
-                ;            (check-eqv? (sublist? million1s (make-list 250000 1)) 'superlist))
-                ; (test-case "slow: large unequal"
-                ;            (check-eqv? (sublist? million1s (append (make-list 249999 1) '(2))) 'unequal))
+                (test-equal? "first list missing additional digits from second list"
+                  (sublist? '(1 2) '(1 22)) 'unequal)
 
-                ))
-  (run-tests suite)
-  )
+                (test-equal? "order matters to a list"
+                  (sublist? '(1 2 3) '(3 2 1)) 'unequal)
+                  
+                (test-equal?  "same digits but different numbers"
+                  (sublist? '(1 0 1) '(10 1)) 'unequal)))
+                  
+  (run-tests suite))
