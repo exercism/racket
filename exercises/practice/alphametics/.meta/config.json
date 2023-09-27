@@ -1,5 +1,7 @@
 {
-  "authors": ["chip"],
+  "authors": [
+    "chip"
+  ],
   "files": {
     "solution": [
       "alphametics.rkt"
