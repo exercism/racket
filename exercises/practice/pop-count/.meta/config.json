@@ -1,0 +1,19 @@
+{
+  "authors": [
+    "BNAndras"
+  ],
+  "files": {
+    "solution": [
+      "pop-count.rkt"
+    ],
+    "test": [
+      "pop-count-test.rkt"
+    ],
+    "example": [
+      ".meta/example.rkt"
+    ]
+  },
+  "blurb": "Count the 1 bits in a number",
+  "source": "Christian Willner, Eric Willigers",
+  "source_url": "https://forum.exercism.org/t/new-exercise-suggestion-pop-count/7632/5"
+}
