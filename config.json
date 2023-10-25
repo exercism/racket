@@ -33,7 +33,6 @@
     ]
   },
   "exercises": {
-    "concept": [],
     "practice": [
       {
         "slug": "hello-world",
@@ -76,21 +75,21 @@
         "slug": "difference-of-squares",
         "name": "Difference of Squares",
         "uuid": "a3d9a2bb-a80a-487f-b529-64e20f7cf9b5",
-        "prerequisites": [],
-        "difficulty": 1,
         "practices": [
           "math"
-        ]
+        ],
+        "prerequisites": [],
+        "difficulty": 1
       },
       {
         "slug": "perfect-numbers",
         "name": "Perfect Numbers",
         "uuid": "72b2c36b-fcd5-4c8c-89e7-98bf24faaa3e",
-        "prerequisites": [],
-        "difficulty": 1,
         "practices": [
           "math"
-        ]
+        ],
+        "prerequisites": [],
+        "difficulty": 1
       },
       {
         "slug": "gigasecond",
@@ -219,14 +218,14 @@
         "slug": "all-your-base",
         "name": "All Your Base",
         "uuid": "f6617861-da32-4735-8c7f-5ae57a8cf44a",
-        "prerequisites": [],
-        "difficulty": 1,
         "practices": [
           "integers",
           "map",
           "math",
           "transforming"
-        ]
+        ],
+        "prerequisites": [],
+        "difficulty": 1
       },
       {
         "slug": "alphametics",
@@ -440,7 +439,7 @@
         "prerequisites": [],
         "difficulty": 4
       },
-    {
+      {
         "slug": "resistor-color-trio",
         "name": "Resistor Color Trio",
         "uuid": "bffafc9e-379f-44f3-81b4-1bbb9787c1fe",
@@ -490,7 +489,6 @@
       }
     ]
   },
-  "concepts": [],
   "key_features": [
     {
       "title": "Language-oriented",
@@ -524,16 +522,16 @@
     }
   ],
   "tags": [
+    "execution_mode/interpreted",
     "paradigm/functional",
     "paradigm/imperative",
     "paradigm/object_oriented",
+    "platform/linux",
+    "platform/mac",
+    "platform/windows",
+    "runtime/language_specific",
     "typing/dynamic",
     "typing/strong",
-    "execution_mode/interpreted",
-    "platform/windows",
-    "platform/mac",
-    "platform/linux",
-    "runtime/language_specific",
     "used_for/backends",
     "used_for/guis",
     "used_for/scripts",
