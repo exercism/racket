@@ -82,6 +82,14 @@
         "difficulty": 1
       },
       {
+        "slug": "dnd-character",
+        "name": "D&D Character",
+        "uuid": "6402b034-ab93-44f6-9f74-1547924449de",
+        "practices": [],
+        "prerequisites": [],
+        "difficulty": 3
+      },
+      {
         "slug": "perfect-numbers",
         "name": "Perfect Numbers",
         "uuid": "72b2c36b-fcd5-4c8c-89e7-98bf24faaa3e",
