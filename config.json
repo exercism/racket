@@ -268,6 +268,14 @@
         "difficulty": 1
       },
       {
+        "slug": "high-scores",
+        "name": "High Scores",
+        "uuid": "0d19dee3-f4a8-4035-a436-388b71364202",
+        "practices": [],
+        "prerequisites": [],
+        "difficulty": 2
+      },
+      {
         "slug": "list-ops",
         "name": "List Ops",
         "uuid": "874b53f5-d9ef-4fd9-be62-3fe16692e565",
