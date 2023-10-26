@@ -1,13 +1,11 @@
 #lang racket
 
-(provide (struct-out clock)
-          add
-          subtract
-          clock->string)
+(provide clock
+         add
+         subtract
+         clock->string)
 
-(struct clock
-    ()) ; Add your implementation
-
+; We have provided stubs for add, subtract, and clock->string. The clock implementation is up to you.
 
 (define (clock->string c)
   (error "Not implemented yet"))
