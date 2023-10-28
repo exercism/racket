@@ -1,9 +1,17 @@
 {
-  "authors": ["Adrien-LUDWIG"],
+  "authors": [
+    "Adrien-LUDWIG"
+  ],
   "files": {
-    "solution": ["binary-search.rkt"],
-    "test": ["binary-search-test.rkt"],
-    "example": [".meta/example.rkt"]
+    "solution": [
+      "binary-search.rkt"
+    ],
+    "test": [
+      "binary-search-test.rkt"
+    ],
+    "example": [
+      ".meta/example.rkt"
+    ]
   },
   "blurb": "Implement a binary search algorithm.",
   "source": "Wikipedia",

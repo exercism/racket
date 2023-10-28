@@ -41,7 +41,6 @@
                (lambda () (binary-search '() 1)))
      (test-exn "nothing is found when the left and right bounds cross"
                exn:fail?
-               (lambda () (binary-search (list 1 2) 0)))
-     ))
+               (lambda () (binary-search (list 1 2) 0)))))
 
   (run-tests suite))
