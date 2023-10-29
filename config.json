@@ -19,18 +19,10 @@
     "average_run_time": 2
   },
   "files": {
-    "solution": [
-      "%{kebab_slug}.rkt"
-    ],
-    "test": [
-      "%{kebab_slug}-test.rkt"
-    ],
-    "example": [
-      ".meta/example.rkt"
-    ],
-    "exemplar": [
-      ".meta/exemplar.rkt"
-    ]
+    "solution": ["%{kebab_slug}.rkt"],
+    "test": ["%{kebab_slug}-test.rkt"],
+    "example": [".meta/example.rkt"],
+    "exemplar": [".meta/exemplar.rkt"]
   },
   "exercises": {
     "practice": [
@@ -38,9 +30,7 @@
         "slug": "hello-world",
         "name": "Hello World",
         "uuid": "4fb471fc-4e6d-486d-abf5-939e89f028fc",
-        "practices": [
-          "strings"
-        ],
+        "practices": ["strings"],
         "prerequisites": [],
         "difficulty": 1
       },
@@ -56,10 +46,7 @@
         "slug": "two-fer",
         "name": "Two Fer",
         "uuid": "27ffc2d2-e950-40a1-90fa-a1f3eec4fd36",
-        "practices": [
-          "optional-values",
-          "text-formatting"
-        ],
+        "practices": ["optional-values", "text-formatting"],
         "prerequisites": [],
         "difficulty": 1
       },
@@ -75,9 +62,7 @@
         "slug": "difference-of-squares",
         "name": "Difference of Squares",
         "uuid": "a3d9a2bb-a80a-487f-b529-64e20f7cf9b5",
-        "practices": [
-          "math"
-        ],
+        "practices": ["math"],
         "prerequisites": [],
         "difficulty": 1
       },
@@ -93,9 +78,7 @@
         "slug": "perfect-numbers",
         "name": "Perfect Numbers",
         "uuid": "72b2c36b-fcd5-4c8c-89e7-98bf24faaa3e",
-        "practices": [
-          "math"
-        ],
+        "practices": ["math"],
         "prerequisites": [],
         "difficulty": 1
       },
@@ -119,9 +102,7 @@
         "slug": "collatz-conjecture",
         "name": "Collatz Conjecture",
         "uuid": "28102e69-dad0-4f3c-8cdf-5a18a73178a4",
-        "practices": [
-          "math"
-        ],
+        "practices": ["math"],
         "prerequisites": [],
         "difficulty": 1
       },
@@ -145,11 +126,7 @@
         "slug": "twelve-days",
         "name": "Twelve Days",
         "uuid": "5961220f-5d33-4e97-a4bb-8b375714a8fc",
-        "practices": [
-          "enumerations",
-          "reduce",
-          "strings"
-        ],
+        "practices": ["enumerations", "reduce", "strings"],
         "prerequisites": [],
         "difficulty": 2
       },
@@ -157,12 +134,7 @@
         "slug": "isogram",
         "name": "Isogram",
         "uuid": "2fa21cb9-5469-4b95-9b78-c6f4dec6f67f",
-        "practices": [
-          "algorithms",
-          "conditionals",
-          "loops",
-          "strings"
-        ],
+        "practices": ["algorithms", "conditionals", "loops", "strings"],
         "prerequisites": [],
         "difficulty": 3
       },
@@ -185,11 +157,7 @@
         "slug": "armstrong-numbers",
         "name": "Armstrong Numbers",
         "uuid": "0fa9d2c6-f170-43b4-a28a-eb4994b4140e",
-        "practices": [
-          "algorithms",
-          "loops",
-          "math"
-        ],
+        "practices": ["algorithms", "loops", "math"],
         "prerequisites": [],
         "difficulty": 1
       },
@@ -197,11 +165,7 @@
         "slug": "affine-cipher",
         "name": "Affine Cipher",
         "uuid": "529c3ced-eefa-402c-b901-ea39ae2fb24e",
-        "practices": [
-          "algorithms",
-          "cryptography",
-          "strings"
-        ],
+        "practices": ["algorithms", "cryptography", "strings"],
         "prerequisites": [],
         "difficulty": 4
       },
@@ -226,12 +190,7 @@
         "slug": "all-your-base",
         "name": "All Your Base",
         "uuid": "f6617861-da32-4735-8c7f-5ae57a8cf44a",
-        "practices": [
-          "integers",
-          "map",
-          "math",
-          "transforming"
-        ],
+        "practices": ["integers", "map", "math", "transforming"],
         "prerequisites": [],
         "difficulty": 1
       },
@@ -341,9 +300,7 @@
         "slug": "reverse-string",
         "name": "Reverse String",
         "uuid": "135c7e52-04ac-4cde-9617-e16870dacb3f",
-        "practices": [
-          "strings"
-        ],
+        "practices": ["strings"],
         "prerequisites": [],
         "difficulty": 1
       },
@@ -388,6 +345,14 @@
         "difficulty": 2
       },
       {
+        "slug": "proverb",
+        "name": "Proverb",
+        "uuid": "bcc730e2-40c0-485e-84f6-d8438371c7db",
+        "practices": [],
+        "prerequisites": [],
+        "difficulty": 2
+      },
+      {
         "slug": "word-count",
         "name": "Word Count",
         "uuid": "b931f727-b5b1-4f42-9799-faca692dd32e",
@@ -399,11 +364,7 @@
         "slug": "atbash-cipher",
         "name": "Atbash Cipher",
         "uuid": "92d97f99-04f9-4a52-942d-d1a9fa96375f",
-        "practices": [
-          "algorithms",
-          "cryptography",
-          "strings"
-        ],
+        "practices": ["algorithms", "cryptography", "strings"],
         "prerequisites": [],
         "difficulty": 3
       },
@@ -411,10 +372,7 @@
         "slug": "variable-length-quantity",
         "name": "Variable Length Quantity",
         "uuid": "a6f90be2-1360-479e-8a6f-4f2d8b492c71",
-        "practices": [
-          "algorithms",
-          "bitwise-operations"
-        ],
+        "practices": ["algorithms", "bitwise-operations"],
         "prerequisites": [],
         "difficulty": 7
       },
@@ -455,11 +413,7 @@
         "slug": "house",
         "name": "House",
         "uuid": "79861b42-3bf8-4fe9-91f0-72b4c0a164f9",
-        "practices": [
-          "algorithms",
-          "recursion",
-          "strings"
-        ],
+        "practices": ["algorithms", "recursion", "strings"],
         "prerequisites": [],
         "difficulty": 4
       },
