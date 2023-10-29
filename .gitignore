@@ -29,3 +29,6 @@ compiled/
 .#*
 *.bak
 TAGS
+
+# Exercise generator
+__pycache__
