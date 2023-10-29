@@ -53,6 +53,7 @@ def create_meta_config(exercise_name, prob_spec_exercise, author):
 
     with open(f"{TARGET}/{exercise_name}/.meta/config.json", "w") as file:
         # Encode into a string in json format and write to file
+        # TODO: Use configlet instead? What about the author?
         file.write(json.dumps(config_data, cls=CustomJSONEncoder, indent=3))
         file.write("\n")
 
@@ -347,9 +348,10 @@ def brand_new_exercise(exercise_name: str, prob_spec_exercise: str, author: str 
     create_directory_structure(exercise_name)
 
     # The order that these functions are called is unimportant
+    create_test_example_solution_files(exercise_name, prob_spec_exercise)
+    # TODO: Use configlet instead?
     create_meta_config(exercise_name, prob_spec_exercise, author)
     create_instructions(exercise_name, prob_spec_exercise)
-    create_test_example_solution_files(exercise_name, prob_spec_exercise)
     create_test_toml(exercise_name, prob_spec_exercise)
 
 
