@@ -1,13 +1,13 @@
 import json, toml, os, argparse, sys, string
 from custom_json_encoder import CustomJSONEncoder
 
-LEGITIMATE_CHARS = string.ascii_lowercase + string.digits + " -"
 
-def find_common_lisp_main():
+def find_racket_main():
     up_one = os.path.split(os.getcwd())[0]
-    return ".." if os.path.split(up_one)[1] == "common-lisp" else "."
+    return ".." if os.path.split(up_one)[1] == "racket" else "."
 
-TARGET = os.path.abspath(find_common_lisp_main() + "/exercises/practice")
+
+TARGET = os.path.abspath(find_racket_main() + "/exercises/practice")
 
 
 def create_directory_structure(exercise_name):
@@ -41,19 +41,19 @@ def create_meta_config(exercise_name, prob_spec_exercise, author):
     """
     config_data = None
     with open(f"{prob_spec_exercise}/metadata.toml") as file:
-        config_data = toml.load(file) # Get the blurb, source, and source_url
+        config_data = toml.load(file)  # Get the blurb, source, and source_url
 
     # Add the files, authors, and contributors to the config_data
     config_data["files"] = {}
-    config_data["files"]["test"] = [f"{exercise_name}-test.lisp"]
-    config_data["files"]["solution"] = [f"{exercise_name}.lisp"]
-    config_data["files"]["example"] = [".meta/example.lisp"]
+    config_data["files"]["test"] = [f"{exercise_name}-test.rkt"]
+    config_data["files"]["solution"] = [f"{exercise_name}.rkt"]
+    config_data["files"]["example"] = [".meta/example.rkt"]
     config_data["authors"] = [author]
     config_data["contributors"] = []
 
-    with open(f"{TARGET}/{exercise_name}/.meta/config.json", 'w') as file:
+    with open(f"{TARGET}/{exercise_name}/.meta/config.json", "w") as file:
         # Encode into a string in json format and write to file
-        file.write(json.dumps(config_data, cls = CustomJSONEncoder, indent = 3))
+        file.write(json.dumps(config_data, cls=CustomJSONEncoder, indent=3))
         file.write("\n")
 
 
@@ -70,10 +70,12 @@ def create_instructions(exercise_name, prob_spec_exercise):
     """
     input_file = f"{prob_spec_exercise}/description.md"
     output_file = f"{TARGET}/{exercise_name}/.docs/instructions.md"
-    with open(input_file, 'r', encoding = "utf-8") as read_from:
-        with open(output_file, 'w', encoding = "utf-8") as write_to:
+    with open(input_file, "r", encoding="utf-8") as read_from:
+        with open(output_file, "w", encoding="utf-8") as write_to:
             # Replace first line with "# Instructions\n" during copy process
-            write_to.write("# Instructions\n" + "\n".join(read_from.read().split("\n")[1:]))
+            write_to.write(
+                "# Instructions\n" + "\n".join(read_from.read().split("\n")[1:])
+            )
 
 
 def create_test_example_solution_files(exercise_name, prob_spec_exercise):
@@ -97,23 +99,24 @@ def create_test_example_solution_files(exercise_name, prob_spec_exercise):
 
     # Boilerplate test code.  Multiline docstring format used to maintain
     # correct indentation and to increase readability.
-    exercise_string = """;; Ensures that {0}.lisp and the testing library are always loaded
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (load "{0}")
-  (quicklisp-client:quickload :fiveam))
+    # TODO: Define exn-msg-matches? only if errors should be tested
+    exercise_string = """#lang racket/base
 
-;; Defines the testing package with symbols from {0} and FiveAM in scope
-;; The `run-tests` function is exported for use by both the user and test-runner
-(defpackage :{0}-test
-  (:use :cl :fiveam)
-  (:export :run-tests))
+(require "{0}.rkt")
 
-;; Enter the testing package
-(in-package :{0}-test)
+(module+ test
+  (require rackunit rackunit/text-ui)
+  
+  (define (exn-msg-matches? msg f)
+    (with-handlers ([exn:fail? (lambda (exn)
+                                 (string=? (exn-message exn) msg))])
+      (f)))
 
-;; Define and enter a new FiveAM test-suite
-(def-suite* {0}-suite)
-""".format(exercise_name)
+  (define suite
+    (test-suite
+     \"{0} tests\"""".format(
+        exercise_name
+    )
 
     # func_name_dict is a dictionary of all function names and their
     # expected input argument names.
@@ -121,23 +124,25 @@ def create_test_example_solution_files(exercise_name, prob_spec_exercise):
 
     # tests_string is sandwiched between exercise_string and more boilerplate
     # code at the end of the file.
-    exercise_string += tests_string + """
-(defun run-tests (&optional (test-or-suite '{0}-suite))
-  "Provides human readable results of test run. Default to entire suite."
-  (run! test-or-suite))
-""".format(exercise_name)
+    exercise_string += (
+        tests_string
+        + """))
 
-    with open(f"{TARGET}/{exercise_name}/{exercise_name}-test.lisp", 'w') as file:
+  (run-tests suite))
+"""
+    )
+
+    with open(f"{TARGET}/{exercise_name}/{exercise_name}-test.rkt", "w") as file:
         file.write(exercise_string)
 
     create_example_and_solution_files(exercise_name, func_name_dict)
 
 
-def create_test(cases, exercise_name, fnd = dict()):
+def create_test(cases, exercise_name, fnd=dict()):
     """
     Auto-generates tests for the test file.
 
-    Parameter cases: A list of test cases to be Lispified.
+    Parameter cases: A list of test cases to be Racketified.
 
     Parameter exercise_name: Name of the exercise to be generated.
     Precondition: exercise_name is a string of a valid exercise.
@@ -148,22 +153,26 @@ def create_test(cases, exercise_name, fnd = dict()):
 
     Returns a tuple of fnd and the test string
     """
+
     # Helper functions only used in create_test function
     def to_kebab_case(string):
         from_snake = string.replace("_", "-")
-        from_camel = "".join([f"-{c.lower()}" if c.isupper() else c for c in from_snake])
+        from_camel = "".join(
+            [f"-{c.lower()}" if c.isupper() else c for c in from_snake]
+        )
         return from_camel
 
     def to_predicate(string, expected_result):
+        # TODO: Understand, adapt and document this function
         if not isinstance(expected_result, bool):
             return string
         elif (partitioned := string.partition("-"))[2]:
-            if '-' in partitioned[2] or partitioned[2][-1] == 'p':
+            if "-" in partitioned[2] or partitioned[2][-1] == "p":
                 return partitioned[2] + "-p"
             else:
                 return partitioned[2] + "p"
         else:
-            return partitioned[0] + ("-p" if 'p' == partitioned[0][-1] else "p")
+            return partitioned[0] + ("-p" if "p" == partitioned[0][-1] else "p")
 
     # Normal code begins here
     output = ""
@@ -175,20 +184,21 @@ def create_test(cases, exercise_name, fnd = dict()):
             func_params = [to_kebab_case(param) for param in list(case["input"])]
             fnd[function_name] = func_params
 
-            # Prepare the variables and their associated values for
-            # implementation inside a "let"
-            arg_pairs = []
-            for var, value in case["input"].items():
-                arg = "({0} {1})".format(to_kebab_case(var), clean_lispification(lispify(value)))
-                arg_pairs.append(arg)
-            let_args = ("\n" + " " * 10).join(arg_pairs)
+            # Prepare the arguments to pass to the tested function
+            args = []
+            for value in case["input"].values():
+                arg = racketify(value)
+                args.append(arg)
+            joined_args = " ".join(args)
 
-            # Create the test name
-            cleaned = [c for c in case["description"].lower() if c in LEGITIMATE_CHARS]
-            description = "".join(cleaned).replace(" ", "-")
-
-            output += create_test_string(description, let_args, case["expected"],
-                                         exercise_name, function_name, func_params)
+            output += create_test_string(
+                case["description"],
+                joined_args,
+                case["expected"],
+                exercise_name,
+                function_name,
+                func_params,
+            )
         except KeyError:
             # Recursively dig further into the data structure
             fnd, string = create_test(case["cases"], exercise_name, fnd)
@@ -196,42 +206,40 @@ def create_test(cases, exercise_name, fnd = dict()):
 
     return fnd, output
 
-def create_test_string(desc, args, expected, exercise, func_name, func_params):
-    result, let_result, close_paren = "", "", ")"
-    if isinstance(expected, bool):
-        result = f"is-{str(expected).lower()}"
-        close_paren = ""
-    else:
-        equality = ""
-        if isinstance(expected, int) or isinstance(expected, float):
-            equality = "="
-        elif isinstance(expected, str) and len(expected) == 1:
-            equality = "char="
-        elif isinstance(expected, str):
-            equality = "string="
-        else:
-            equality = "equal"
 
-        cleaned = clean_lispification(lispify(expected))
-        if len(cleaned) < 35:
-            result = f"is ({equality} {cleaned}"
-        else:
-            result = f"is ({equality} result"
-            let_result = """
-          (result {0})""".format(cleaned)
+def create_test_string(desc, args, expected, exercise, func_name, func_params):
+    # TODO: Check the better way to test equality depending on the type
+    equality = ""
+    if isinstance(expected, int) or isinstance(expected, float):
+        equality = "test-eqv?"
+    elif isinstance(expected, str) and len(expected) == 1:
+        equality = "test-equal?"
+    elif isinstance(expected, str):
+        equality = "test-equal?"
+    else:
+        equality = "test-equal?"
+
+    expected_result = racketify(expected)
 
     # Multiline docstring format used to maintain correct indentation
     # and to increase readability.
+    # TODO: Handle errors differently (exn-msg-matches? and lambda)
     return """
-(test {0}
-    (let ({1}{2})
-      ({3} ({4}:{5} {6})))){7}
-""".format(desc, args, let_result, result, exercise, func_name, " ".join(func_params), close_paren)
+
+     ({0} "{1}"
+                  ({2} {3})
+                  {4})""".format(
+        equality,
+        desc,
+        func_name,
+        args,
+        expected_result,
+    )
 
 
 def create_example_and_solution_files(exercise_name, func_name_dict):
     """
-    Auto-generates the .meta/example.lisp and the 'exercise'.lisp files.
+    Auto-generates the .meta/example.rkt and the 'exercise'.rkt files.
 
     Parameter exercise_name: Name of the exercise to be generated.
     Precondition: exercise_name is a string of a valid exercise.
@@ -240,27 +248,30 @@ def create_example_and_solution_files(exercise_name, func_name_dict):
     expected input argument names.
     Precondition: func_name_dict is a dictionary.
     """
-    # Create keywords of function names to be exported (vertically aligned)
-    exports_string = ("\n" + " " * 11).join([":" + k for k in func_name_dict])
 
     # Boilerplate code.  Multiline docstring format used to maintain
     # correct indentation and to increase readability.
-    file_string = """(defpackage :{0}
-  (:use :cl)
-  (:export {1}))
+    file_string = """#lang racket
 
-(in-package :{0})
-""".format(exercise_name, exports_string)
+(provide {0})
+""".format(
+        func_name_dict.keys()
+    )
 
     # For each function-parameters pairing, add the requisite function
     # definition to the file.
     for func, params in func_name_dict.items():
-        file_string += "\n(defun {0} ({1}))\n".format(func, " ".join(params))
+        file_string += """
+(define ({0} {1})
+  (error "Not implemented yet"))
+""".format(
+            func, " ".join(params)
+        )
 
-    with open(f"{TARGET}/{exercise_name}/{exercise_name}.lisp", 'w') as file:
+    with open(f"{TARGET}/{exercise_name}/{exercise_name}.rkt", "w") as file:
         file.write(file_string)
 
-    with open(f"{TARGET}/{exercise_name}/.meta/example.lisp", 'w') as file:
+    with open(f"{TARGET}/{exercise_name}/.meta/example.rkt", "w") as file:
         file.write(file_string)
 
 
@@ -275,6 +286,7 @@ def create_test_toml(exercise_name, prob_spec_exercise):
     in the problem-specifications repository.
     Precondition: prob_spec_exercise is a string of a valid filepath.
     """
+
     # Nested helper function that will either build a string in a toml
     # style, or recursively dig until it finds the data and then build
     # a string.
@@ -283,7 +295,9 @@ def create_test_toml(exercise_name, prob_spec_exercise):
         for case in cases:
             try:
                 # Add lines in toml style
-                output += "\n[{0}]\ndescription = \"{1}\"\n".format(case["uuid"], case["description"])
+                output += '\n[{0}]\ndescription = "{1}"\n'.format(
+                    case["uuid"], case["description"]
+                )
             except KeyError:
                 # Recursively dig further into the data structure
                 output += find_uuids_and_descriptions(case["cases"])
@@ -296,17 +310,24 @@ def create_test_toml(exercise_name, prob_spec_exercise):
         data = json.load(file)
 
     # Boilerplate comment at top of test.toml
-    toml_string = """# This is an auto-generated file. Regular comments will be removed when this
-# file is regenerated. Regenerating will not touch any manually added keys,
-# so comments can be added in a "comment" key.
+    toml_string = """# This is an auto-generated file.
+#
+# Regenerating this file via `configlet sync` will:
+# - Recreate every `description` key/value pair
+# - Recreate every `reimplements` key/value pair, where they exist in problem-specifications
+# - Remove any `include = true` key/value pair (an omitted `include` key implies inclusion)
+# - Preserve any other key/value pair
+#
+# As user-added comments (using the # character) will be removed when this file
+# is regenerated, comments can be added via a `comment` key.
 """
     toml_string += find_uuids_and_descriptions(data["cases"])
 
-    with open(f"{TARGET}/{exercise_name}/.meta/tests.toml", 'w') as file:
+    with open(f"{TARGET}/{exercise_name}/.meta/tests.toml", "w") as file:
         file.write(toml_string)
 
 
-def brand_new_exercise(exercise_name :str, prob_spec_exercise :str, author :str = ""):
+def brand_new_exercise(exercise_name: str, prob_spec_exercise: str, author: str = ""):
     """
     A delegation function.
 
@@ -332,51 +353,51 @@ def brand_new_exercise(exercise_name :str, prob_spec_exercise :str, author :str 
     create_test_toml(exercise_name, prob_spec_exercise)
 
 
-def lispify(value, string_to_keyword = False):
+def racketify(value, string_to_keyword=False):
     """
-    Converts a given value from a Python data type into its Lisp counterpart.
+    Converts a given value from a Python data type into its Racket counterpart.
 
     Returns the following conversions:
         lists/arrays -> lists
-        bools -> T or NIL
+        bools -> #t or #f
         ints -> ints
         floats -> floats
         strings -> strings (or chars if string len == 1) or keywords
-        dicts -> acons lists (or NIL if key == "error")
+        # TODO: see what to do with "error"
+        dicts -> hash tables (or NIL if key == "error")
 
-    Parameter value: The value which needs to be converted (i.e. Lispified).
+    Parameter value: The value which needs to be converted (i.e. Racketified).
     Parameter string_to_keyword: Boolean to signal that strings should be
     converted into keywords.
     """
     if isinstance(value, list):
-        return "(" + " ".join(["list"] + [lispify(v) for v in value]) + ")"
+        return "'(" + " ".join([racketify(v) for v in value]) + ")"
     elif isinstance(value, bool):
-        return "T" if value else "NIL"
+        return "#t" if value else "#f"
     elif isinstance(value, int) or isinstance(value, float):
         return str(value)
     elif isinstance(value, str):
         if len(value) == 1:
+            # TODO: Handle special chars (space, tab, ...)
+            # see: https://docs.racket-lang.org/reference/reader.html#%28part._parse-character%29
             return f"#\\{value}"
         else:
-            return f":{value.lower()}" if string_to_keyword else f"\"{value}\""
+            return f":{value.lower()}" if string_to_keyword else f'"{value}"'
     elif isinstance(value, dict):
-        acons_list = []
+        key_value_pairs = []
         for k, v in value.items():
+            # TODO: see what to do with "error"
             if k == "error":
-                return "NIL"
-            acons_list += ["'({0} . {1})".format(lispify(k, True), lispify(v))]
-        return "(" + " ".join(["list"] + acons_list) + ")"
+                return "null"
+            key_value_pairs += ["({0} . {1})".format(racketify(k, True), racketify(v))]
+        return "'#hash(" + " ".join(key_value_pairs) + ")"
     elif value is None:
-        return "NIL"
+        return "null"
     else:
-        raise TypeError("lispify function does not know how to handle value of type: " + str(type(value)))
-
-
-def clean_lispification(lispified):
-    listless = lispified.replace(" '(", " (").replace("(list ", "(").replace("(list", "(")
-    if listless[0] == '(':
-        listless = "'" + listless
-    return listless
+        raise TypeError(
+            "racketify function does not know how to handle value of type: "
+            + str(type(value))
+        )
 
 
 def no_arguments():
@@ -384,16 +405,24 @@ def no_arguments():
     prob_spec = None
 
     while prob_spec == None or not os.path.exists(f"{prob_spec}/exercises"):
-        fp = input("Enter the path (relative or absolute) to the problem-specifications repository: ")
+        fp = input(
+            "Enter the path (relative or absolute) to the problem-specifications repository: "
+        )
         prob_spec = os.path.abspath(fp)
 
     top_loop = True
     while top_loop:
-        while exercise_name == None or not os.path.exists(f"{prob_spec}/exercises/{exercise_name}"):
-            exercise_name = input("Enter the name of the exercise you wish to generate: ")
+        while exercise_name == None or not os.path.exists(
+            f"{prob_spec}/exercises/{exercise_name}"
+        ):
+            exercise_name = input(
+                "Enter the name of the exercise you wish to generate: "
+            )
         if os.path.exists(f"{TARGET}/{exercise_name}"):
             while True:
-                confirmation = input("You are about to overwrite an existing exercise!  Confirm (Y/N): ")
+                confirmation = input(
+                    "You are about to overwrite an existing exercise!  Confirm (Y/N): "
+                )
                 confirmation = confirmation.upper()
                 if confirmation == "Y" or confirmation == "YES":
                     top_loop = False
@@ -413,16 +442,22 @@ def no_arguments():
 def execute_via_cli(args):
     prob_spec = os.path.abspath(args.Path)
     if not os.path.exists(f"{prob_spec}/exercises"):
-        print("lisp_exercise_generator: error: problem-specifications repository not found")
+        print(
+            "racket_exercise_generator: error: problem-specifications repository not found"
+        )
         sys.exit()
 
     exercise_name = args.Exercise
     if not os.path.exists(f"{prob_spec}/exercises/{exercise_name}"):
-        print("lisp_exercise_generator: error: exercise does not exist in problem-specifications repository")
+        print(
+            "racket_exercise_generator: error: exercise does not exist in problem-specifications repository"
+        )
         sys.exit()
 
     if os.path.exists(f"{TARGET}/{exercise_name}") and not args.f:
-        print("lisp_exercise_generator: error: exercise already exists in common-lisp repository")
+        print(
+            "racket_exercise_generator: error: exercise already exists in Racket repository"
+        )
         sys.exit()
 
     author = args.Author
@@ -430,32 +465,40 @@ def execute_via_cli(args):
     brand_new_exercise(exercise_name, prob_spec_exercise, author)
 
 
-if __name__ == '__main__':
-    parser = argparse.ArgumentParser(prog = "lisp_exercise_generator",
-                                     description = "Practice exercise generator for Common Lisp",
-                                     usage = "%(prog)s [-f] [path exercise author]")
+if __name__ == "__main__":
+    parser = argparse.ArgumentParser(
+        prog="racket_exercise_generator",
+        description="Practice exercise generator for Racket",
+        usage="%(prog)s [-f] [path exercise author]",
+    )
 
-    parser.add_argument("Path",
-                        metavar = "path",
-                        action = "store",
-                        type = str,
-                        help = "relative or absolute path to problem-specifications repository",
-                        nargs = "?")
-    parser.add_argument("Exercise",
-                        metavar = "exercise",
-                        action = "store",
-                        type = str,
-                        help = "name of the exercise to be generated",
-                        nargs = "?")
-    parser.add_argument("Author",
-                        metavar = "author",
-                        action = "store",
-                        type = str,
-                        help = "author's Github handle",
-                        nargs = "?")
-    parser.add_argument("-f",
-                        action = "store_true",
-                        help = "force overwrite of existing exercise folder")
+    parser.add_argument(
+        "Path",
+        metavar="path",
+        action="store",
+        type=str,
+        help="relative or absolute path to problem-specifications repository",
+        nargs="?",
+    )
+    parser.add_argument(
+        "Exercise",
+        metavar="exercise",
+        action="store",
+        type=str,
+        help="name of the exercise to be generated",
+        nargs="?",
+    )
+    parser.add_argument(
+        "Author",
+        metavar="author",
+        action="store",
+        type=str,
+        help="author's Github handle",
+        nargs="?",
+    )
+    parser.add_argument(
+        "-f", action="store_true", help="force overwrite of existing exercise folder"
+    )
 
     args = parser.parse_args()
 
@@ -465,7 +508,9 @@ if __name__ == '__main__':
         no_arguments()
     elif any(arg_states):
         arg_num = arg_states.count(False)
-        print(f"lisp_exercise_generator: error: expected 0 or 3 arguments - received {arg_num}")
+        print(
+            f"racket_exercise_generator: error: expected 0 or 3 arguments - received {arg_num}"
+        )
         sys.exit()
     else:
         execute_via_cli(args)
