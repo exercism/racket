@@ -2,8 +2,8 @@
 
 (provide keep discard)
 
-(define (keep list predicate)
+(define (keep lst predicate)
   (error "Not implemented yet"))
 
-(define (discard list predicate)
+(define (discard lst predicate)
   (error "Not implemented yet"))
