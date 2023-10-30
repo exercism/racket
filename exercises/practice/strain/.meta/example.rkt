@@ -2,8 +2,10 @@
 
 (provide keep discard)
 
-(define (keep list predicate)
-  (error "Not implemented yet"))
+(define (keep lst predicate)
+  (for/list ([value lst]
+             #:when (predicate value))
+    value))
 
-(define (discard list predicate)
-  (error "Not implemented yet"))
+(define (discard lst predicate)
+  (keep lst (negate predicate)))
