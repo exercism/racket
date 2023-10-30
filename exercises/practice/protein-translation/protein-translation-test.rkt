@@ -118,17 +118,17 @@
                   (proteins "UGGUGUUAUUAAUGGUUU")
                   '("Tryptophan" "Cysteine" "Tyrosine"))
 
-     (test-true "Non-existing codon can't translate"
-                (exn:fail?
-                  (lambda () (proteins "AAA"))))
+     (test-exn "Non-existing codon can't translate"
+               exn:fail?
+               (lambda () (proteins "AAA")))
 
-     (test-true "Unknown amino acids, not part of a codon, can't translate"
-                (exn:fail?
-                  (lambda () (proteins "XYZ"))))
+     (test-exn "Unknown amino acids, not part of a codon, can't translate"
+               exn:fail?
+               (lambda () (proteins "XYZ")))
 
-     (test-true "Incomplete RNA sequence can't translate"
-                (exn:fail?
-                  (lambda () (proteins "AUGU"))))
+     (test-exn "Incomplete RNA sequence can't translate"
+               exn:fail?
+               (lambda () (proteins "AUGU")))
 
      (test-equal? "Incomplete RNA sequence can translate if valid until a STOP codon"
                   (proteins "UUCUUCUAAUGGU")
