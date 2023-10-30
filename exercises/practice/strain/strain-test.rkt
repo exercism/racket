@@ -5,20 +5,28 @@
 (module+ test
   (require rackunit rackunit/text-ui)
 
+  (define (always-true _) #t)
+
+  (define (always-false _) #f)
+
+  (define (contains-5? lst) (member 5 lst))
+
+  (define (starts-with-z? str) (equal? (string-ref str 0) #\z))
+
   (define suite
     (test-suite
      "strain tests"
 
      (test-equal? "keep on empty list returns empty list"
-                  (keep '() (lambda (x) #t))
+                  (keep '() always-true)
                   '())
 
      (test-equal? "keeps everything"
-                  (keep '(1 3 5) (lambda (x) #t))
+                  (keep '(1 3 5) always-true)
                   '(1 3 5))
 
      (test-equal? "keeps nothing"
-                  (keep '(1 3 5) (lambda (x) #f))
+                  (keep '(1 3 5) always-false)
                   '())
 
      (test-equal? "keeps first and last"
@@ -31,24 +39,24 @@
 
      (test-equal? "keeps strings"
                   (keep '("apple" "zebra" "banana" "zombies" "cherimoya" "zealot")
-                        (lambda (x) (equal? (string-ref x 0) #\z)))
+                        starts-with-z?)
                   '("zebra" "zombies" "zealot"))
 
      (test-equal? "keeps lists"
                   (keep (list '(1 2 3) '(5 5 5) '(5 1 2) '(2 1 2) '(1 5 2) '(2 2 1) '(1 2 5))
-                        (lambda (x) (if (member 5 x) #t #f)))
+                        contains-5?)
                   (list '(5 5 5) '(5 1 2) '(1 5 2) '(1 2 5)))
 
      (test-equal? "discard on empty list returns empty list"
-                  (discard '() (lambda (x) #t))
+                  (discard '() always-true)
                   '())
 
      (test-equal? "discards everything"
-                  (discard '(1 3 5) (lambda (x) #t))
+                  (discard '(1 3 5) always-true)
                   '())
 
      (test-equal? "discards nothing"
-                  (discard '(1 3 5) (lambda (x) #f))
+                  (discard '(1 3 5) always-false)
                   '(1 3 5))
 
      (test-equal? "discards first and last"
@@ -61,12 +69,12 @@
 
      (test-equal? "discards strings"
                   (discard '("apple" "zebra" "banana" "zombies" "cherimoya" "zealot")
-                           (lambda (x) (equal? (string-ref x 0) #\z)))
+                           starts-with-z?)
                   '("apple" "banana" "cherimoya"))
 
      (test-equal? "discards lists"
                   (discard (list '(1 2 3) '(5 5 5) '(5 1 2) '(2 1 2) '(1 5 2) '(2 2 1) '(1 2 5))
-                           (lambda (x) (if (member 5 x) #t #f)))
+                           contains-5?)
                   (list '(1 2 3) '(2 1 2) '(2 2 1)))))
 
   (run-tests suite))
