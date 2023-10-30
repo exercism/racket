@@ -225,7 +225,7 @@ def create_test(cases, exercise_name, fnd=dict()):
 def create_test_string(desc, args, expected, func_name):
     # Handle errors differently
     if isinstance(expected, dict) and "error" in expected.keys():
-        return create_error_test_string(desc, args, expected, func_name)
+        return create_error_test_string(desc, args, func_name)
 
     # TODO: Check the better way to test equality depending on the type
     equality = ""
@@ -255,19 +255,15 @@ def create_test_string(desc, args, expected, func_name):
     )
 
 
-def create_error_test_string(desc, args, expected, func_name):
-    error_message = racketify(expected)
-
+def create_error_test_string(desc, args, func_name):
     # Multiline docstring format used to maintain correct indentation
     # and to increase readability.
     return """
 
      (test-true "{0}"
-                (exn-msg-matches?
-                  {1}
-                  (lambda () ({2} {3}))))""".format(
+                (exn:fail?
+                  (lambda () ({1} {2}))))""".format(
         desc,
-        error_message,
         func_name,
         args,
     )
