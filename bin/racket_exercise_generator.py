@@ -260,9 +260,9 @@ def create_error_test_string(desc, args, func_name):
     # and to increase readability.
     return """
 
-     (test-true "{0}"
-                (exn:fail?
-                  (lambda () ({1} {2}))))""".format(
+     (test-exn "{0}"
+                exn:fail?
+                  (lambda () ({1} {2})))""".format(
         desc,
         func_name,
         args,
