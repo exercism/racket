@@ -512,6 +512,14 @@
         "difficulty": 1
       },
       {
+        "slug": "strain",
+        "name": "Strain",
+        "uuid": "f3c6fea7-f69e-4cc5-b71f-0d34204623a7",
+        "practices": [],
+        "prerequisites": [],
+        "difficulty": 2
+      },
+      {
         "slug": "darts",
         "name": "Darts",
         "uuid": "40bc0f5c-173e-4782-a4dc-c07c3e3acec6",
