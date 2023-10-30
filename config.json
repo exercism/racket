@@ -396,6 +396,14 @@
         "difficulty": 2
       },
       {
+        "slug": "proverb",
+        "name": "Proverb",
+        "uuid": "bcc730e2-40c0-485e-84f6-d8438371c7db",
+        "practices": [],
+        "prerequisites": [],
+        "difficulty": 2
+      },
+      {
         "slug": "word-count",
         "name": "Word Count",
         "uuid": "b931f727-b5b1-4f42-9799-faca692dd32e",
