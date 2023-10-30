@@ -291,7 +291,7 @@ def create_example_and_solution_files(exercise_name, func_name_dict):
 
 (provide {0})
 """.format(
-        func_name_dict.keys()
+        "".join(func_name_dict.keys())
     )
 
     # For each function-parameters pairing, add the requisite function
