@@ -100,19 +100,35 @@ def create_test_example_solution_files(exercise_name, prob_spec_exercise):
 
     # Boilerplate test code.  Multiline docstring format used to maintain
     # correct indentation and to increase readability.
-    # TODO: Define exn-msg-matches? only if errors should be tested
     exercise_string = """#lang racket/base
 
 (require "{0}.rkt")
 
 (module+ test
   (require rackunit rackunit/text-ui)
-  
+""".format(
+        exercise_name
+    )
+
+    # Check if some tests expect errors
+    expect_errors = any(
+        [
+            "error" in case["expected"].keys()
+            for case in data["cases"]
+            if isinstance(case["expected"], dict)
+        ]
+    )
+
+    # If so, add the definition of the helper function to test returned errors
+    if expect_errors:
+        exercise_string += """
   (define (exn-msg-matches? msg f)
     (with-handlers ([exn:fail? (lambda (exn)
                                  (string=? (exn-message exn) msg))])
       (f)))
+"""
 
+    exercise_string += """
   (define suite
     (test-suite
      \"{0} tests\"""".format(
@@ -196,9 +212,7 @@ def create_test(cases, exercise_name, fnd=dict()):
                 case["description"],
                 joined_args,
                 case["expected"],
-                exercise_name,
                 function_name,
-                func_params,
             )
         except KeyError:
             # Recursively dig further into the data structure
@@ -208,7 +222,11 @@ def create_test(cases, exercise_name, fnd=dict()):
     return fnd, output
 
 
-def create_test_string(desc, args, expected, exercise, func_name, func_params):
+def create_test_string(desc, args, expected, func_name):
+    # Handle errors differently
+    if isinstance(expected, dict) and "error" in expected.keys():
+        return create_error_test_string(desc, args, expected, func_name)
+
     # TODO: Check the better way to test equality depending on the type
     equality = ""
     if isinstance(expected, int) or isinstance(expected, float):
@@ -224,7 +242,6 @@ def create_test_string(desc, args, expected, exercise, func_name, func_params):
 
     # Multiline docstring format used to maintain correct indentation
     # and to increase readability.
-    # TODO: Handle errors differently (exn-msg-matches? and lambda)
     return """
 
      ({0} "{1}"
@@ -235,6 +252,24 @@ def create_test_string(desc, args, expected, exercise, func_name, func_params):
         func_name,
         args,
         expected_result,
+    )
+
+
+def create_error_test_string(desc, args, expected, func_name):
+    error_message = racketify(expected)
+
+    # Multiline docstring format used to maintain correct indentation
+    # and to increase readability.
+    return """
+
+     (test-true "{0}"
+                (exn-msg-matches?
+                  {1}
+                  (lambda () ({2} {3}))))""".format(
+        desc,
+        error_message,
+        func_name,
+        args,
     )
 
 
@@ -365,8 +400,7 @@ def racketify(value, string_to_keyword=False):
         ints -> ints
         floats -> floats
         strings -> strings (or chars if string len == 1) or keywords
-        # TODO: see what to do with "error"
-        dicts -> hash tables (or NIL if key == "error")
+        dicts -> hash tables (or the expected error message if key == "error")
 
     Parameter value: The value which needs to be converted (i.e. Racketified).
     Parameter string_to_keyword: Boolean to signal that strings should be
@@ -388,9 +422,8 @@ def racketify(value, string_to_keyword=False):
     elif isinstance(value, dict):
         key_value_pairs = []
         for k, v in value.items():
-            # TODO: see what to do with "error"
             if k == "error":
-                return "null"
+                return f'"{v}"'
             key_value_pairs += ["({0} . {1})".format(racketify(k, True), racketify(v))]
         return "'#hash(" + " ".join(key_value_pairs) + ")"
     elif value is None:
