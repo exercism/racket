@@ -4,7 +4,7 @@
 
 (define (empty-string? str) ((negate non-empty-string?) str))
 
-(define (translate protein)
+(define (unsafe-translate protein)
   (case protein
     [("AUG") "Methionine"]
     [("UUU" "UUC") "Phenylalanine"]
@@ -17,7 +17,7 @@
     [else (error "Invalid codon")]))
 
 (define (proteins strand)
-  (define (codon) (translate (substring strand 0 3)))
+  (define (codon) (unsafe-translate (substring strand 0 3)))
   (cond
     [(zero? (string-length strand)) '()]
     [(< (string-length strand) 3) (error "Incomplete RNA sequence can't translate")]
