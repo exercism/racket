@@ -3,8 +3,10 @@
 (provide proteins)
 
 (define (empty-string? str) ((negate non-empty-string?) str))
+(define (string-length-3? str) (and (string? str) (= (string-length str) 3)))
 
-(define (unsafe-translate protein)
+(define/contract (unsafe-translate protein)
+  (string-length-3? . -> . string?)
   (case protein
     [("AUG") "Methionine"]
     [("UUU" "UUC") "Phenylalanine"]
