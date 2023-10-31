@@ -5,11 +5,6 @@
 (module+ test
   (require rackunit rackunit/text-ui)
 
-  (define (exn-msg-matches? msg f)
-    (with-handlers ([exn:fail? (lambda (exn)
-                                 (string=? (exn-message exn) msg))])
-      (f)))
-
   (define suite
     (test-suite
      "protein-translation tests"
