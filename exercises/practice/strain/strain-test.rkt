@@ -11,7 +11,7 @@
 
   (define (contains-5? lst) (member 5 lst))
 
-  (define (starts-with-z? str) (equal? (string-ref str 0) #\z))
+  (define (starts-with-z? str) (char=? (string-ref str 0) #\z))
 
   (define suite
     (test-suite
