@@ -2,6 +2,9 @@
   "authors": [
     "czrpb"
   ],
+  "contributors": [
+     "charmparticle"
+  ],
   "files": {
     "solution": [
       "sublist.rkt"
