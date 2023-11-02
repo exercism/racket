@@ -22,7 +22,7 @@ The Linux build is generic enough that it should work on most distributions, inc
 
 After downloading the installer file, run it with
 ```
-sh racket-8.8-x86_64-linux-cs.sh
+sh racket-8.10-x86_64-linux-cs.sh
 ```
 
 You man need to prefix `sudo` to the start of the command to install to a location that requires adminstrator access.
