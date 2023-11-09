@@ -34,10 +34,3 @@ While you may choose to do this later, as a learner you will have a much better 
 ## About the macOS installer:
 
 If your machine uses the M1 or M2 series processors, select **Apple Silicon** in the platform dropdown menu before downloading.
-
-
-
-
-
-
-
