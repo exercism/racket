@@ -14,7 +14,7 @@ The [Racket Guide](https://docs.racket-lang.org/guide/intro.html) introduces you
 
 See [DrRacket: The Racket Programming Environment](https://docs.racket-lang.org/drracket/index.html) for guidance using the DrRacket IDE.
 
-See [Command-Line Tools and Your Editor of Choice](https://docs.racket-lang.org/guide/other-editors.html) for an introduction to racket command line tool and using other editors.
+See [Command-Line Tools and Your Editor of Choice](https://docs.racket-lang.org/guide/other-editors.html) for an introduction to Racket command line tools and using other editors.
 
 
 ## About the Linux installer:
