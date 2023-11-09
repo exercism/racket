@@ -2,5 +2,5 @@
 
 (provide sublist?)
 
-(define (sublist? s l)
+(define (sublist? list-one list-two)
   (error "Not implemented yet"))

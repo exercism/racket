@@ -1,0 +1,18 @@
+{
+  "authors": [
+    "Adrien-LUDWIG"
+  ],
+  "files": {
+    "solution": [
+      "protein-translation.rkt"
+    ],
+    "test": [
+      "protein-translation-test.rkt"
+    ],
+    "example": [
+      ".meta/example.rkt"
+    ]
+  },
+  "blurb": "Translate RNA sequences into proteins.",
+  "source": "Tyler Long"
+}
