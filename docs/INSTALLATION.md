@@ -27,7 +27,8 @@ sh racket-8.10-x86_64-linux-cs.sh
 
 You may need to prefix `sudo` to the start of the command to install to a location that requires administrator access.
 
-**Warning: Racket may also be available through your distribution's package manager, although it may be older than the latest Racket version.** While you may choose to do this later, as a learner you will have a much better experience if you stick to the current release available from https://download.racket-lang.org
+**Warning: Racket may also be available through your distribution's package manager, although it may be older than the latest Racket version.**
+While you may choose to do this later, as a learner you will have a much better experience if you stick to the current release available from https://download.racket-lang.org
 
 
 ## About the macOS installer:
