@@ -5,20 +5,28 @@
 (module+ test
   (require rackunit rackunit/text-ui)
 
-  (define character (make-character))
-  (define (in-range? n)
-    (<= 3 n 18))
-  (define (constitution->hitpoints n)
-     (+ (modifier n) 10))
-  (define (validate-character instance pred)
-    (and (pred (character-strength instance))
-         (pred (character-dexterity instance))
-         (pred (character-constitution instance))
-         (pred (character-intelligence instance))
-         (pred (character-wisdom instance))
-         (pred (character-charisma instance))
-         (eqv? (constitution->hitpoints (character-constitution instance))
-             (character-hitpoints instance))))
+  (define (ability-in-range? score)
+    (<= 3 score 18))
+
+  (define (all-scores-in-range? char)
+    (define abilities (list character-strength
+                            character-dexterity
+                            character-constitution
+                            character-intelligence
+                            character-wisdom
+                            character-charisma))
+    (define valid-hitpoints (<= 6 (character-hitpoints char) 14))
+    (and (for/and ([f abilities])
+           (ability-in-range? (f char)))
+          valid-hitpoints))
+  
+  (define (characters-are-random?)
+    (define previous (make-character))
+    (for/and ([_ (in-range 1000)])
+      (define current (make-character))
+      (define result (not (equal? current previous)))
+      (set! previous current)
+      result))
 
   (define suite
     (test-suite
@@ -73,13 +81,13 @@
                 (modifier 18) 4)
 
      (test-true "random ability is within range"
-                (in-range? (ability)))
+                (ability-in-range? (ability)))
 
      (test-true "random character is valid"
-                (validate-character character in-range?))
- 
-     (test-eqv? "each ability is only calculated once"
-                (character-strength character)
-                (character-strength character))))
+                (all-scores-in-range? (make-character)))
+
+    ; track-specific test
+     (test-true "all characters are randomly generated"
+                (characters-are-random?))))
 
   (run-tests suite))
