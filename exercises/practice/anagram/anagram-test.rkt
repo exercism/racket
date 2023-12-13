@@ -62,7 +62,7 @@
                   
      (test-equal? "does not detect an anagram if the original word is repeated"
                   (anagrams-for "go"
-                                '("go Go GO"))
+                                '("goGoGO"))
                   '())
 
     (test-equal? "anagrams must use all letters exactly once"
