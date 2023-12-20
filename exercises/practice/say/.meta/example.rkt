@@ -1,4 +1,4 @@
-#lang racket/base
+#lang racket
 
 ;; say : Convert integers to English-language descriptions
 
@@ -22,20 +22,24 @@
 
 ;; Use contracts to enforce all bounds
 (provide (contract-out
-  [step1 (-> (integer-in 0 99) string?)]
+          [spell-out (-> (integer-in (- UPPER-BOUND) UPPER-BOUND)
+                         string?)]   
+  ;; Band-aid alias for step4 for tests to pass
+
+          [step1 (-> (integer-in 0 99) string?)]
   ;; Convert a positive, 2-digit number to an English string
 
-  [step2 (-> natural-number/c (listof (integer-in 0 999)))]
+          [step2 (-> natural-number/c (listof (integer-in 0 999)))]
   ;; Divide a large positive number into a list of 3-digit (or smaller) chunks
 
-  [step3 (-> (integer-in (- UPPER-BOUND) UPPER-BOUND)
-             (listof (cons/c natural-number/c scale?)))]
+          [step3 (-> (integer-in (- UPPER-BOUND) UPPER-BOUND)
+                     (listof (cons/c natural-number/c scale?)))]
   ;; Break a number into chunks and insert scales between the chunks
 
-  [step4 (-> (integer-in (- UPPER-BOUND) UPPER-BOUND)
-             string?)]
+          [step4 (-> (integer-in (- UPPER-BOUND) UPPER-BOUND)
+                     string?)]))
   ;; Convert a number to an English-language string
-))
+
 
 ;; =============================================================================
 
@@ -46,6 +50,8 @@
 
 (define TENS>10
   '#("twenty" "thirty" "forty" "fifty" "sixty" "seventy" "eighty" "ninety"))
+
+(define (spell-out number) (step4 number))
 
 (define (step1 n)
   (cond
@@ -108,10 +114,11 @@
   ;; Use `string-trim` to remove trailing whitespace
   (define n-str (string-trim (apply string-append str*)))
   (cond ;; Check for special cases
+   [(negative? N)
+    (error "input out of range")]
+  [(> N 999999999999)
+    (error "input out of range")]
    [(zero? N)
     "zero"]
-   [(negative? N)
-    (string-append "negative " n-str)]
    [else
     n-str]))
-
