@@ -48,12 +48,12 @@
      (test-exn "invalid with letters"
                exn:fail?
                (λ ()
-                 (nanp-clean "123-abc-7890")))
+                 (nanp-clean "523-abc-7890")))
 
      (test-exn "invalid with punctuations"
                exn:fail?
                (λ ()
-                 (nanp-clean "123-@:!-7890")))
+                 (nanp-clean "523-@:!-7890")))
 
      (test-exn "invalid if area code starts with 0"
                exn:fail?
