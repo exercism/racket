@@ -2,13 +2,12 @@
 
 (provide binary-search)
 
-(define (binary-search array value)
-  (define (rec left right)
+(define (binary-search array target)
+  (let loop ([lo 0] [hi (vector-length array)])
+    (define mid (quotient (+ lo hi) 2))
     (cond
-      [(> left right) (error "Value not in array")]
-      [else (define mid (+ left (quotient (- right left) 2)))
-            (cond
-              [(< value (list-ref array mid)) (rec left (sub1 mid))]
-              [(< (list-ref array mid) value) (rec (add1 mid) right)]
-              [else mid])]))
-  (rec 0 (sub1 (length array))))
+      [(= lo hi) (and (< lo (vector-length array))
+                      (= (vector-ref array lo) target)
+                      lo)]
+      [(< (vector-ref array mid) target) (loop (+ 1 mid) hi)]
+      [else (loop lo mid)])))
