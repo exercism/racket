@@ -1,6 +1,6 @@
 #lang racket/base
 
-; There were no cannonical tests to perform.
+; There were no canonical tests to perform.
 (require "robot-name.rkt")
 
 (module+ test
