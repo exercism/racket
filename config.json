@@ -388,6 +388,14 @@
         "difficulty": 1
       },
       {
+        "slug": "pangram",
+        "name": "Pangram",
+        "uuid": "af3484cd-a74a-4a55-a641-5483d25ca006",
+        "practices": [],
+        "prerequisites": [],
+        "difficulty": 3
+      },
+      {
         "slug": "pop-count",
         "name": "Eliud's Eggs",
         "uuid": "4c32e86e-cd3e-4be9-b581-24144c548751",
