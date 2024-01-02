@@ -41,7 +41,7 @@
                   (response-for "1, 2 ,3, GO!")
                   "Whoa, chill out!")
 
-     (test-equal? "responds to shouting wit no exclamation mark"
+     (test-equal? "responds to shouting with no exclamation mark"
                   (response-for "I HATE YOU")
                   "Whoa, chill out!")
 
