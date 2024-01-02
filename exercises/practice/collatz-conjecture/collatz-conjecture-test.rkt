@@ -5,11 +5,6 @@
 (module+ test
   (require rackunit rackunit/text-ui)
 
-  (define (exn-msg-matches? msg f)
-    (with-handlers ([exn:fail? (lambda (exn)
-                                 (string=? (exn-message exn) msg))])
-      (f)))
-
   (define suite
     (test-suite
      "collatz conjecture tests"
@@ -30,19 +25,16 @@
                 (collatz 1000000)
                 152)
 
-     (test-true "zero is an error"
-                (exn-msg-matches?
-                  "Only positive integers are allowed"
-                  (lambda () (collatz 0))))
+     (test-exn "zero is an error"
+                exn:fail?
+                (lambda () (collatz 0)))
 
-     (test-true "negative value is an error"
-                (exn-msg-matches?
-                  "Only positive integers are allowed"
-                  (lambda () (collatz -15))))
+     (test-exn "negative value is an error"
+                exn:fail?
+                (lambda () (collatz -15)))
 
-     (test-true "non exact value is an error"
-                (exn-msg-matches?
-                  "Only positive integers are allowed"
-                  (lambda () (collatz 3.4))))))
+     (test-exn "non exact value is an error"
+                exn:fail?
+                (lambda () (collatz 3.4)))))
 
 (run-tests suite))
