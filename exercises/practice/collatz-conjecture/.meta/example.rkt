@@ -10,11 +10,6 @@
                           (add1 (* 3 n)))
                       (add1 acc))))
 
-(define (collatz n)
-  (if (nand (exact-integer? n)
-            (positive? n))
-      (error "Only positive integers are allowed")
-      (collatz-length n)))
-  
-
-  
+(define/contract (collatz n)
+  (-> exact-positive-integer? exact-integer?)
+  (collatz-length n))
