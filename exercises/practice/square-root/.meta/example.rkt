@@ -2,7 +2,9 @@
 
 (provide square-root)
 
-(define (square-root radicand)
-    (for/first ([num (in-naturals)]
-                #:when (equal? (expt num 2) radicand))
-      num))
+(define/contract (square-root radicand)
+  (-> exact-positive-integer? (or/c exact-positive-integer?
+                                    false?))
+  (for/first ([num (in-inclusive-range 1 radicand)]
+              #:when (equal? (expt num 2) radicand))
+    num))
