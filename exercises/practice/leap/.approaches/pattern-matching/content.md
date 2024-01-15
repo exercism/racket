@@ -13,7 +13,7 @@
 ```
 
 
-[The match form](match-form) compares an expression to a series of patterns describing its shape.
+[The match form][match-form] compares an expression to a series of patterns describing its shape.
 For this exercise, this takes the form of creating a list containing three Boolean values representing whether a year is divisible by 4, 100, or 400.
 The first three patterns describe a three-element list, but each one encodes a literal `#t` to be matched in a different location. The other elements can be any value due to `_`.
 The first pattern accepts any value for the first two slots but requires `#t` in the third.
