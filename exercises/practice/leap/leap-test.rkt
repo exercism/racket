@@ -9,11 +9,31 @@
     (test-suite
      "leap tests"
 
-     (test-eqv? "vanilla-leap-year" (leap-year? 1996) #t)
-     (test-eqv? "any-old-year" (leap-year? 2015)#f)
-     (test-eqv? "non-leap-even-year" (leap-year? 1998) #f)
-     (test-eqv? "century" (leap-year? 2100)#f)
-     (test-eqv? "not an exceptional-century" (leap-year? 1800) #f)
-     (test-eqv? "exceptional-century" (leap-year? 2000) #t)))
+     (test-false "year not divisible by 4 is a common year"
+                 (leap-year? 2015))
+
+     (test-false "year divisible by 2, not divisible by 4 is a common year" 
+                 (leap-year? 1970))
+
+     (test-true "year divisible by 4, not divisible by 100 is a leap year"
+                (leap-year? 1996))
+
+     (test-true "year divisible by 4 and 5 is still a leap year"
+                (leap-year? 1960))
+
+     (test-false "year divisible by 100, not divisible by 400 is a common year"
+                 (leap-year? 2100))
+
+     (test-false "year divisible by 100 but not by 3 is still not a leap year"
+                 (leap-year? 1900))
+
+     (test-true "year divisible by 400 is a leap year"
+                (leap-year? 2000))
+
+     (test-true "year divisible by 400 but not by 125 is still a leap year"
+                (leap-year? 2400))
+
+     (test-false "year divisible by 200, not divisible by 400 is a common year"
+                 (leap-year? 1800))))
 
   (run-tests suite))
