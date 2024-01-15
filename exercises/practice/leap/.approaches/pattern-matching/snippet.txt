@@ -1,0 +1,9 @@
+(define (leap-year? year)
+  (define divisible-by-4 (zero? (modulo year 4)))
+  (define divisible-by-100 (zero? (modulo year 100)))
+  (define divisible-by-400 (zero? (modulo year 400))) 
+  (match (list divisible-by-4 divisible-by-100 divisible-by-400)
+    [(list _ _ #t) #t]
+    [(list _ #t _) #f]
+    [(list #t _ _) #t]
+    [_ #f]))
