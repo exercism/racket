@@ -16,13 +16,14 @@
 For this exercise, this takes the form of creating a list containing three Boolean values representing whether a year is divisible by 4, 100, or 400.
 As an example, let's run through this code assuming `year` is set to 1993.
 `(divisible-by-4 1999)` is `#f`, `(divisible-by-100 1999)` is `#f`, and `(divisible-by-400 1999)` is `#f`.
-Filling in these results below, we have four patterns underneath it.
+Filling in these results below, we have four patterns underneath it:
+
 ```scheme
 (match (list #t #f #f) ; assuming the year is 1999
   [(list _ _ #t) #t]
   [(list _ #t _) #f]
   [(list #t _ _) #t]
-  [_ #f]))
+  [_ #f])
 ```
 
 The first three expect a list of three elements (`_` matching any value), but they differ on which value in the pattern can only be the literal value `#t`.
