@@ -1,0 +1,6 @@
+(define (leap-year? year)
+  (match (list (zero? (modulo year 4)) (zero? (modulo year 100)) (zero? (modulo year 400)))
+    [(list _ _ #t) #t]
+    [(list _ #t _) #f]
+    [(list #t _ _) #t]
+    [_ #f]))

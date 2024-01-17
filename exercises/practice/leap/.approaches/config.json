@@ -1,0 +1,36 @@
+{
+    "introduction": {
+      "authors": [
+        "BNAndras"
+      ]
+    },
+    "approaches": [
+      {
+        "uuid": "b163b6d5-92ed-4073-8169-03e2a1b09fab",
+        "slug": "boolean-chain",
+        "title": "Boolean chain",
+        "blurb": "Use operators to check boolean values in a chain",
+        "authors": [
+          "BNAndras"
+        ]
+      },
+      {
+        "uuid": "22229478-54ce-48ec-867f-1adcf04c42ac",
+        "slug": "cond-form",
+        "title": "Cond",
+        "blurb": "Use the cond form to check boolean values sequentially.",
+        "authors": [
+          "BNAndras"
+        ]
+      },
+      {
+        "uuid": "45f28b96-4803-424c-9973-f2b4445f7227",
+        "slug": "pattern-matching",
+        "title": "Pattern matching",
+        "blurb": "Use the match form to check a list of boolean values at once.",
+        "authors": [
+          "BNAndras"
+        ]
+      }
+    ]
+}
