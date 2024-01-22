@@ -1,0 +1,31 @@
+{
+  "approaches": [
+    {
+      "uuid": "5e6c8ae8-7cd0-4500-bc1b-e21f036eb708",
+      "slug": "reversing-list",
+      "title": "Reversing a List of Characters",
+      "blurb": "Explode the string into a list of characters and reverse it",
+      "authors": [
+        "BNAndras"
+      ]
+    },
+    {
+      "uuid": "92f3c425-7696-4759-88dc-07ebe2c2f249",
+      "slug": "reversing-with-substrings",
+      "title": "Reversing with Substrings",
+      "blurb": "Reverse the string with recursion and substrings",
+      "authors": [
+        "BNAndras"
+      ]
+    },
+    {
+      "uuid": "b7c8e68e-69f7-4e14-be0c-3191f57fb3b4",
+      "slug": "reversing-by-index",
+      "title": "Reversing by Index",
+      "blurb": "Reverse the string by iterating backwards",
+      "authors": [
+        "BNAndras"
+      ]
+    }
+  ]
+}
