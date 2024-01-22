@@ -47,5 +47,5 @@ For more information, check the [cond form approach][approach-cond-form].
 For more information, check the [pattern matching approach][approach-pattern-matching].
 
 [approach-boolean-chain]: https://exercism.org/tracks/racket/exercises/leap/approaches/boolean-chain
-[approach-cond-form]: https://exercism.org/tracks/racket/exercises/leap/cond-form
+[approach-cond-form]: https://exercism.org/tracks/racket/exercises/leap/approaches/cond-form
 [approach-pattern-matching]: https://exercism.org/tracks/racket/exercises/leap/approaches/pattern-matching
