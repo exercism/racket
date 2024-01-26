@@ -3,7 +3,7 @@
 (provide owns-zebra drinks-water)
 
 (define (owns-zebra)
-  'unknown)
+  (error "Not implemented yet")
 
 (define (drinks-water)
-  'unknown)
+  (error "Not implemented yet")
