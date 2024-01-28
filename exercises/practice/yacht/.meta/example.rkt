@@ -21,7 +21,7 @@
     (if (or (and (= (length groups) 2)
 	         (= (length (car groups)) 4))
 	    (= (length groups) 1))
-      (* 4 (car dice))
+      (* 4 (caar groups))
       0)))
 
 (define (straight start dice)
