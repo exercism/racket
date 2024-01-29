@@ -43,19 +43,19 @@
       (test-equal? "Sixes"
 		   (yacht '(2 3 4 5 6) "sixes") 6)
 
-      (test-equal? "Full house two small, three big"
+      (test-equal? "Full House two small, three big"
 		   (yacht '(2 2 4 4 4) "full house") 16)
 
-      (test-equal? "Full house three small, two big"
+      (test-equal? "Full House three small, two big"
 		   (yacht '(5 3 3 5 3) "full house") 19)
 
-      (test-equal? "Two pair is not a Full house"
+      (test-equal? "Two pair is not a Full House"
 		   (yacht '(2 2 4 4 5) "full house") 0)
 
-      (test-equal? "Four of a kind is not a Full house"
+      (test-equal? "Four of a kind is not a Full House"
 		   (yacht '(1 4 4 4 4) "full house") 0)
 
-      (test-equal? "Yacht is not a Full house"
+      (test-equal? "Yacht is not a Full House"
 		   (yacht '(2 2 2 2 2) "full house") 0)
 
       (test-equal? "Four of a Kind"
@@ -64,7 +64,7 @@
       (test-equal? "Yacht can be scored as Four of a Kind"
 		   (yacht '(3 3 3 3 3) "four of a kind") 12)
 
-      (test-equal? "Full house is not Four of a Kind"
+      (test-equal? "Full House is not Four of a Kind"
 		   (yacht '(3 3 3 5 5) "four of a kind") 0)
 
       (test-equal? "Little Straight"
