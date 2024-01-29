@@ -8,7 +8,7 @@
 (module+ test
   (define suite
     (test-suite
-      "run-length encoding tests"
+      "run-length-encoding tests"
 
       (test-equal? "empty string"
 		   (encode "") "")
@@ -41,6 +41,7 @@
       (test-equal? "single characters with repeated characters"
 		   (decode "12WB12W3B24WB")
 		   "WWWWWWWWWWWWBWWWWWWWWWWWWBBBWWWWWWWWWWWWWWWWWWWWWWWWB")
+
       (test-equal? "multiple whitespace mixed in string"
 		   (decode "2 hs2q q2w2 ") "  hsqq qww  ")
 
