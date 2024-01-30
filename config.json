@@ -606,6 +606,14 @@
         "practices": [],
         "prerequisites": [],
         "difficulty": 3
+      },
+      {
+        "slug": "pig-latin",
+        "name": "Pig Latin",
+        "uuid": "952531aa-1975-48c0-9324-e8d4ebabe07e",
+        "practices": [],
+        "prerequisites": [],
+        "difficulty": 2
       }
     ]
   },
