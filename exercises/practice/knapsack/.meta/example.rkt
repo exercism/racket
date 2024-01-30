@@ -2,7 +2,7 @@
 
 (provide item maximum-value)
 
-(struct item (weight value) #:transparent)
+(struct item (weight value))
 
 (define (maximum-value maximum-weight items)
   (for/fold
