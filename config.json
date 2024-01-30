@@ -598,6 +598,14 @@
         "practices": [],
         "prerequisites": [],
         "difficulty": 1
+      },
+      {
+        "slug": "knapsack",
+        "name": "Knapsack",
+        "uuid": "e08ec6c5-85bc-492a-b670-51ca95db4352",
+        "practices": [],
+        "prerequisites": [],
+        "difficulty": 3
       }
     ]
   },
