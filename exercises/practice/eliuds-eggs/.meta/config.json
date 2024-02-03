@@ -4,10 +4,10 @@
   ],
   "files": {
     "solution": [
-      "pop-count.rkt"
+      "eliuds-eggs.rkt"
     ],
     "test": [
-      "pop-count-test.rkt"
+      "eliuds-eggs-test.rkt"
     ],
     "example": [
       ".meta/example.rkt"

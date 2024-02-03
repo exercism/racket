@@ -1,13 +1,13 @@
 #lang racket/base
 
-(require "pop-count.rkt")
+(require "eliuds-eggs.rkt")
 
 (module+ test
   (require rackunit rackunit/text-ui)
 
   (define suite
     (test-suite
-     "pop count tests"
+     "eliud's eggs tests"
 
      (test-equal? "0 eggs" (number->eggs 0) 0)
 
