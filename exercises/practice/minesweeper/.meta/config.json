@@ -1,0 +1,15 @@
+{
+  "authors": ["blakelewis"],
+  "files": {
+    "solution": [
+      "minesweeper.rkt"
+    ],
+    "test": [
+      "minesweeper-test.rkt"
+    ],
+    "example": [
+      ".meta/example.rkt"
+    ]
+  },
+  "blurb": "Add the numbers to a minesweeper board."
+}
