@@ -1,0 +1,16 @@
+{
+  "authors": ["blakelewis"],
+  "files": {
+    "solution": [
+      "robot-simulator.rkt"
+    ],
+    "test": [
+      "robot-simulator-test.rkt"
+    ],
+    "example": [
+      ".meta/example.rkt"
+    ]
+  },
+  "blurb": "Write a robot simulator.",
+  "source": "Inspired by an interview question at a famous company."
+}
