@@ -1,0 +1,15 @@
+{
+  "authors": ["blakelewis"],
+  "files": {
+    "solution": [
+      "parallel-letter-frequency.rkt"
+    ],
+    "test": [
+      "parallel-letter-frequency-test.rkt"
+    ],
+    "example": [
+      ".meta/example.rkt"
+    ]
+  },
+  "blurb": "Count the frequency of letters in texts using parallel computation."
+}
