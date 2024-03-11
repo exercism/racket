@@ -10,8 +10,8 @@
 
 (define (rows height)
   (for/fold ([triangle '(())]
-             #:result(if (null? triangle)
-                       triangle
-                       (cdr (reverse triangle))))
+             #:result (if (null? triangle)
+                        triangle
+                        (cdr (reverse triangle))))
     ([r (in-range height)])
     (cons (next-row (car triangle)) triangle)))
