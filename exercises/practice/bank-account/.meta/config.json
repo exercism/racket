@@ -1,0 +1,15 @@
+{
+  "authors": ["blakelewis"],
+  "files": {
+    "solution": [
+      "bank-account.rkt"
+    ],
+    "test": [
+      "bank-account-test.rkt"
+    ],
+    "example": [
+      ".meta/example.rkt"
+    ]
+  },
+  "blurb": "Simulate a bank account supporting opening/closing, withdraws, and deposits of money. Watch out for concurrent transactions!"
+}
