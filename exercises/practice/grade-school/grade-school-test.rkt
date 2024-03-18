@@ -46,22 +46,6 @@
         (check-false (send school add "James" 2))
         (check-true (send school add "Paul" 2)))
 
-      (test-case "A student can't be in two different grades"
-	(define school (new school%))
-        (check-true (send school add "Aimee" 2))
-        (check-false (send school add "Aimee" 1))
-        (check-equal?
-	 (send school roster)
-	 '((2 "Aimee"))))
-
-      (test-case "A student can only be added to the same grade in the roster once"
-	(define school (new school%))
-        (check-true (send school add "Aimee" 2))
-        (check-false (send school add "Aimee" 2))
-        (check-equal?
-	 (send school roster)
-	 '((2 "Aimee"))))
-
       (test-case "Student not added to same grade in the roster more than once"
 	(define school (new school%))
         (check-true (send school add "Blair" 2))
@@ -91,14 +75,6 @@
         (check-true (send school add "James" 2))
         (check-false (send school add "James" 3))
         (check-true (send school add "Paul" 3)))
-
-      (test-case "A student cannot be added to more than one grade in the sorted roster"
-	(define school (new school%))
-          (check-true (send school add "Aimee" 2))
-          (check-false (send school add "Aimee" 1))
-          (check-equal?
-	   (send school roster)
-	   '((2 "Aimee"))))
 
       (test-case "Student not added to multiple grades in the roster"
 	(define school (new school%))
