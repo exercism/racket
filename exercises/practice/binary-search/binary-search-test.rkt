@@ -33,24 +33,19 @@
                 (binary-search #(1 3 5 8 13 21 34 55 89 144 233 377) 21)
                 5)
 
-     (test-eqv? "identifies that a value is not included in the vector"
-               (binary-search #(1 3 4 6 8 9 11) 7)
-               #f)
+     (test-false "identifies that a value is not included in the vector"
+               (binary-search #(1 3 4 6 8 9 11) 7))
 
-     (test-eqv? "a value smaller than the vector's smallest value is not found"
-               (binary-search #(1 3 4 6 8 9 11) 0)
-               #f)
+     (test-false "a value smaller than the vector's smallest value is not found"
+               (binary-search #(1 3 4 6 8 9 11) 0))
 
-     (test-eqv? "a value larger than the vector's largest value is not found"
-               (binary-search #(1 3 4 6 8 9 11) 13)
-               #f)
+     (test-false "a value larger than the vector's largest value is not found"
+               (binary-search #(1 3 4 6 8 9 11) 13))
 
-     (test-eqv? "nothing is found in an empty vector"
-               (binary-search #() 1)
-               #f)
+     (test-false "nothing is found in an empty vector"
+               (binary-search #() 1))
 
-     (test-eqv? "nothing is found when the left and right bounds cross"
-               (binary-search #(1 2) 0)
-               #f)))
+     (test-false "nothing is found when the left and right bounds cross"
+               (binary-search #(1 2) 0))))
 
   (run-tests suite))
