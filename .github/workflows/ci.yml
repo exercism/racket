@@ -16,7 +16,7 @@ jobs:
       fail-fast: false
       matrix:
         racket-variant: ['BC', 'CS']
-        racket-version: ['8.10', '8.11', '8.12']
+        racket-version: ['8.11', '8.12', '8.13']
 
     steps:
       - uses: actions/checkout@a5ac7e51b41094c92402da3b24376905380afc29
