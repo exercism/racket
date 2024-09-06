@@ -10,52 +10,52 @@
      "all-your-base tests"
 
       (test-equal? "single-bit-one-to-decimal"
-                   '( 1 )
-                   (rebase '( 1 ) 2 10))
+                   (rebase '( 1 ) 2 10)
+                   '( 1 ))
 
       (test-equal? "binary-to-single-decimal"
-                   '( 5 )
-                   (rebase '( 1 0 1 ) 2 10))
+                   (rebase '( 1 0 1 ) 2 10)
+                   '( 5 ))
 
       (test-equal? "single-decimal-to-binary"
-                   '( 1 0 1 )
-                   (rebase '( 5 ) 10 2))
+                   (rebase '( 5 ) 10 2)
+                   '( 1 0 1 ))
 
       (test-equal? "binary-to-multiple-decimal"
-                   '( 4 2 )
-                   (rebase '( 1 0 1 0 1 0 ) 2 10))
+                   (rebase '( 1 0 1 0 1 0 ) 2 10)
+                   '( 4 2 ))
 
       (test-equal? "decimal-to-binary"
-                   '( 1 0 1 0 1 0 )
-                   (rebase '( 4 2 ) 10 2))
+                   (rebase '( 4 2 ) 10 2)
+                   '( 1 0 1 0 1 0 ))
 
       (test-equal? "trinary-to-hexadecimal"
-                   '( 2 10 )
-                   (rebase '( 1 1 2 0 ) 3 16))
+                   (rebase '( 1 1 2 0 ) 3 16)
+                   '( 2 10 ))
 
       (test-equal? "hexadecimal-to-trinary"
-                   '( 1 1 2 0 )
-                   (rebase '( 2 10 ) 16 3))
+                   (rebase '( 2 10 ) 16 3)
+                   '( 1 1 2 0 ))
 
       (test-equal? "number-15-bit-integer"
-                   '( 6 10 45 )
-                   (rebase '( 3 46 60 ) 97 73))
+                   (rebase '( 3 46 60 ) 97 73)
+                   '( 6 10 45 ))
 
       (test-equal? "empty-list"
-                   '( 0 )
-                   (rebase '() 2 10))
+                   (rebase '() 2 10)
+                   '( 0 ))
 
       (test-equal? "single-zero"
-                   '( 0 )
-                   (rebase '( 0 ) 10 2))
+                   (rebase '( 0 ) 10 2)
+                   '( 0 ))
 
       (test-equal? "multiple-zeros"
-                   '( 0 )
-                   (rebase '( 0 0 0 ) 10 2))
+                   (rebase '( 0 0 0 ) 10 2)
+                   '( 0 ))
 
       (test-equal? "leading-zeros"
-                   '( 4 2 )
-                   (rebase '( 0 6 0 ) 7 10))
+                   (rebase '( 0 6 0 ) 7 10)
+                   '( 4 2 ))
 
       (test-false "input-base-is-one"
                    (rebase '( 0 ) 1 10))
