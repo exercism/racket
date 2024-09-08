@@ -9,7 +9,7 @@
 
   (define max-names (* 26 26 10 10 10))
 
-  (define proper-robot-name #px"\\p{Lu}{2}\\p{Nd}{3}")
+  (define proper-robot-name #px"^\\p{Lu}{2}\\p{Nd}{3}$")
 
   (define (check-proper-robot-name r)
     (check-regexp-match proper-robot-name (name r)))
@@ -28,20 +28,20 @@
              [name1 (name robby)]
              [_ (reset! robby)]
              [name2 (name robby)])
-        (and
-         (and (check-regexp-match proper-robot-name name1)
-              (check-regexp-match proper-robot-name name2))
-         (not (string=? name1 name2)))))
+        (check-regexp-match proper-robot-name name1)
+        (check-regexp-match proper-robot-name name2)
+        (check-not-equal? name1 name2)))
 
      ;; reset cache in order to generate all the names
      (test-case
       "Check that robots are created with unique names."
-      (begin
+      (let ([count (/ max-names 4)])
         (reset-name-cache!)
-        (= max-names
-           (let ([names (make-hash)])
-             (for ((_ (in-range (/ max-names 4))))
-               (hash-set! names (name (make-robot)) #t))
-             (hash-count names)))))))
+        (check-equal?
+         (let ([names (make-hash)])
+           (for ((_ (in-range count)))
+             (hash-set! names (name (make-robot)) #t))
+           (hash-count names))
+         count)))))
 
-    (run-tests robot-name-suite))
+  (run-tests robot-name-suite))
