@@ -32,10 +32,11 @@
         (check-regexp-match proper-robot-name name2)
         (check-not-equal? name1 name2)))
 
-     ;; reset cache in order to generate all the names
      (test-case
       "Check that robots are created with unique names."
-      (let ([count (/ max-names 4)])
+      ;; sufficient to cause collision (birthday paradox)
+      (let ([count 5000])
+        ;; reset cache in order to generate all the names
         (reset-name-cache!)
         (check-equal?
          (let ([names (make-hash)])
