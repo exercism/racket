@@ -231,6 +231,14 @@
         "difficulty": 2
       },
       {
+        "slug": "nth-prime",
+        "name": "Nth Prime",
+        "uuid": "ae46d5df-62cc-46d8-a773-bc93a1ad716e",
+        "practices": [],
+        "prerequisites": [],
+        "difficulty": 2
+      },
+      {
         "slug": "nucleotide-count",
         "name": "Nucleotide Count",
         "uuid": "9fbd3939-f71a-4506-bcc3-e9940d4027ed",
