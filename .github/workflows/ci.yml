@@ -10,7 +10,7 @@ jobs:
   ci:
     name: Racket ${{ matrix.racket-version }}-${{ matrix.racket-variant }}
 
-    runs-on: ubuntu-22.04
+    runs-on: ubuntu-24.04
 
     strategy:
       fail-fast: false
