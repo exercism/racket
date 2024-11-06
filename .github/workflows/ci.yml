@@ -10,13 +10,13 @@ jobs:
   ci:
     name: Racket ${{ matrix.racket-version }}-${{ matrix.racket-variant }}
 
-    runs-on: ubuntu-22.04
+    runs-on: ubuntu-24.04
 
     strategy:
       fail-fast: false
       matrix:
         racket-variant: ['BC', 'CS']
-        racket-version: ['8.12', '8.13', '8.14']
+        racket-version: ['8.13', '8.14', '8.15']
 
     steps:
       - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
