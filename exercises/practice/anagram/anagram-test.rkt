@@ -41,7 +41,7 @@
                                         "leading"))
                         string<?)
 
-                  '("gallery" "regally" "largely"))
+                  '("gallery" "largely" "regally"))
 
      (test-equal? "detects multiple anagrams with different case"
                   (sort (anagrams-for "nose"
