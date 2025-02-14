@@ -16,8 +16,9 @@
                   '())
 
      (test-equal? "detects two anagrams"
-                  (anagrams-for "solemn"
-                                '("lemons" "cherry" "melons"))
+                  (sort (anagrams-for "solemn"
+                                      '("lemons" "cherry" "melons"))
+                        string<?)
                   '("lemons" "melons"))
 
      (test-equal? "does not detect anagram subsets"
@@ -31,13 +32,21 @@
                   '("inlets"))
 
      (test-equal? "detects three anagrams"
-                  (anagrams-for "allergy"
-                                '("gallery" "ballerina" "regally" "clergy" "largely" "leading"))
-                  '("gallery" "regally" "largely"))
+                  (sort (anagrams-for "allergy"
+                                      '("gallery" 
+                                        "ballerina" 
+                                        "regally"
+                                        "clergy"
+                                        "largely"
+                                        "leading"))
+                        string<?)
+
+                  '("gallery" "largely" "regally"))
 
      (test-equal? "detects multiple anagrams with different case"
-                  (anagrams-for "nose"
-                                '("Eons" "ONES"))
+                  (sort (anagrams-for "nose"
+                                      '("Eons" "ONES"))
+                        string<?)
                   '("Eons" "ONES"))
 
      (test-equal? "does not detect non-anagrams with identical checksum"
@@ -50,12 +59,12 @@
                                 '("cashregister" "Carthorse" "radishes"))
                   '("Carthorse"))
 
-    (test-equal? "detects anagrams using case-insensitive subject"
+     (test-equal? "detects anagrams using case-insensitive subject"
                   (anagrams-for "Orchestra"
                                 '("cashregister" "carthorse" "radishes"))
                   '("carthorse"))
 
-    (test-equal? "detects anagrams using case-insensitive possible matches"
+     (test-equal? "detects anagrams using case-insensitive possible matches"
                   (anagrams-for "orchestra"
                                 '("cashregister" "Carthorse" "radishes"))
                   '("Carthorse"))
@@ -65,26 +74,25 @@
                                 '("goGoGO"))
                   '())
 
-    (test-equal? "anagrams must use all letters exactly once"
+     (test-equal? "anagrams must use all letters exactly once"
                   (anagrams-for "tapper"
                                 '("patter"))
                   '())
 
-    (test-equal? "words are not anagrams of themselves"
+     (test-equal? "words are not anagrams of themselves"
                   (anagrams-for "BANANA"
                                 '("BANANA"))
                   '())
 
-    (test-equal? "words are not anagrams of themselves even if letter case is partially different"
+     (test-equal? "words are not anagrams of themselves even if letter case is partially different"
                   (anagrams-for "BANANA"
                                 '("Banana"))
                   '())
                 
-    (test-equal? "words are not anagrams of themselves even if letter case is completely different"
+     (test-equal? "words are not anagrams of themselves even if letter case is completely different"
                   (anagrams-for "BANANA"
                                 '("banana"))
                   '())
-
 
      (test-equal? "words other than themselves can be anagrams"
                   (anagrams-for "LISTEN"
