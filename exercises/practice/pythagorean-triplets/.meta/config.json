@@ -11,5 +11,5 @@
       ".meta/example.rkt"
     ]
   },
-  "blurb": ""
+  "blurb": "Find Pythagorean triplets with a given sum"
 }
