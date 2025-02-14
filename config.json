@@ -742,6 +742,14 @@
         ],
         "prerequisites": [],
         "difficulty": 8
+      },
+      {
+        "slug": "bowling",
+        "name": "Bowling",
+        "uuid": "f6ca2cb9-f169-4c3e-8a64-6d3326b01d70",
+        "practices": [],
+        "prerequisites": [],
+        "difficulty": 6
       }
     ]
   },
