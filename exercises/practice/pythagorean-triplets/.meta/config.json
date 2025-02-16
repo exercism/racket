@@ -2,10 +2,10 @@
   "authors": ["blakelewis"],
   "files": {
     "solution": [
-      "pythagorean-triplet.rkt"
+      "pythagorean-triplets.rkt"
     ],
     "test": [
-      "pythagorean-triplet-test.rkt"
+      "pythagorean-triplets-test.rkt"
     ],
     "example": [
       ".meta/example.rkt"
