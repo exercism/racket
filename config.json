@@ -752,9 +752,9 @@
         "difficulty": 6
       },
       {
-        "slug": "pythagorean-triplet",
+        "slug": "pythagorean-triplets",
         "name": "Pythagorean Triplet",
-        "uuid": "999f9e70-3d55-4e73-a6ca-7eab8de8731d",
+        "uuid": "630a11f5-e640-4e4d-af01-30f3bbcf495c",
         "practices": [],
         "prerequisites": [],
         "difficulty": 4
