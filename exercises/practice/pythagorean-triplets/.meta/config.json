@@ -1,5 +1,8 @@
 {
   "authors": ["blakelewis"],
+  "contributors": [
+    "SimaDovakin"
+  ],
   "files": {
     "solution": [
       "pythagorean-triplets.rkt"
