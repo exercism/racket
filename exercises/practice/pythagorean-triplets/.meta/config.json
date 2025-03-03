@@ -1,5 +1,8 @@
 {
   "authors": ["blakelewis"],
+  "contributors": [
+    "SimaDovakin"
+  ],
   "files": {
     "solution": [
       "pythagorean-triplets.rkt"
@@ -11,5 +14,7 @@
       ".meta/example.rkt"
     ]
   },
-  "blurb": "Find Pythagorean triplets with a given sum"
+  "blurb": "Given an integer N, find all Pythagorean triplets for which a + b + c = N.",
+  "source": "A variation of Problem 9 from Project Euler",
+  "source_url": "https://projecteuler.net/problem=9"
 }
