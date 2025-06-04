@@ -110,6 +110,10 @@
                    (to-roman 3001)
                    "MMMI")
 
+     (test-equal? "3888 is MMMDCCCLXXXVIII"
+                   (to-roman 3888)
+                   "MMMDCCCLXXXVIII")
+
      (test-equal? "3999 is MMMCMXCIX"
                    (to-roman 3999)
                    "MMMCMXCIX")))
