@@ -20,6 +20,6 @@
        (ormap (lambda (x) (char-alphabetic? x)) (string->list phrase))))
 
 (define (question? phrase)
-  (char=? #\?
-          (string-ref phrase
-                      (- (string-length phrase) 1))))
+  (let ([trimmed (string-trim phrase)])
+    (and (not (string=? trimmed ""))
+         (char=? #\? (string-ref trimmed (sub1 (string-length trimmed)))))))
