@@ -113,9 +113,9 @@
                   (proteins "UGGUGUUAUUAAUGGUUU")
                   '("Tryptophan" "Cysteine" "Tyrosine"))
 
-     (test-exn "Non-existing codon can't translate"
-               exn:fail?
-               (lambda () (proteins "AAA")))
+     (test-equal? "Sequence of two non-STOP codons does not translate to a STOP codon"
+                  (proteins "AUGAUG")
+                  '("Methionine" "Methionine"))
 
      (test-exn "Unknown amino acids, not part of a codon, can't translate"
                exn:fail?
