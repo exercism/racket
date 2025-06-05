@@ -40,6 +40,9 @@
           (test-equal? "word beginning with q without a following u"
                        (translate "qat") "atqay")
 
+          (test-equal? "word beginning with consonant and vowel containing qu"
+                       (translate "liquid") "iquidlay")
+
           (test-equal? "word beginning with ch"
                        (translate "chair") "airchay")
 
