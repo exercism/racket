@@ -709,6 +709,14 @@
         "difficulty": 8
       },
       {
+        "slug": "flower-field",
+        "name": "Flower Field",
+        "uuid": "a75c6bf8-81be-43b2-b483-97e34d03f296",
+        "practices": [],
+        "prerequisites": [],
+        "difficulty": 8
+      },
+      {
         "slug": "luhn",
         "name": "Luhn",
         "uuid": "cc6ec2ec-071b-49a8-8fda-93bc8e107494",
@@ -722,7 +730,8 @@
         "uuid": "a7bd6275-b624-4c09-9040-4b57afe1c4b6",
         "practices": [],
         "prerequisites": [],
-        "difficulty": 8
+        "difficulty": 8,
+        "status": "deprecated"
       },
       {
         "slug": "parallel-letter-frequency",
