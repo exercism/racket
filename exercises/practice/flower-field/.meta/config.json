@@ -1,0 +1,20 @@
+{
+  "authors": [
+    "blakelewis"
+  ],
+  "contributors": [
+    "BNAndras"
+  ],
+  "files": {
+    "solution": [
+      "flower-field.rkt"
+    ],
+    "test": [
+      "flower-field-test.rkt"
+    ],
+    "example": [
+      ".meta/example.rkt"
+    ]
+  },
+  "blurb": "Mark all the flowers in a garden."
+}
