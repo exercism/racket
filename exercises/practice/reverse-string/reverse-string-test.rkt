@@ -22,4 +22,10 @@
                             "!yrgnuh m'I")
                (test-equal? "a palindrome"
                             (my-reverse "racecar")
-                            "racecar"))))
+                            "racecar")
+               (test-equal? "an even-sized word"
+                            (my-reverse "drawer")
+                            "reward")
+               (test-equal? "wide characters"
+                            (my-reverse "子猫")
+                            "猫子"))))
