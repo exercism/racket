@@ -1,5 +1,7 @@
 {
-  "authors": ["blakelewis"],
+  "authors": [
+    "blakelewis"
+  ],
   "files": {
     "solution": [
       "food-chain.rkt"

@@ -1,5 +1,7 @@
 {
-  "authors": ["blakelewis"],
+  "authors": [
+    "blakelewis"
+  ],
   "files": {
     "solution": [
       "run-length-encoding.rkt"
