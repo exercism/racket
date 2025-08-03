@@ -3,4 +3,4 @@
 (provide response-for)
 
 (define (response-for prompt)
-  (error "Not implemented yet"))
+  (error "Please implement 'response-for'"))

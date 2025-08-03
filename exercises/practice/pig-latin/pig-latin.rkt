@@ -3,4 +3,4 @@
 (provide translate)
 
 (define (translate text)
-  (error "Not implemented yet"))
+  (error "Please implement 'translate'"))

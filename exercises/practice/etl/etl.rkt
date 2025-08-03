@@ -3,4 +3,4 @@
 (provide etl)
 
 (define (etl input)
-  (error "Not implemented yet"))
+  (error "Please implement 'etl'"))

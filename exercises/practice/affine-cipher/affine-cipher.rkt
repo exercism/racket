@@ -1,4 +1,5 @@
-#lang racket/base
+#lang racket
+
 (require racket/contract)
 
 (provide (contract-out
@@ -10,7 +11,7 @@
                    exact-nonnegative-integer? . -> . string?)]))
 
 (define (encode msg a b)
-  (error "Not implemented yet"))
+  (error "Please implement 'encode'"))
 
 (define (decode msg a b)
-  (error "Not implemented yet"))
+  (error "Please implement 'decode'"))

@@ -3,4 +3,4 @@
 (provide two-fer)
 
 (define (two-fer name)
-  (error "Not implemented yet"))
+  (error "Please implement 'two-fer'"))

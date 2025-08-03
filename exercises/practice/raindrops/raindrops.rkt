@@ -3,4 +3,4 @@
 (provide convert)
 
 (define (convert number)
-  (error "Not implemented yet"))
+  (error "Please implement 'convert'"))

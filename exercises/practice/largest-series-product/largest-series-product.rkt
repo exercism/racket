@@ -3,4 +3,4 @@
 (provide largest-product)
 
 (define (largest-product digits span)
-  (error "Not implemented yet"))
+  (error "Please implement 'largest-product'"))

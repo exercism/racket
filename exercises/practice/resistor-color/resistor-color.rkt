@@ -3,7 +3,7 @@
 (provide color-code colors)
 
 (define (color-code color)
-  (error "Not implemented yet"))
+  (error "Please implement 'color-code'"))
 
 (define (colors)
-  (error "Not implemented yet"))
+  (error "Please implement 'colors'"))

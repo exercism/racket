@@ -3,4 +3,4 @@
 (provide annotate)
 
 (define (annotate garden)
-  (error "Not implemented yet"))
+  (error "Please implement 'annotate'"))

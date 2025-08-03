@@ -3,4 +3,4 @@
 (provide spiral-matrix)
 
 (define (spiral-matrix n)
-  (error "Not implemented yet"))
+  (error "Please implement 'spiral-matrix'"))

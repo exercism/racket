@@ -1,4 +1,4 @@
-#lang racket/base
+#lang racket
 
 ;; Converts integers to English-language descriptions
 
@@ -33,13 +33,13 @@
 ;; =============================================================================
 
 (define (step1 n)
-  (error "Not implemented yet"))
+  (error "Please implement 'step1'"))
 
 (define (step2 N)
-  (error "Not implemented yet"))
+  (error "Please implement 'step2'"))
 
 (define (step3 n)
-  (error "Not implemented yet"))
+  (error "Please implement 'step3'"))
 
 (define (step4 N)
-  (error "Not implemented yet"))
+  (error "Please implement 'step4'"))

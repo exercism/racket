@@ -3,10 +3,10 @@
 (provide sum-of-squares square-of-sum difference)
 
 (define (sum-of-squares number)
-  (error "Not implemented yet"))
+  (error "Please implement 'sum-of-squares'"))
 
 (define (square-of-sum number)
-  (error "Not implemented yet"))
+  (error "Please implement 'square-of-sum'"))
 
 (define (difference number)
-  (error "Not implemented yet"))
+  (error "Please implement 'difference'"))

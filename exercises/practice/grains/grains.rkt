@@ -3,7 +3,7 @@
 (provide square total)
 
 (define (square a-square)
-  (error "Not implemented yet"))
+  (error "Please implement 'square'"))
 
 (define (total)
-  (error "Not implemented yet"))
+  (error "Please implement 'total'"))

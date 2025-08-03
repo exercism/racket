@@ -3,4 +3,4 @@
 (provide yacht)
 
 (define (yacht dice category)
-  (error "Not implemented yet"))
+  (error "Please implement 'yacht'"))

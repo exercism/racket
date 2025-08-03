@@ -3,4 +3,4 @@
 (provide anagrams-for)
 
 (define (anagrams-for subject candidates)
-  (error "Not implemented yet"))
+  (error "Please implement 'anagrams-for'"))
