@@ -18,6 +18,10 @@
                       (encode 64)
                       '(64))
 
+        (test-equal? "asymmetric single byte"
+                      (encode 83)
+                      '(83))
+
         (test-equal? "largest single byte"
                       (encode 127)
                       '(127))
@@ -30,6 +34,10 @@
         (test-equal? "arbitrary double byte"
                       (encode 8192)
                       '(192 0))
+
+        (test-equal? "asymmetric double byte"
+                      (encode 173)
+                      '(129 45))
 
         (test-equal? "largest double byte"
                       (encode 16383)
@@ -44,6 +52,14 @@
                       (encode 1048576)
                       '(192 128 0))
 
+        (test-equal? "asymmetric triple byte"
+                      (encode 120220)
+                      '(135 171 28))
+
+        (test-equal? "largest triple byte"
+                      (encode 2097151)
+                      '(255 255 127))
+
         ;;; 4-byte results
         (test-equal? "smallest quadruple byte"
                       (encode 2097152)
@@ -52,6 +68,10 @@
         (test-equal? "arbitrary quadruple byte"
                       (encode 134217728)
                       '(192 128 128 0))
+
+        (test-equal? "asymmetric quadruple byte"
+                      (encode 3503876)
+                      '(129 213 238 4))
 
         (test-equal? "largest quadruple byte"
                       (encode 268435455)
@@ -65,6 +85,10 @@
         (test-equal? "arbitrary quintuple byte"
                       (encode 4278190080)
                       '(143 248 128 128 0))
+
+        (test-equal? "asymmetric quintuple byte"
+                      (encode 2254790917)
+                      '(136 179 149 194 5))
 
         (test-equal? "maximum 32-bit integer input"
                       (encode 4294967295)
@@ -124,5 +148,4 @@
 
   (begin
     (run-tests encode-tests)
-    (run-tests decode-tests)
-    ))
+    (run-tests decode-tests)))
