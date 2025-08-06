@@ -4,4 +4,4 @@
 
 (define robot%
   (class object%
-    (error "Not implemented yet")))
+    (error "Please implement 'robot'")))

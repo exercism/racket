@@ -97,6 +97,17 @@
      (test-equal? "words other than themselves can be anagrams"
                   (anagrams-for "LISTEN"
                                 '("LISTEN" "Silent"))
-                  '("Silent"))))
+                  '("Silent"))
+
+     (test-equal? "handles case of greek letters"
+                  (sort (anagrams-for "ΑΒΓ"
+                                '("ΒΓΑ" "ΒΓΔ" "γβα" "αβγ"))
+                        string<?)
+                  '("ΒΓΑ" "γβα"))
+
+     (test-equal? "different characters may have the same bytes"
+                  (anagrams-for "a⬂"
+                                '("€a"))
+                  '())))
 
   (run-tests suite))

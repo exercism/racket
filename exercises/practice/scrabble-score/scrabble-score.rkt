@@ -3,4 +3,4 @@
 (provide score)
 
 (define (score word)
-  (error "Not implemented yet"))
+  (error "Please implement 'score'"))

@@ -9,22 +9,22 @@
          my-concatenate)
 
 (define (my-length sequence)
-  (error "Not implemented yet"))
+  (error "Please implement 'my-length'"))
 
 (define (my-reverse sequence)
-  (error "Not implemented yet"))
+  (error "Please implement 'my-reverse'"))
 
 (define (my-map operation sequence)
-  (error "Not implemented yet"))
+  (error "Please implement 'my-map'"))
 
 (define (my-filter operation? sequence)
-  (error "Not implemented yet"))
+  (error "Please implement 'my-filter'"))
 
 (define (my-fold operation accumulator sequence)
-  (error "Not implemented yet"))
+  (error "Please implement 'my-fold'"))
 
 (define (my-append sequence1 sequence2)
-  (error "Not implemented yet"))
+  (error "Please implement 'my-append'"))
 
 (define (my-concatenate sequence-of-sequences)
-  (error "Not implemented yet"))
+  (error "Please implement 'my-concatenate'"))

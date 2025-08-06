@@ -3,4 +3,4 @@
 (provide rows)
 
 (define (rows high-char)
-  (error "Not implemented yet"))
+  (error "Please implement 'rows'"))

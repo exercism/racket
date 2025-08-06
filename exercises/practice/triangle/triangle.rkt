@@ -2,4 +2,5 @@
 
 (provide triangle?)
 
-(define (triangle? sides kind))
+(define (triangle? sides kind)
+  (error "Please implement 'triangle?'"))

@@ -3,7 +3,7 @@
 (provide list-allergies allergic-to?)
 
 (define (list-allergies score)
-  (error "Not implemented yet"))
+  (error "Please implement 'list-allergies'"))
 
 (define (allergic-to? str score)
-  (error "Not implemented yet"))
+  (error "Please implement 'allergic-to?'"))

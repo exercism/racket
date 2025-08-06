@@ -4,4 +4,4 @@
 
 (define game%
   (class object%
-    (error "Not implemented yet")))
+    (error "Please implement 'game'")))

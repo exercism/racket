@@ -6,13 +6,13 @@
          reset-name-cache!)
 
 (define (make-robot)
-  (error "Not implemented yet"))
+  (error "Please implement 'make-robot'"))
 
 (define (name robot)
-  (error "Not implemented yet"))
+  (error "Please implement 'name'"))
 
 (define (reset! robot)
-  (error "Not implemented yet"))
+  (error "Please implement 'reset!'"))
 
 (define (reset-name-cache!)
-  (error "Not implemented yet"))
+  (error "Please implement 'reset-name-cache!'"))

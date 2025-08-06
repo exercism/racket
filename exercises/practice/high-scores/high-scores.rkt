@@ -4,5 +4,4 @@
 
 (define high-scores%
   (class object%
-    ; implement me!
-    (super-new)))
+    (error "Please implement 'high-scores'")))

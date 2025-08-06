@@ -3,4 +3,4 @@
 (provide primes)
 
 (define (primes limit)
-  (error "Not implemented yet"))
+  (error "Please implement 'primes'"))

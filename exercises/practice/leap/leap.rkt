@@ -3,4 +3,4 @@
 (provide leap-year?)
 
 (define (leap-year? year)
-  (error "Not implemented yet"))
+  (error "Please implement 'leap-year?'"))

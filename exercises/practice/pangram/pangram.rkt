@@ -3,4 +3,4 @@
 (provide pangram?)
 
 (define (pangram? sentence)
-  (error "Not implemented yet"))
+  (error "Please implement 'pangram?'"))

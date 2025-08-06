@@ -4,4 +4,4 @@
 
 (define school%
   (class object%
-    (error "Not implemented yet")))
+    (error "Please implement 'school'")))
