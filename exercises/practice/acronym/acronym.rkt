@@ -3,4 +3,4 @@
 (provide acronym)
 
 (define (acronym string)
-  (error "Not implemented yet"))
+  (error "Please implement 'acronym'"))

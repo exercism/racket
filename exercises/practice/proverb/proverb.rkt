@@ -3,4 +3,4 @@
 (provide recite)
 
 (define (recite lst)
-  (error "Not implemented yet"))
+  (error "Please implement 'recite'"))

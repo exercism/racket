@@ -3,4 +3,4 @@
 (provide proteins)
 
 (define (proteins strand)
-  (error "Not implemented yet"))
+  (error "Please implement 'proteins'"))

@@ -5,4 +5,4 @@
 (struct item (weight value) #:transparent)
 
 (define (maximum-value maximum-weight items)
-  (error "Not implemented yet"))
+  (error "Please implement 'maximum-value'"))

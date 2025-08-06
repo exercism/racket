@@ -3,4 +3,4 @@
 (provide triplets-with-sum)
 
 (define (triplets-with-sum p)
-  (error "Not implemented yet"))
+  (error "Please implement 'triplets-with-sum'"))

@@ -3,4 +3,4 @@
 (provide to-roman)
 
 (define (to-roman number)
-  (error "Not implemented yet"))
+  (error "Please implement 'to-roman'"))

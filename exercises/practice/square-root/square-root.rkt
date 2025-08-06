@@ -3,4 +3,4 @@
 (provide square-root)
 
 (define (square-root radicand)
-  (error "Not implemented yet"))
+  (error "Please implement 'square-root'"))

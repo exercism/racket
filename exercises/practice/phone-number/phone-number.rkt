@@ -3,4 +3,4 @@
 (provide nanp-clean)
 
 (define (nanp-clean s)
-  s)
+  (error "Please implement 'nanp-clean'"))

@@ -3,4 +3,4 @@
 (provide valid?)
 
 (define (valid? digits)
-  (error "Not implemented yet"))
+  (error "Please implement 'valid?'"))

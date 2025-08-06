@@ -3,4 +3,4 @@
 (provide balanced?)
 
 (define (balanced? str)
-  (error "Not implemented yet"))
+  (error "Please implement 'balanced?'"))

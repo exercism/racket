@@ -3,4 +3,4 @@
 (provide solve)
 
 (define (solve puzzle)
-  (error "Not implemented yet"))
+  (error "Please implement 'solve'"))

@@ -3,7 +3,7 @@
 (provide keep discard)
 
 (define (keep lst predicate)
-  (error "Not implemented yet"))
+  (error "Please implement 'keep'"))
 
 (define (discard lst predicate)
-  (error "Not implemented yet"))
+  (error "Please implement 'discard'"))

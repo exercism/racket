@@ -3,4 +3,4 @@
 (provide plants)
 
 (define (plants diagram student)
-  (error "Not implemented yet"))
+  (error "Please implement 'plants'"))

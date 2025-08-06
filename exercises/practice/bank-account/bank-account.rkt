@@ -4,4 +4,4 @@
 
 (define bank-account%
   (class object%
-    (error "Not implemented yet")))
+    (error "Please implement 'bank-account'")))

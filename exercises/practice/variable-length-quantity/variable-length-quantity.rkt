@@ -6,7 +6,7 @@
 ;;; You may wish to make a version that accepts a single argument first
 ;;; as that will make debugging easier.
 (define (encode . nums)
-  (error "Not implemented yet"))
+  (error "Please implement 'encode'"))
 
 (define (decode . nums)
-  (error "Not implemented yet"))
+  (error "Please implement 'decode'"))

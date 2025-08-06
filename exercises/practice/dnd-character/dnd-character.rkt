@@ -9,10 +9,10 @@
     ()) ; Add necessary struct fields
 
 (define (ability)
-  (error "Not implemented yet"))
+  (error "Please implement 'ability'"))
 
 (define (modifier value)
-  (error "Not implemented yet"))
+  (error "Please implement 'modifier'"))
 
 (define (make-character)
-  (error "Not implemented yet"))
+  (error "Please implement 'make-character'"))

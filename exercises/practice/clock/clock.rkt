@@ -5,13 +5,11 @@
          subtract
          clock->string)
 
-; We have provided stubs for add, subtract, and clock->string. The clock implementation is up to you.
-
 (define (clock->string c)
-  (error "Not implemented yet"))
+  (error "Please implement 'clock->string'"))
 
 (define (add c minutes)
-  (error "Not implemented yet"))
+  (error "Please implement 'add'"))
 
 (define (subtract c minutes)
-  (error "Not implemented yet"))
+  (error "Please implement 'subtract'"))

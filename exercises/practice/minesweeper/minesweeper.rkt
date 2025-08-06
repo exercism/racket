@@ -3,4 +3,4 @@
 (provide annotate)
 
 (define (annotate minefield)
-  (error "Not implemented yet"))
+  (error "Please implement 'annotate'"))

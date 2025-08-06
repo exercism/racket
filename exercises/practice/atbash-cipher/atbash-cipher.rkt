@@ -3,7 +3,7 @@
 (provide encode decode)
 
 (define (encode m)
-  (error "Not implemented yet"))
+  (error "Please implement 'encode'"))
 
 (define (decode m)
-  (error "Not implemented yet"))
+  (error "Please implement 'decode'"))

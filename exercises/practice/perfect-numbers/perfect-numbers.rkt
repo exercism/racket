@@ -3,4 +3,4 @@
 (provide classify)
 
 (define (classify number)
-  (error "Not implemented yet"))
+  (error "Please implement 'classify'"))

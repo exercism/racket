@@ -3,4 +3,4 @@
 (provide nth-prime)
 
 (define (nth-prime number)
-  (error "Not implemented yet"))
+  (error "Please implement 'nth-prime'"))
