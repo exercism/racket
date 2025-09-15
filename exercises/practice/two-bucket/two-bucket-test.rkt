@@ -33,6 +33,14 @@
 		   (measure 2 3 3 'one)
 		   '(2 two 2))
 
+      (test-equal? "Measure using bucket one much bigger than bucket two"
+		   (measure 5 1 2 'one)
+		   '(6 one 1))
+
+      (test-equal? "Measure using bucket one much smaller than bucket two"
+		   (measure 3 15 9 'one)
+		   '(6 two 0))
+
       (test-exn "Not possible to reach the goal"
 		exn:fail?
 		(λ () (measure 6 15 5 'two)))
