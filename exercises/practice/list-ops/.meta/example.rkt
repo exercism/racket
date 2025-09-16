@@ -4,7 +4,8 @@
          my-reverse
          my-map
          my-filter
-         my-fold
+         my-foldl
+         my-foldr
          my-append
          my-concatenate)
 
@@ -38,10 +39,15 @@
             (go (rest l) acc))))
   (go l '()))
 
-(define (my-fold f acc l)
+(define (my-foldl f acc l)
   (if (null? l)
       acc
-      (my-fold f (f (first l) acc) (rest l))))
+      (my-foldl f (f (first l) acc) (rest l))))
+
+(define (my-foldr f acc l)
+  (if (null? l)
+      acc
+      (f (first l) (my-foldr f acc (rest l)))))
 
 (define (my-append a b)
   (define (go l acc)
@@ -51,4 +57,4 @@
   (go (my-reverse a) b))
 
 (define (my-concatenate ll)
-  (my-fold my-append '() (my-reverse ll)))
+  (my-foldl my-append '() (my-reverse ll)))
