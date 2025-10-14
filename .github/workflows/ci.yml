@@ -15,8 +15,17 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        racket-variant: ['BC', 'CS']
-        racket-version: ['8.16', '8.17', '8.18']
+        include:
+          - racket-version: '8.16'
+            racket-variant: 'BC'
+          - racket-version: '8.16'
+            racket-variant: 'CS'
+          - racket-version: '8.17'
+            racket-variant: 'BC'
+          - racket-version: '8.17'
+            racket-variant: 'CS'
+          - racket-version: '8.18'
+            racket-variant: 'CS'
 
     steps:
       - uses: actions/checkout@08c6903cd8c0fde910a37f88322edcfb5dd907a8
