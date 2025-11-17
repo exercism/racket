@@ -113,6 +113,11 @@
                     " 123*2"
                     "112*4*"
                     "1*22*2"
-                    "111111"))))
+                    "111111"))
+
+     (test-equal? "multiple adjacent flowers"
+                  (annotate
+                   '(" ** "))
+                  '("1**1"))))
 
   (run-tests suite))
