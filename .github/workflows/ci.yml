@@ -16,15 +16,13 @@ jobs:
       fail-fast: false
       matrix:
         include:
-          - racket-version: '8.16'
-            racket-variant: 'BC'
-          - racket-version: '8.16'
-            racket-variant: 'CS'
           - racket-version: '8.17'
             racket-variant: 'BC'
           - racket-version: '8.17'
             racket-variant: 'CS'
           - racket-version: '8.18'
+            racket-variant: 'CS'
+          - racket-version: '9.0'
             racket-variant: 'CS'
 
     steps:
