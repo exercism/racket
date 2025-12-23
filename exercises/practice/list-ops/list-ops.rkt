@@ -15,7 +15,7 @@
 (define (my-concatenate sequence-of-sequences)
   (error "Please implement 'my-concatenate'"))
 
-(define (my-filter operation? sequence)
+(define (my-filter pred sequence)
   (error "Please implement 'my-filter'"))
 
 (define (my-length sequence)
