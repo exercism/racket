@@ -7,7 +7,8 @@
             #:when (zero? (remainder n i)))
     i))
 
-(define (classify n)
+(define/contract (classify n)
+  (-> exact-positive-integer? symbol?)
   (let ([sumdivisors (divisor-sum n)])
     (cond [(= n sumdivisors) 'perfect]
           [(> n sumdivisors) 'deficient]
