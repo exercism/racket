@@ -21,6 +21,22 @@
                   (classify 33550336)
                   'perfect)
 
+     (test-equal? "Smallest abundant number"
+                  (classify 12)
+                  'abundant)
+
+     (test-equal? "Medium abundant number"
+                  (classify 30)
+                  'abundant)
+
+     (test-equal? "Large abundant number"
+                  (classify 33550335)
+                  'abundant)
+
+     (test-equal? "Perfect square abundant number"
+                  (classify 196)
+                  'abundant)
+
      (test-equal? "Smallest prime deficient number"
                   (classify 2)
                   'deficient)
@@ -41,16 +57,12 @@
                   (classify 1)
                   'deficient)
 
-     (test-equal? "Smallest abundant number"
-                  (classify 12)
-                  'abundant)
+     (test-exn "zero is rejected"
+                exn:fail?
+                (lambda () (classify 0)))
 
-     (test-equal? "Medium abundant number"
-                  (classify 30)
-                  'abundant)
-
-     (test-equal? "Large abundant number"
-                  (classify 33550335)
-                  'abundant)))
+     (test-exn "negative integer is rejected"
+                exn:fail?
+                (lambda () (classify -1)))))
 
   (run-tests suite))
