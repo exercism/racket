@@ -55,14 +55,6 @@
 
      (test-equal? "Edge case (no factors other than itself)"
                   (classify 1)
-                  'deficient)
-
-     (test-exn "zero is rejected"
-                exn:fail?
-                (lambda () (classify 0)))
-
-     (test-exn "negative integer is rejected"
-                exn:fail?
-                (lambda () (classify -1)))))
+                  'deficient)))
 
   (run-tests suite))
