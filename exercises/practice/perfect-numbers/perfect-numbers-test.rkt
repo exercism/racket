@@ -21,6 +21,22 @@
                   (classify 33550336)
                   'perfect)
 
+     (test-equal? "Smallest abundant number"
+                  (classify 12)
+                  'abundant)
+
+     (test-equal? "Medium abundant number"
+                  (classify 30)
+                  'abundant)
+
+     (test-equal? "Large abundant number"
+                  (classify 33550335)
+                  'abundant)
+
+     (test-equal? "Perfect square abundant number"
+                  (classify 196)
+                  'abundant)
+
      (test-equal? "Smallest prime deficient number"
                   (classify 2)
                   'deficient)
@@ -39,18 +55,6 @@
 
      (test-equal? "Edge case (no factors other than itself)"
                   (classify 1)
-                  'deficient)
-
-     (test-equal? "Smallest abundant number"
-                  (classify 12)
-                  'abundant)
-
-     (test-equal? "Medium abundant number"
-                  (classify 30)
-                  'abundant)
-
-     (test-equal? "Large abundant number"
-                  (classify 33550335)
-                  'abundant)))
+                  'deficient)))
 
   (run-tests suite))
