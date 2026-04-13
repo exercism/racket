@@ -1,6 +1,6 @@
 #lang racket/base
 
-(require "pythagorean-triplet.rkt")
+(require "pythagorean-triplets.rkt")
 
 (module+ test
 
