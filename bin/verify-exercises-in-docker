@@ -50,7 +50,7 @@ run_tests() {
 
 verify_exercise() {
     local dir slug tmpdir
-    dir="$(readlink -e "${1}")"
+    dir="${1%/}"
     slug="${dir##*/}"
     tmpdir="$(mktemp -d -t "exercism-verify-${slug}-XXXXX")"
 
@@ -86,7 +86,7 @@ verify_exercises() {
 }
 
 
-(( BASH_VERSINFO[0] >= 4 )) || die "Requires bash 4 or greater."
+(( BASH_VERSINFO[0] >= 3 )) || die "Requires bash 3 or greater."
 required_tool docker
 required_tool jq
 
