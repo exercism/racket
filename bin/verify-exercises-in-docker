@@ -26,7 +26,7 @@ required_tool() {
     command -v "${1}" >/dev/null 2>&1 || die "${1} is required but not installed. Please install it and make sure it's in your PATH."
 }
 
-copy_example_or_examplar_to_solution() {
+copy_example_or_exemplar_to_solution() {
     local dir="${1}"
     jq -r '[.files.solution, .files.exemplar // .files.example] | transpose | map(select(.[0] and .[1]))[][]' "${dir}/.meta/config.json" \
     | while read -r dst; read -r src; do
@@ -58,7 +58,7 @@ verify_exercise() {
     (
         trap 'rm -rf "${tmpdir}"' EXIT    # remove tempdir when subshell ends
         cp -r "${dir}/." "${tmpdir}" || exit
-        copy_example_or_examplar_to_solution "${tmpdir}"
+        copy_example_or_exemplar_to_solution "${tmpdir}"
         run_tests "${slug}" "${tmpdir}" || { cat "${tmpdir}/results.json"; exit 1; }
     )
 }
