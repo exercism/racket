@@ -7,10 +7,10 @@
   ],
   "files": {
     "solution": [
-      "pythagorean-triplets.rkt"
+      "pythagorean-triplet.rkt"
     ],
     "test": [
-      "pythagorean-triplets-test.rkt"
+      "pythagorean-triplet-test.rkt"
     ],
     "example": [
       ".meta/example.rkt"
