@@ -2,82 +2,89 @@
 
 (provide solve)
 
+(struct letter-entry (ch leading rank weight) #:transparent)
+
 (define (solve puzzle)
-  (define words (regexp-split #rx"==|[+]" (string-replace puzzle " " "")))
+  (define tokens (string-split puzzle))
 
-  (define number-set (range 10))
+  (define num-columns
+    (let ([words (filter (λ (t) (char-alphabetic? (string-ref t 0))) tokens)])
+      (apply max (map string-length words))))
 
-  (define individual-letters
-    (for/fold ([acc '()]
-               #:result acc)
-              ([x (string->list (string-join words ""))])
-      (cond
-        [(member x acc) (values acc)]
-        [else (values (append acc (list x)))])))
+  ;; Associate each word with its sign: -1 for LHS, +1 for RHS
+  (define word-signs
+    (let loop ([tokens tokens] [sign -1] [result '()])
+      (match tokens
+        ['() result]
+        [(cons "==" rest) (loop rest 1 result)]
+        [(cons "+" rest) (loop rest sign result)]
+        [(cons word rest) (loop rest sign (cons (cons word sign) result))])))
 
-  (when (> (length individual-letters) (length number-set))
-    '())
+  (define unique-letters
+    (remove-duplicates (filter char-alphabetic? (string->list puzzle))))
 
-  (define (translate p)
-    (for/hash ([i individual-letters]
-               [j p])
-      (values i j)))
+  (define letter-info
+    (sort
+     (for/list ([ch (in-list unique-letters)])
+       (define leading 0)
 
-  (define (word->sum word o)
-    (for/fold ([acc '()]
-               #:result (string->number (string-join acc "")))
-              ([c (string->list word)])
-      (let* ([n (hash-ref o c 0)]
-             [s (number->string n)])
-        (values (append acc (list s))))))
+       (define weight (make-vector num-columns 0))
+       (for ([ws (in-list word-signs)])
+         (define word (car ws))
+         (define sign (cdr ws))
+         (define len (string-length word))
+         (when (and (> len 1) (char=? (string-ref word 0) ch))
+           (set! leading 1))
+         (for ([col (in-range len)])
+           (when (char=? (string-ref word (- len 1 col)) ch)
+             (vector-set! weight col (+ (vector-ref weight col) sign)))))
 
-  (define (make-equation o)
-    (for/fold ([acc '()]
-               #:result acc)
-              ([word words])
-      (cond
-        [(member word acc) (values acc)]
-        [else (values (append acc (list (word->sum word o))))])))
+       (define rank
+         (or (for/first ([col (in-range num-columns)]
+                         #:when (not (zero? (vector-ref weight col))))
+               col)
+             (- num-columns 1)))
 
-  (define (is-first-letter-of-word-zero? p)
-    (let* ([h (construct-answer p)])
-      (let ([om (ormap (lambda (word)
-                 (let* ([s (substring word 0 1)]
-                        [v (hash-ref h s #f)])
-                  (= 0 v))) words)])
-        om)))
+       (letter-entry ch leading rank weight))
+     < #:key letter-entry-rank))
 
-  (define (lhs-sum te)
-    (for/sum ([i (take te (sub1 (length te)))]) i))
+  ;; Compute weighted column sum from current mapping
+  (define (column-sum col mapping)
+    (for/sum ([entry (in-list letter-info)])
+      (* (vector-ref (letter-entry-weight entry) col)
+         (hash-ref mapping (letter-entry-ch entry) 0))))
 
-  (define (generate-permutations items size)
-    (if (zero? size)
-      '(())
-      (for/list ([t (in-list (generate-permutations items (- size 1)))]
-                 #:when #t
-                 [i (in-list items)]
-                 #:unless (member i t))
-        (cons i t))))
+  (define (check-column remaining col claimed carry mapping)
+    (define col-sum (+ carry (column-sum col mapping)))
+    (cond
+      [(not (zero? (modulo col-sum 10))) #f]
+      [(< (+ col 1) num-columns)
+       (assign-letters remaining
+                       (+ col 1)
+                       claimed
+                       (quotient col-sum 10)
+                       mapping)]
+      [(zero? col-sum) mapping]
+      [else #f]))
 
-  (define (construct-answer p)
-    (for/hash ([i individual-letters]
-               [j p])
-      (values (string i) j)))
+  (define (assign-letters remaining col claimed carry mapping)
+    (match remaining
+      ['() (check-column remaining col claimed carry mapping)]
+      [(cons entry rest)
+       #:when (> (letter-entry-rank entry) col)
+       (check-column remaining col claimed carry mapping)]
+      [(cons entry rest)
+       (for/or ([digit (in-range (letter-entry-leading entry) 10)]
+                #:unless (bitwise-bit-set? claimed digit))
+         (assign-letters rest
+                         col
+                         (bitwise-ior claimed (arithmetic-shift 1 digit))
+                         carry
+                         (hash-set mapping (letter-entry-ch entry) digit)))]))
 
-  (define (solution-found? p)
-    (let ([e (make-equation (translate p))])
-      (= (last e) (lhs-sum e))))
+  (define result (assign-letters letter-info 0 0 0 (hash)))
 
-  (define first-solution
-    (for/first ([p (generate-permutations number-set (length individual-letters))]
-                #:when (and 
-                         (not (is-first-letter-of-word-zero? p))
-                         (solution-found? p)))
-      (let ([h (construct-answer p)])
-        (if h
-          (for/list ([letter (map string individual-letters)])
-            (cons letter (hash-ref h letter)))
-          '()))))
-
-  (let ([solution first-solution])
-    (if solution solution '())))
+  (if result
+      (for/list ([ch (in-list unique-letters)])
+        (cons (string ch) (hash-ref result ch)))
+      '()))
