@@ -2,6 +2,9 @@
   "authors": [
     "chip"
   ],
+  "contributors": [
+    "keiravillekode"
+  ],
   "files": {
     "solution": [
       "alphametics.rkt"
