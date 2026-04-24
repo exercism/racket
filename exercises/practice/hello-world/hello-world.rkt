@@ -3,4 +3,4 @@
 (provide hello)
 
 (define (hello)
-  "Goodbye, Mars!")
+  "Hello World!")
