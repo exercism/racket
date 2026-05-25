@@ -1,5 +1,5 @@
-# Implementation
+# Instructions append
 
-Implement a procedure named `classify` that takes a number as argument and returns either `'perfect`,
-`'abundant`, or `'deficient`.
+## Implementation
 
+Implement a procedure named `classify` that takes a number as argument and returns either `'perfect`, `'abundant`, or `'deficient`.
