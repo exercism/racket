@@ -20,10 +20,6 @@ jobs:
             racket-variant: 'BC'
           - racket-version: '8.17'
             racket-variant: 'CS'
-          - racket-version: '8.18'
-            racket-variant: 'CS'
-          - racket-version: '9.0'
-            racket-variant: 'CS'
           - racket-version: '9.2'
             racket-variant: 'CS'
 
