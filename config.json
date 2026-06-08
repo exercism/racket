@@ -136,17 +136,17 @@
         "difficulty": 2
       },
       {
-        "slug": "etl",
-        "name": "ETL",
-        "uuid": "7c1cdc16-30c8-460f-aa6a-cc0655436f22",
+        "slug": "eliuds-eggs",
+        "name": "Eliud's Eggs",
+        "uuid": "4c32e86e-cd3e-4be9-b581-24144c548751",
         "practices": [],
         "prerequisites": [],
         "difficulty": 2
       },
       {
-        "slug": "eliuds-eggs",
-        "name": "Eliud's Eggs",
-        "uuid": "4c32e86e-cd3e-4be9-b581-24144c548751",
+        "slug": "etl",
+        "name": "ETL",
+        "uuid": "7c1cdc16-30c8-460f-aa6a-cc0655436f22",
         "practices": [],
         "prerequisites": [],
         "difficulty": 2
@@ -295,14 +295,6 @@
         "difficulty": 2
       },
       {
-        "slug": "rna-transcription",
-        "name": "RNA Transcription",
-        "uuid": "2936d930-2359-44ea-8342-656016d3ec79",
-        "practices": [],
-        "prerequisites": [],
-        "difficulty": 2
-      },
-      {
         "slug": "raindrops",
         "name": "Raindrops",
         "uuid": "9795a374-30ae-492b-bcd7-1648ea5264b7",
@@ -341,6 +333,14 @@
         "practices": [
           "strings"
         ],
+        "prerequisites": [],
+        "difficulty": 2
+      },
+      {
+        "slug": "rna-transcription",
+        "name": "RNA Transcription",
+        "uuid": "2936d930-2359-44ea-8342-656016d3ec79",
+        "practices": [],
         "prerequisites": [],
         "difficulty": 2
       },
@@ -412,23 +412,6 @@
         "difficulty": 2
       },
       {
-        "slug": "pythagorean-triplet",
-        "name": "Pythagorean Triplet",
-        "uuid": "23992d00-d1e4-4ee3-9ca7-50885124d813",
-        "practices": [],
-        "prerequisites": [],
-        "difficulty": 4
-      },
-      {
-        "slug": "pythagorean-triplets",
-        "name": "Pythagorean Triplets",
-        "uuid": "630a11f5-e640-4e4d-af01-30f3bbcf495c",
-        "practices": [],
-        "prerequisites": [],
-        "difficulty": 4,
-        "status": "deprecated"
-      },
-      {
         "slug": "affine-cipher",
         "name": "Affine Cipher",
         "uuid": "529c3ced-eefa-402c-b901-ea39ae2fb24e",
@@ -476,6 +459,14 @@
         "practices": [],
         "prerequisites": [],
         "difficulty": 5
+      },
+      {
+        "slug": "bowling",
+        "name": "Bowling",
+        "uuid": "f6ca2cb9-f169-4c3e-8a64-6d3326b01d70",
+        "practices": [],
+        "prerequisites": [],
+        "difficulty": 6
       },
       {
         "slug": "circular-buffer",
@@ -611,6 +602,23 @@
         "difficulty": 5
       },
       {
+        "slug": "pythagorean-triplet",
+        "name": "Pythagorean Triplet",
+        "uuid": "23992d00-d1e4-4ee3-9ca7-50885124d813",
+        "practices": [],
+        "prerequisites": [],
+        "difficulty": 4
+      },
+      {
+        "slug": "pythagorean-triplets",
+        "name": "Pythagorean Triplets",
+        "uuid": "630a11f5-e640-4e4d-af01-30f3bbcf495c",
+        "practices": [],
+        "prerequisites": [],
+        "difficulty": 4,
+        "status": "deprecated"
+      },
+      {
         "slug": "robot-name",
         "name": "Robot Name",
         "uuid": "5ffc29de-9a26-40ba-83af-a4d15ad5d77f",
@@ -732,14 +740,6 @@
         "practices": [],
         "prerequisites": [],
         "difficulty": 5
-      },
-      {
-        "slug": "bowling",
-        "name": "Bowling",
-        "uuid": "f6ca2cb9-f169-4c3e-8a64-6d3326b01d70",
-        "practices": [],
-        "prerequisites": [],
-        "difficulty": 6
       },
       {
         "slug": "bank-account",
