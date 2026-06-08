@@ -16,9 +16,7 @@ jobs:
       fail-fast: false
       matrix:
         include:
-          - racket-version: '8.17'
-            racket-variant: 'BC'
-          - racket-version: '8.17'
+          - racket-version: '9.0'
             racket-variant: 'CS'
           - racket-version: '9.2'
             racket-variant: 'CS'
