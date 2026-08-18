@@ -104,7 +104,7 @@
 
      (test-equal? "format exceptional ordinal numeral 123"
                   (format-message "Yma" 123)
-                  "Yma, you are the 123rd customer we serve today. Thank you!")))
+                  "Yma, you are the 123rd customer we serve today. Thank you!")
 
      (test-equal? "format large number 972 ending in nd even though it is a multiple of 12"
                   (format-message "Elias" 972)
