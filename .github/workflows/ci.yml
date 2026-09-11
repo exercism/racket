@@ -16,10 +16,8 @@ jobs:
       fail-fast: false
       matrix:
         include:
-          - racket-version: '9.0'
-            racket-variant: 'CS'
           - racket-version: '9.2'
-            racket-variant: 'CS'
+          - racket-version: '9.3'
 
     steps:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
@@ -28,7 +26,7 @@ jobs:
         with:
           architecture: x64
           distribution: minimal
-          variant: ${{ matrix.racket-variant }}
+          variant: CS
           version: ${{ matrix.racket-version }}
           packages: 'rackunit-lib, compiler-lib'
 
