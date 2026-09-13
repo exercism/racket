@@ -1,4 +1,4 @@
-#lang racket
+#lang racket/base
 
 ; Tests adapted from `problem-specifications/canonical-data.json v2.0.0
 (require "allergies.rkt")

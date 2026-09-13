@@ -1,4 +1,4 @@
-#lang racket
+#lang racket/base
 
 (module+ test
   (require rackunit rackunit/text-ui)
