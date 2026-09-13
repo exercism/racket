@@ -1,9 +1,11 @@
-#lang racket
+#lang racket/base
 
 (require "high-scores.rkt")
 
 (module+ test
-  (require rackunit rackunit/text-ui)
+  (require racket/class
+           rackunit
+           rackunit/text-ui)
   
   (define suite
     (test-suite

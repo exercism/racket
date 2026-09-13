@@ -1,9 +1,11 @@
-#lang racket
+#lang racket/base
 
 (require "gigasecond.rkt")
 
 (module+ test
-  (require rackunit rackunit/text-ui racket/date))
+  (require rackunit
+           rackunit/text-ui
+           racket/date))
 
 (module+ test
   (define (make-datetime year month day hour minute second)

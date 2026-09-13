@@ -1,9 +1,10 @@
-#lang racket
+#lang racket/base
 
 (require "bowling.rkt")
 
 (module+ test
-  (require rackunit
+  (require racket/class
+           rackunit
            rackunit/text-ui)
 
   (define (roll-all game balls)

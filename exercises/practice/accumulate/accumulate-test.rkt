@@ -1,4 +1,4 @@
-#lang racket
+#lang racket/base
 
 (require "accumulate.rkt")
 
@@ -13,8 +13,8 @@
      "accumulate tests"
 
      (test-equal? "empty list"
-                  (accumulate empty (lambda (arg) arg))
-                  empty)
+                  (accumulate '() (lambda (arg) arg))
+                  '())
 
      (test-equal? "squaring"
                   (accumulate '(1 3 4) (lambda (arg) (* arg arg)))
