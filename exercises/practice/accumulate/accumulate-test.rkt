@@ -13,7 +13,7 @@
      "accumulate tests"
 
      (test-equal? "empty list"
-                  (accumulate empty (lambda (arg) arg))
+                  (accumulate '() (lambda (arg) arg))
                   '())
 
      (test-equal? "squaring"
