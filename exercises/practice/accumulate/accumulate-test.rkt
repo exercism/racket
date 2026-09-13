@@ -14,7 +14,7 @@
 
      (test-equal? "empty list"
                   (accumulate empty (lambda (arg) arg))
-                  empty)
+                  '())
 
      (test-equal? "squaring"
                   (accumulate '(1 3 4) (lambda (arg) (* arg arg)))
