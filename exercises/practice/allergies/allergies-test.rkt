@@ -4,7 +4,9 @@
 (require "allergies.rkt")
 
 (module+ test
-  (require rackunit rackunit/text-ui)
+  (require racket/list
+           rackunit
+           rackunit/text-ui)
 
   (define-check (lists-equiv? description actual expected)
     (check-equal? (sort actual string<?)

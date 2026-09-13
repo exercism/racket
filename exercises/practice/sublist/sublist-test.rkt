@@ -3,7 +3,9 @@
 (require "sublist.rkt")
 
 (module+ test
-  (require rackunit rackunit/text-ui)
+  (require racket/list
+           rackunit
+           rackunit/text-ui)
 
   (define million (range 1000000))
   (define million+1 (range 1 1000001))

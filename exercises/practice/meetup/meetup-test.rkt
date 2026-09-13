@@ -1,9 +1,10 @@
 #lang racket/base
 
 (module+ test
-  (require rackunit rackunit/text-ui)
-  (require racket/date)
-  (require "meetup.rkt")
+  (require rackunit
+           rackunit/text-ui
+           racket/date
+           "meetup.rkt")
 
   (define (make-date year month day)
     (seconds->date (find-seconds 0 0 0 day month year #f) #f))
