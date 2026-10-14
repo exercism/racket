@@ -69,7 +69,7 @@
                   (to-roman 141)
                   "CXLI")
 
-     (test-equal? "163, being 100 + 50 + 10 + 3, is CLXII"
+     (test-equal? "163, being 100 + 50 + 10 + 3, is CLXIII"
                   (to-roman 163)
                   "CLXIII")
     
