@@ -8,7 +8,7 @@ on:
 
 jobs:
   ci:
-    name: Racket ${{ matrix.racket-version }}-${{ matrix.racket-variant }}
+    name: Racket ${{ matrix.racket-version }}
 
     runs-on: ubuntu-26.04
 
