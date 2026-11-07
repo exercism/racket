@@ -1,0 +1,8 @@
+(define (most-common-word text)
+  (define counts (make-hash))
+  (define best "")
+  (for ([word (string-split (string-downcase text))])
+    (hash-update! counts word add1 0)
+    (when (> (hash-ref counts word) (hash-ref counts best 0))
+      (set! best word)))
+  (format "~s appears ~a times" best (hash-ref counts best)))
