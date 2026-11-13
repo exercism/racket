@@ -11,11 +11,10 @@
 {% for case in cases %}
 {%- if case.expected %}
      (test-{{ case.expected | quote }} {{ case.description | quote }}
-                (pangram? {{ case.given | quote }}))
+                (pangram? {{ case.given | quote }})){% if loop.last %})){% endif %}
 {%- else %}
      (test-{{ case.expected | quote }} {{ case.description | quote }}
-                 (pangram? {{ case.given | quote }}))
+                 (pangram? {{ case.given | quote }})){% if loop.last %})){% endif %}
 {%- endif %}
-{% endfor %}    )
-  )
+{% endfor %}
   (run-tests suite))

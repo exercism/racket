@@ -43,7 +43,6 @@
 
      (test-equal? "underscore emphasis"
                   (acronym "The Road _Not_ Taken")
-                  "TRNT")
-    )
-  )
+                  "TRNT")))
+
   (run-tests suite))

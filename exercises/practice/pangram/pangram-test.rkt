@@ -37,7 +37,6 @@
                 (pangram? "\"Five quacking Zephyrs jolt my wax bed.\""))
 
      (test-false "a-m and A-M are 26 different characters but not a pangram"
-                 (pangram? "abcdefghijklm ABCDEFGHIJKLM"))
-    )
-  )
+                 (pangram? "abcdefghijklm ABCDEFGHIJKLM"))))
+
   (run-tests suite))

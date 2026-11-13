@@ -34,7 +34,6 @@
                 (leap-year? 2400))
 
      (test-false "year divisible by 200, not divisible by 400 in common year"
-                 (leap-year? 1800))
-    )
-  )
+                 (leap-year? 1800))))
+
   (run-tests suite))
