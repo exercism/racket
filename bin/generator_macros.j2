@@ -1,0 +1,57 @@
+{# Add the standard test header and require. #}
+{%- macro header(solution) -%}
+#lang racket/base
+
+(require {{ solution | quote }})
+
+(module+ test
+  (require rackunit rackunit/text-ui)
+{%- endmacro -%}
+
+
+{# Add closing "))" after the last test in the suite. #}
+{%- macro close_test(loop) -%}
+  {%- if loop.last -%} )) {%- endif -%}
+{%- endmacro -%}
+
+
+{# Test a bool using `test-true` or `test-false`. #}
+{%- macro test_bool(case, function, args, loop) -%}
+  {%- if case.expected %}
+        (test-true {{ case.description | quote }}
+                   ({{ function }}? {{ args | join(" ") }}))
+  {%- else %}
+        (test-false {{ case.description | quote }}
+                    ({{ function }}? {{ args | join(" ") }}))
+  {%- endif -%}
+  {{- close_test(loop) -}}
+{%- endmacro -%}
+
+
+{# Test the function returns the expected value with `test-equal`. #}
+{%- macro test_equal(case, function, args, loop) %}
+  {%- if not case.expect_error %}
+     (test-equal? {{ case.description | quote }}
+                  ({{ function }} {{ args | join(" ") }})
+                  {{ case.expected | quote }})
+  {%- else %}
+     (test-exn {{ case.description | quote }}
+               exn:fail? (lambda () ({{ function }} {{ args | join(" ") }})))
+  {%- endif -%}
+  {{- close_test(loop) -}}
+{%- endmacro -%}
+
+
+{# Test the function returns a similar value with `test-eqv`. #}
+{%- macro test_eqv(case, function, args, loop) %}
+  {%- if not case.expect_error %}
+     (test-eqv? {{ case.description | quote }}
+                ({{ function }} {{ args | join(" ") }})
+                {{ case.expected | quote }})
+  {%- else %}
+     (test-exn {{ case.description | quote }}
+               exn:fail?
+               (lambda () ({{ function }} {{ args | join(" ") }})))
+  {%- endif -%}
+  {{- close_test(loop) -}}
+{%- endmacro -%}

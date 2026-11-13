@@ -124,7 +124,7 @@ def camel_to_snake(name: str) -> str:
 
 def jinja_env(exercise: pathlib.Path) -> jinja2.Environment:
     """Return a configured Jinja env with filters added."""
-    env = jinja2.Environment(loader=jinja2.FileSystemLoader(exercise / ".meta"))
+    env = jinja2.Environment(loader=jinja2.FileSystemLoader(["bin", exercise / ".meta"]))
     # C quoting of arbitrary data objects.
     env.filters["quote"] = quote
     env.filters["camel_to_snake"] = camel_to_snake
@@ -138,6 +138,7 @@ def generate(specs: pathlib.Path, exercise: pathlib.Path) -> None:
         "cases": get_cases(specs, exercise),
         "grouped_cases": get_grouped_cases(specs, exercise),
         "slug": exercise.name,
+        "solution": config["files"]["solution"][0],
         "require_solution": f'(require "{config["files"]["solution"][0]}")',
     }
 
