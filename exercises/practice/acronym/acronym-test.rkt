@@ -1,6 +1,5 @@
 #lang racket/base
 
-; Tests adapted from `problem-specifications/canonical-data.json v1.7.0
 (require "acronym.rkt")
 
 (module+ test
@@ -44,6 +43,7 @@
 
      (test-equal? "underscore emphasis"
                   (acronym "The Road _Not_ Taken")
-                  "TRNT")))
-
+                  "TRNT")
+    )
+  )
   (run-tests suite))

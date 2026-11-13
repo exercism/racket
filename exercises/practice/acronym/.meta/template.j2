@@ -1,0 +1,17 @@
+#lang racket/base
+
+{{ require_solution }}
+
+(module+ test
+  (require rackunit rackunit/text-ui)
+
+  (define suite
+    (test-suite
+     "acronym tests"
+{% for case in cases %}
+     (test-equal? {{ case.description | quote }}
+                  (acronym {{ case.given | quote }})
+                  {{ case.expected | quote }})
+{% endfor %}    )
+  )
+  (run-tests suite))
