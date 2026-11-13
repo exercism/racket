@@ -31,7 +31,7 @@
                 (pangram? "the 1 quick brown fox jumps over the 2 lazy dogs"))
 
      (test-false "missing letters replaced by numbers"
-                 (pangram? "t7h3 qu1ck brown fox jumps ov3r 7h3 lazy dog"))
+                 (pangram? "7h3 qu1ck brown fox jumps ov3r 7h3 lazy dog"))
 
      (test-true "mixed case and punctuation"
                 (pangram? "\"Five quacking Zephyrs jolt my wax bed.\""))

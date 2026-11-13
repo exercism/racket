@@ -1,0 +1,20 @@
+#lang racket/base
+
+{{ require_solution }}
+
+(module+ test
+  (require rackunit rackunit/text-ui)
+
+  (define suite
+    (test-suite
+     "pangram tests"
+{% for case in cases %}
+{%- if case.expected %}
+     (test-{{ case.expected | quote }} {{ case.description | quote }}
+                (pangram? {{ case.given | quote }})){% if loop.last %})){% endif %}
+{%- else %}
+     (test-{{ case.expected | quote }} {{ case.description | quote }}
+                 (pangram? {{ case.given | quote }})){% if loop.last %})){% endif %}
+{%- endif %}
+{% endfor %}
+  (run-tests suite))
