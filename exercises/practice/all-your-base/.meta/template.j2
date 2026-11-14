@@ -1,0 +1,29 @@
+{%- macro test_case(case, loop) %}
+{%- if not case.expect_error %}
+      (test-equal? {{ case.description | quote }}
+                   ({{ case.property }} {{ case.input.digits | quote }} {{ case.input.inputBase }} {{ case.input.outputBase }})
+                   {{ case.expected | quote }})
+{%- else %}
+      (test-false {{ case.description | quote }}
+                  ({{ case.property }} {{ case.input.digits | quote }} {{ case.input.inputBase }} {{ case.input.outputBase }}))
+{%- endif -%}
+{%- if loop.last -%}
+                ))
+{%- endif -%}
+{%- endmacro -%}
+
+#lang racket/base
+
+{{ require_solution }}
+
+(module+ test
+  (require rackunit rackunit/text-ui)
+
+  (define suite
+    (test-suite
+     "{{ slug }} tests"
+{% for case in cases %}
+{{ test_case(case, loop) }}
+{%- endfor %}
+
+    (run-tests suite))
