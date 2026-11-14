@@ -1,0 +1,30 @@
+{%- macro test_case(case, loop) %}
+{%- if not case.expect_error %}
+                (test-equal? {{ case.description | quote }}
+                             ({{ case.property }} {{ case.input.phrase | quote }} {{ case.input.key.a }} {{ case.input.key.b }})
+                             {{ case.expected | quote }})
+{%- else %}
+                (test-exn {{ case.description | quote }}
+                          exn:fail? (lambda () ({{ case.property }} {{ case.input.phrase | quote }} {{ case.input.key.a }} {{ case.input.key.b }})))
+{%- endif -%}
+{%- if loop.last -%}
+                ))
+{%- endif -%}
+{%- endmacro -%}
+
+#lang racket/base
+
+{{ require_solution }}
+
+(module+ test
+  (require rackunit rackunit/text-ui)
+{% for group in grouped_cases %}
+  (define {{ group.description }}-suite
+    (test-suite "{{ slug }} {{ group.description }} tests"
+{%- for case in group.cases %}
+{{- test_case(case, loop) }}
+{% endfor %}
+{%- endfor %}
+  (begin
+    (run-tests encode-suite)
+    (run-tests decode-suite)))
