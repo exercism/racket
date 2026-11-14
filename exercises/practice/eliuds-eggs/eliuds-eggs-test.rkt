@@ -7,7 +7,7 @@
 
   (define suite
     (test-suite
-     "eliud's eggs tests"
+     "eliuds-eggs tests"
 
      (test-equal? "0 eggs" (number->eggs 0) 0)
 

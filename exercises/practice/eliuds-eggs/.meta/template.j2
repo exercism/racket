@@ -1,0 +1,22 @@
+{%- macro test_case(case, loop) %}
+     (test-equal? {{ case.description | quote }} (number->eggs {{ case.given }}) {{ case.expected }})
+{%- if loop.last -%}
+                ))
+{%- endif -%}
+{%- endmacro -%}
+
+#lang racket/base
+
+{{ require_solution }}
+
+(module+ test
+  (require rackunit rackunit/text-ui)
+
+  (define suite
+    (test-suite
+     "{{ slug }} tests"
+{%- for case in cases %}
+{{ test_case(case, loop) }}
+{%- endfor %}
+
+  (run-tests suite))
