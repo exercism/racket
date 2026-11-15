@@ -101,7 +101,7 @@ def quote(obj) -> str:
     if obj is None:
         return "NULL"
     if isinstance(obj, float):
-        return f"{obj}"
+        return f"{obj}F"
     if isinstance(obj, int):
         return f"{obj}"
     if isinstance(obj, str):
@@ -113,7 +113,7 @@ def quote(obj) -> str:
             return "'()"
         return "'( " + " ".join(quote(i) for i in obj) + " )"
     if isinstance(obj, dict):
-        return "'(" + " ".join(f"({quote(k)} . {quote(v)})" for k, v in obj.items()) + ")"
+        return quote(" ".join(f"{key}:{value}" for key, value in obj.items()))
     return TypeError(f"quote for type {type(obj)} not supported")
 
 
