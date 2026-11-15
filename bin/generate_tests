@@ -62,7 +62,7 @@ def update_test_case(case: dict, groups: list[str]) -> None:
 
     translation = str.maketrans({i: "_" for i in string.punctuation + " "})
     case["test_function"] = "test_" + re.sub("_+", "_", case["description"].lower().translate(translation).strip("_"))
-    case["property_function"] = camel_to_snake(case["property"])
+    case["property_function"] = camel_to_kebab(case["property"])
     if len(case.get("input", {}).values()) == 1:
         case["given"] = list(case["input"].values())[0]
 
@@ -117,9 +117,9 @@ def quote(obj) -> str:
     return TypeError(f"quote for type {type(obj)} not supported")
 
 
-def camel_to_snake(name: str) -> str:
-    """Filter `camel_to_snake` that converts a camel case string to snake case."""
-    return re.sub(r"([a-z])([A-Z])", (lambda m: f"{m.group(1)}_{m.group(2).lower()}"), name)
+def camel_to_kebab(name: str) -> str:
+    """Filter `camel_to_kebab` that converts a camel case string to snake case."""
+    return re.sub(r"([a-z])([A-Z])", (lambda m: f"{m.group(1)}-{m.group(2).lower()}"), name)
 
 
 def jinja_env(exercise: pathlib.Path) -> jinja2.Environment:
@@ -127,7 +127,7 @@ def jinja_env(exercise: pathlib.Path) -> jinja2.Environment:
     env = jinja2.Environment(loader=jinja2.FileSystemLoader(["bin", exercise / ".meta"]))
     # C quoting of arbitrary data objects.
     env.filters["quote"] = quote
-    env.filters["camel_to_snake"] = camel_to_snake
+    env.filters["camel_to_kebab"] = camel_to_kebab
     return env
 
 
