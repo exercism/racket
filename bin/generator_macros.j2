@@ -29,11 +29,11 @@
 
 
 {# Test the function returns the expected value with `test-equal`. #}
-{%- macro test_equal(case, function, args, loop) %}
+{%- macro test_equal(case, function, args, expected, loop) %}
   {%- if not case.expect_error %}
       (test-equal? {{ case.description | quote }}
                    ({{ function }} {{ args | join(" ") }})
-                   {{ case.expected | quote }})
+                   {{ expected }})
   {%- else %}
       (test-exn {{ case.description | quote }}
                 exn:fail? (lambda () ({{ function }} {{ args | join(" ") }})))
@@ -43,11 +43,11 @@
 
 
 {# Test the function returns a similar value with `test-eqv`. #}
-{%- macro test_eqv(case, function, args, loop) %}
+{%- macro test_eqv(case, function, args, expected, loop) %}
   {%- if not case.expect_error %}
       (test-eqv? {{ case.description | quote }}
                  ({{ function }} {{ args | join(" ") }})
-                 {{ case.expected | quote }})
+                 {{ expected }})
   {%- else %}
       (test-exn {{ case.description | quote }}
                 exn:fail?

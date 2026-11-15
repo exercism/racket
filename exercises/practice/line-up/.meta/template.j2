@@ -5,7 +5,7 @@
     (test-suite
      "{{ slug }} tests"
 {%- for case in cases %}
-{{ macros.test_equal(case, "format-message", [case.input.name | quote, case.input.number], loop) }}
+{{ macros.test_equal(case, "format-message", [case.input.name | quote, case.input.number], case.expected | quote, loop) }}
 {%- endfor %}
 
   (run-tests suite))

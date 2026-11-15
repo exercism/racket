@@ -4,6 +4,6 @@
   (define suite
     (test-suite "{{ slug }} tests"
 {%- for case in cases -%}
-{{ macros.test_equal(case, "number->eggs", [case.given], loop) }}
+{{ macros.test_equal(case, "number->eggs", [case.given], case.expected | quote, loop) }}
 {% endfor %}
   (run-tests suite))
