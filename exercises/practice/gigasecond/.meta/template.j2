@@ -1,0 +1,28 @@
+{%- import "generator_macros.j2" as macros -%}
+
+{%- macro to_datetime(datetime) -%}
+(make-datetime {{
+  (
+    (datetime + " 00:00:00")
+    | replace("T", " ")
+    | replace(":", " ")
+    | replace("-", " ")
+  ).split()[:6] | join(" ") | replace(" 00", " 0")
+}})
+{%- endmacro -%}
+
+{{ macros.header(solution, import=["racket/date"]) }}
+
+  (define (make-datetime year month day hour minute second)
+    (seconds->date (find-seconds second minute hour day month year #f)))
+
+  (define suite
+    (test-suite
+     "{{ slug }} tests"
+{%- for case in cases %}
+      (test-equal? {{ case.description | quote }}
+                   (add-gigasecond {{ to_datetime(case.given) }})
+                   {{ to_datetime(case.expected) }}){{ macros.close_test(loop) }}
+{%- endfor %}
+
+  (run-tests suite))

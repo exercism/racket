@@ -1,11 +1,11 @@
 {# Add the standard test header and require. #}
-{%- macro header(solution) -%}
+{%- macro header(solution, import=[]) -%}
 #lang racket/base
 
 (require {{ solution | quote }})
 
 (module+ test
-  (require rackunit rackunit/text-ui)
+  (require rackunit rackunit/text-ui{% for i in import %} {{i}}{% endfor %})
 {%- endmacro -%}
 
 
