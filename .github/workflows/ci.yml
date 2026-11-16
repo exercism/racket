@@ -32,3 +32,18 @@ jobs:
 
       - name: Run exercism/racket ci (runs tests) for all exercises
         run: ./bin/check-exercises.sh
+
+  tests:
+    name: Tests
+    needs: ci
+    if: always()
+    runs-on: ubuntu-26.04
+    steps:
+      - name: Check that every Racket version passed
+        env:
+          RESULT: ${{ needs.ci.result }}
+        run: |
+          if [[ "$RESULT" != "success" ]]; then
+            echo "The exercise tests failed on at least one Racket version."
+            exit 1
+          fi
