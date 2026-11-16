@@ -1,0 +1,11 @@
+{%- import "generator_macros.j2" as macros -%}
+{{ macros.header(solution) }}
+
+  (define suite
+    (test-suite
+     "{{ slug }} tests"
+{%- for case in cases %}
+{{ macros.test_eqv(case, slug, [case.input.array | quote("#"), case.input.value | quote], case.expected | quote, loop, exn=False) }}
+{%- endfor %}
+
+  (run-tests suite))

@@ -43,15 +43,18 @@
 
 
 {# Test the function returns a similar value with `test-eqv`. #}
-{%- macro test_eqv(case, function, args, expected, loop) %}
+{%- macro test_eqv(case, function, args, expected, loop, exn=True) %}
   {%- if not case.expect_error %}
       (test-eqv? {{ case.description | quote }}
                  ({{ function }} {{ args | join(" ") }})
                  {{ expected }})
-  {%- else %}
+  {%- elif exn %}
       (test-exn {{ case.description | quote }}
                 exn:fail?
                 (lambda () ({{ function }} {{ args | join(" ") }})))
+  {%- else %}
+      (test-false {{ case.description | quote }}
+                  ({{ function }} {{ args | join(" ") }}))
   {%- endif -%}
   {{- close_test(loop) -}}
 {%- endmacro -%}
