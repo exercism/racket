@@ -1,11 +1,24 @@
 {%- import "generator_macros.j2" as macros -%}
+
+{%- macro array_to_vector(string) -%}
+  {{ string | replace("an array", "a vector") | replace("array", "vector") }}
+{%- endmacro -%}
+
 {{ macros.header(solution) }}
 
   (define suite
     (test-suite
      "{{ slug }} tests"
 {%- for case in cases %}
-{{ macros.test_eqv(case, slug, [case.input.array | quote("#"), case.input.value | quote], case.expected | quote, loop, exn=False) }}
+  {%- if not case.expect_error %}
+      (test-eqv? {{ array_to_vector(case.description) | quote }}
+                 ({{ slug }} {{ case.input.array | quote("#") }} {{ case.input.value | quote }})
+                 {{ case.expected }})
+  {%- else %}
+      (test-false {{ array_to_vector(case.description) | quote }}
+                  ({{ slug }} {{ case.input.array | quote("#") }} {{ case.input.value | quote }}))
+  {%- endif -%}
+  {{- macros.close_test(loop) -}}
 {%- endfor %}
 
   (run-tests suite))
