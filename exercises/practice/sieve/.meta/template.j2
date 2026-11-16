@@ -1,0 +1,18 @@
+{%- import "generator_macros.j2" as macros -%}
+{{ macros.header(solution) }}
+
+  (define suite
+    (test-suite "{{ slug }} tests"
+{%- for case in cases %}
+      (test-equal? {{ case.description | quote }}
+                   ({{ case.property_function }} {{ case.given | quote }})
+{%- if (case.expected | length) < 15 %}
+                   {{ case.expected | quote }}){{ macros.close_test(loop) }}
+{%- else %}
+                   '(
+{%- for group in case.expected | batch(14) %}
+                     {{ group | join(" ") }}{{ macros.close_test(loop) }}{{ macros.close_test(loop) }}
+{%- endfor %}
+{%- endif %}
+{% endfor %}
+  (run-tests suite))
