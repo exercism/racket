@@ -92,7 +92,7 @@ def get_grouped_cases(specs: pathlib.Path, exercise: pathlib.Path) -> list[dict]
     return cases
 
 
-def quote(obj) -> str:
+def quote(obj, hint: str | None = None) -> str:
     """Filter `quote` that converts an arbitrary object to the C version."""
     if obj is True:
         return "true"
@@ -109,9 +109,10 @@ def quote(obj) -> str:
             obj = obj.replace(pattern, replace)
         return '"' + obj + '"'
     if isinstance(obj, list):
+        prefix = hint or "'"
         if not obj:
-            return "'()"
-        return "'( " + " ".join(quote(i) for i in obj) + " )"
+            return f"{prefix}()"
+        return f"{prefix}( " + " ".join(quote(i) for i in obj) + " )"
     if isinstance(obj, dict):
         return "'(" + " ".join(f"({quote(k)} . {quote(v)})" for k, v in obj.items()) + ")"
     return TypeError(f"quote for type {type(obj)} not supported")
