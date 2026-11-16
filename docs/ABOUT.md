@@ -11,7 +11,7 @@ Check out the [official language website][racket homepage] and the [Github repos
 [htdp]: https://htdp.org
 [realm]: http://www.realmofracket.com/
 [the fun way]: https://nostarch.com/racket-programming-fun-way
-[racket homepage]: http://racket-lang.org/
+[racket homepage]: https://racket-lang.org/
 [racket github]: https://github.com/racket/racket/
 [racket twitter]: https://twitter.com/racketlang
 [racket listserv]: https://lists.racket-lang.org/

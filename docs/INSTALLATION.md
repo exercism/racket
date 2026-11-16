@@ -8,7 +8,7 @@ Installers are provided for
 * Linux
 * macOS
 
-Please reference Racket's [Getting Started](http://docs.racket-lang.org/getting-started/) page for guidance materials.
+Please reference Racket's [Getting Started](https://docs.racket-lang.org/getting-started/) page for guidance materials.
 
 The [Racket Guide](https://docs.racket-lang.org/guide/intro.html) introduces you to interacting with Racket. 
 
