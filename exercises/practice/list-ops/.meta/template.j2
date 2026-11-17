@@ -1,0 +1,35 @@
+{%- import "generator_macros.j2" as macros -%}
+
+{%- set func = {
+      "(x) -> x modulo 2 == 1": "odd?",
+      "(x) -> x + 1": "add1",
+      "(acc, el) -> el + acc": "+",
+      "(acc, el) -> el * acc": "*",
+      "(acc, el) -> el / acc": "/",
+    }
+-%}
+
+{%- set op = {"concat": "concatenate"} -%}
+
+{{ macros.header(solution) }}
+
+  (define suite
+    (test-suite
+     "{{ slug }} tests"
+{%- for case in cases %}
+{%- if case.property == "append" %}
+{{ macros.test_equal(case, "my-" + op.get(case.property, case.property), [case.input.list1, case.input.list2] | map("quote"), case.expected | quote, loop) }}
+{%- elif case.property == "concat" %}
+{{ macros.test_equal(case, "my-" + op.get(case.property, case.property), [case.input.lists] | map("quote"), case.expected | quote, loop) }}
+{%- elif case.property in ["length", "reverse"] %}
+{{ macros.test_equal(case, "my-" + op.get(case.property, case.property), [case.input.list | quote], case.expected | quote, loop) }}
+{%- elif case.property in ["filter", "map"] %}
+{{ macros.test_equal(case, "my-" + op.get(case.property, case.property), [func.get(case.input.function, case.input.function), case.input.list | quote], case.expected | quote, loop) }}
+{%- elif case.property in ["foldl", "foldr"] %}
+{{ macros.test_equal(case, "my-" + op.get(case.property, case.property), [func.get(case.input.function, case.input.function), case.input.initial, case.input.list | quote], case.expected | quote, loop) }}
+{%- else %}
+NOT IMPLEMENTED {{ case.property }}
+{%- endif %}
+{%- endfor %}
+
+  (run-tests suite))
