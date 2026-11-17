@@ -1,0 +1,50 @@
+{%- import "generator_macros.j2" as macros -%}
+
+{%- macro suite(description) -%}
+  {%- if description.startswith("list") -%}
+    lists-suite
+  {%- else -%}
+    {{ description.removeprefix("testing for ").removesuffix(" allergy") }}-suite
+  {%- endif -%}
+{%- endmacro -%}
+
+{{ macros.header(solution, ["racket/list"]) }}
+
+  (define-check (lists-equiv? description actual expected)
+    (check-equal? (sort actual string<?)
+                  (sort expected string<?)
+                  description))
+
+  (define-check (test-allergic? description allergen score)
+    (check-true (allergic-to? allergen score))
+                 #t
+                 description)
+
+  (define-check (test-not-allergic? description allergen score)
+    (check-false (allergic-to? allergen score))
+                 #f
+                 description)
+
+{%- for group in grouped_cases %}
+
+  (define {{ suite(group.description) }}
+    (test-suite "{{ group.description }}"
+{% for case in group.cases %}
+{%- if case.property == "allergicTo" %}
+{%- if case.expected %}
+     (test-allergic?     {{ case.description | quote }} {{ case.input["item"] | quote }} {{ case.input.score }})
+{%- else %}
+     (test-not-allergic? {{ case.description | quote }} {{ case.input["item"] | quote }} {{ case.input.score }})
+{%- endif %}
+{%- else %}
+     (lists-equiv? {{ case.description | quote }}
+                   (list-allergies {{ case.given }})
+                   {{ case.expected | quote }})
+{%- endif %}
+{{- macros.close_test(loop) }}
+{%- endfor %}
+{%- endfor %}
+{% for group in grouped_cases %}
+  (run-tests {{ suite(group.description) }})
+  {%- if loop.last %}){% endif %}
+{%- endfor %}
