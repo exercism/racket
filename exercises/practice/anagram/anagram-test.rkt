@@ -10,75 +10,75 @@
      "anagram tests"
 
       (test-equal? "no matches"
-                   (anagrams-for "diaper" '( "hello" "world" "zombies" "pants" ))
+                   (anagrams-for "diaper" '("hello" "world" "zombies" "pants"))
                    '())
 
       (test-equal? "detects two anagrams"
-                   (anagrams-for "solemn" '( "lemons" "cherry" "melons" ))
-                   '( "lemons" "melons" ))
+                   (anagrams-for "solemn" '("lemons" "cherry" "melons"))
+                   '("lemons" "melons"))
 
       (test-equal? "does not detect anagram subsets"
-                   (anagrams-for "good" '( "dog" "goody" ))
+                   (anagrams-for "good" '("dog" "goody"))
                    '())
 
       (test-equal? "detects anagram"
-                   (anagrams-for "listen" '( "enlists" "google" "inlets" "banana" ))
-                   '( "inlets" ))
+                   (anagrams-for "listen" '("enlists" "google" "inlets" "banana"))
+                   '("inlets"))
 
       (test-equal? "detects three anagrams"
-                   (anagrams-for "allergy" '( "gallery" "ballerina" "regally" "clergy" "largely" "leading" ))
-                   '( "gallery" "regally" "largely" ))
+                   (anagrams-for "allergy" '("gallery" "ballerina" "regally" "clergy" "largely" "leading"))
+                   '("gallery" "regally" "largely"))
 
       (test-equal? "detects multiple anagrams with different case"
-                   (anagrams-for "nose" '( "Eons" "ONES" ))
-                   '( "Eons" "ONES" ))
+                   (anagrams-for "nose" '("Eons" "ONES"))
+                   '("Eons" "ONES"))
 
       (test-equal? "does not detect non-anagrams with identical checksum"
-                   (anagrams-for "mass" '( "last" ))
+                   (anagrams-for "mass" '("last"))
                    '())
 
       (test-equal? "detects anagrams case-insensitively"
-                   (anagrams-for "Orchestra" '( "cashregister" "Carthorse" "radishes" ))
-                   '( "Carthorse" ))
+                   (anagrams-for "Orchestra" '("cashregister" "Carthorse" "radishes"))
+                   '("Carthorse"))
 
       (test-equal? "detects anagrams using case-insensitive subject"
-                   (anagrams-for "Orchestra" '( "cashregister" "carthorse" "radishes" ))
-                   '( "carthorse" ))
+                   (anagrams-for "Orchestra" '("cashregister" "carthorse" "radishes"))
+                   '("carthorse"))
 
       (test-equal? "detects anagrams using case-insensitive possible matches"
-                   (anagrams-for "orchestra" '( "cashregister" "Carthorse" "radishes" ))
-                   '( "Carthorse" ))
+                   (anagrams-for "orchestra" '("cashregister" "Carthorse" "radishes"))
+                   '("Carthorse"))
 
       (test-equal? "does not detect an anagram if the original word is repeated"
-                   (anagrams-for "go" '( "goGoGO" ))
+                   (anagrams-for "go" '("goGoGO"))
                    '())
 
       (test-equal? "anagrams must use all letters exactly once"
-                   (anagrams-for "tapper" '( "patter" ))
+                   (anagrams-for "tapper" '("patter"))
                    '())
 
       (test-equal? "words are not anagrams of themselves"
-                   (anagrams-for "BANANA" '( "BANANA" ))
+                   (anagrams-for "BANANA" '("BANANA"))
                    '())
 
       (test-equal? "words are not anagrams of themselves even if letter case is partially different"
-                   (anagrams-for "BANANA" '( "Banana" ))
+                   (anagrams-for "BANANA" '("Banana"))
                    '())
 
       (test-equal? "words are not anagrams of themselves even if letter case is completely different"
-                   (anagrams-for "BANANA" '( "banana" ))
+                   (anagrams-for "BANANA" '("banana"))
                    '())
 
       (test-equal? "words other than themselves can be anagrams"
-                   (anagrams-for "LISTEN" '( "LISTEN" "Silent" ))
-                   '( "Silent" ))
+                   (anagrams-for "LISTEN" '("LISTEN" "Silent"))
+                   '("Silent"))
 
       (test-equal? "handles case of greek letters"
-                   (anagrams-for "ΑΒΓ" '( "ΒΓΑ" "ΒΓΔ" "γβα" "αβγ" ))
-                   '( "ΒΓΑ" "γβα" ))
+                   (anagrams-for "ΑΒΓ" '("ΒΓΑ" "ΒΓΔ" "γβα" "αβγ"))
+                   '("ΒΓΑ" "γβα"))
 
       (test-equal? "different characters may have the same bytes"
-                   (anagrams-for "a⬂" '( "€a" ))
+                   (anagrams-for "a⬂" '("€a"))
                    '())))
 
   (run-tests suite))

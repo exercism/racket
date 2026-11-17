@@ -114,7 +114,7 @@ def quote(obj, hint: str | None = None, nested: bool = False) -> str:
             prefix = ""
         if not obj:
             return f"{prefix}()"
-        return f"{prefix}( " + " ".join(quote(i, nested=True) for i in obj) + " )"
+        return f"{prefix}(" + " ".join(quote(i, nested=True) for i in obj) + ")"
     if isinstance(obj, dict):
         return "'(" + " ".join(f"({quote(k)} . {quote(v)})" for k, v in obj.items()) + ")"
     return TypeError(f"quote for type {type(obj)} not supported")
