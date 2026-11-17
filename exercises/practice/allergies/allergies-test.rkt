@@ -100,31 +100,31 @@
                    '())
      (lists-equiv? "just eggs"
                    (list-allergies 1)
-                   '( "eggs" ))
+                   '("eggs"))
      (lists-equiv? "just peanuts"
                    (list-allergies 2)
-                   '( "peanuts" ))
+                   '("peanuts"))
      (lists-equiv? "just strawberries"
                    (list-allergies 8)
-                   '( "strawberries" ))
+                   '("strawberries"))
      (lists-equiv? "eggs and peanuts"
                    (list-allergies 3)
-                   '( "eggs" "peanuts" ))
+                   '("eggs" "peanuts"))
      (lists-equiv? "more than eggs but not peanuts"
                    (list-allergies 5)
-                   '( "eggs" "shellfish" ))
+                   '("eggs" "shellfish"))
      (lists-equiv? "lots of stuff"
                    (list-allergies 248)
-                   '( "strawberries" "tomatoes" "chocolate" "pollen" "cats" ))
+                   '("strawberries" "tomatoes" "chocolate" "pollen" "cats"))
      (lists-equiv? "everything"
                    (list-allergies 255)
-                   '( "eggs" "peanuts" "shellfish" "strawberries" "tomatoes" "chocolate" "pollen" "cats" ))
+                   '("eggs" "peanuts" "shellfish" "strawberries" "tomatoes" "chocolate" "pollen" "cats"))
      (lists-equiv? "no allergen score parts"
                    (list-allergies 509)
-                   '( "eggs" "shellfish" "strawberries" "tomatoes" "chocolate" "pollen" "cats" ))
+                   '("eggs" "shellfish" "strawberries" "tomatoes" "chocolate" "pollen" "cats"))
      (lists-equiv? "no allergen score parts without highest valid score"
                    (list-allergies 257)
-                   '( "eggs" ))))
+                   '("eggs"))))
 
   (run-tests eggs-suite)
   (run-tests peanuts-suite)

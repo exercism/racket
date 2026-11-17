@@ -15,59 +15,59 @@
 
       (test-equal? "Methionine RNA sequence"
                    (proteins "AUG")
-                   '( "Methionine" ))
+                   '("Methionine"))
 
       (test-equal? "Phenylalanine RNA sequence 1"
                    (proteins "UUU")
-                   '( "Phenylalanine" ))
+                   '("Phenylalanine"))
 
       (test-equal? "Phenylalanine RNA sequence 2"
                    (proteins "UUC")
-                   '( "Phenylalanine" ))
+                   '("Phenylalanine"))
 
       (test-equal? "Leucine RNA sequence 1"
                    (proteins "UUA")
-                   '( "Leucine" ))
+                   '("Leucine"))
 
       (test-equal? "Leucine RNA sequence 2"
                    (proteins "UUG")
-                   '( "Leucine" ))
+                   '("Leucine"))
 
       (test-equal? "Serine RNA sequence 1"
                    (proteins "UCU")
-                   '( "Serine" ))
+                   '("Serine"))
 
       (test-equal? "Serine RNA sequence 2"
                    (proteins "UCC")
-                   '( "Serine" ))
+                   '("Serine"))
 
       (test-equal? "Serine RNA sequence 3"
                    (proteins "UCA")
-                   '( "Serine" ))
+                   '("Serine"))
 
       (test-equal? "Serine RNA sequence 4"
                    (proteins "UCG")
-                   '( "Serine" ))
+                   '("Serine"))
 
       (test-equal? "Tyrosine RNA sequence 1"
                    (proteins "UAU")
-                   '( "Tyrosine" ))
+                   '("Tyrosine"))
 
       (test-equal? "Tyrosine RNA sequence 2"
                    (proteins "UAC")
-                   '( "Tyrosine" ))
+                   '("Tyrosine"))
 
       (test-equal? "Cysteine RNA sequence 1"
                    (proteins "UGU")
-                   '( "Cysteine" ))
+                   '("Cysteine"))
 
       (test-equal? "Cysteine RNA sequence 2"
                    (proteins "UGC")
-                   '( "Cysteine" ))
+                   '("Cysteine"))
 
       (test-equal? "Tryptophan RNA sequence"
                    (proteins "UGG")
-                   '( "Tryptophan" ))
+                   '("Tryptophan"))
 
       (test-equal? "STOP codon RNA sequence 1"
                    (proteins "UAA")
@@ -83,15 +83,15 @@
 
       (test-equal? "Sequence of two protein codons translates into proteins"
                    (proteins "UUUUUU")
-                   '( "Phenylalanine" "Phenylalanine" ))
+                   '("Phenylalanine" "Phenylalanine"))
 
       (test-equal? "Sequence of two different protein codons translates into proteins"
                    (proteins "UUAUUG")
-                   '( "Leucine" "Leucine" ))
+                   '("Leucine" "Leucine"))
 
       (test-equal? "Translate RNA strand into correct protein list"
                    (proteins "AUGUUUUGG")
-                   '( "Methionine" "Phenylalanine" "Tryptophan" ))
+                   '("Methionine" "Phenylalanine" "Tryptophan"))
 
       (test-equal? "Translation stops if STOP codon at beginning of sequence"
                    (proteins "UAGUGG")
@@ -99,23 +99,23 @@
 
       (test-equal? "Translation stops if STOP codon at end of two-codon sequence"
                    (proteins "UGGUAG")
-                   '( "Tryptophan" ))
+                   '("Tryptophan"))
 
       (test-equal? "Translation stops if STOP codon at end of three-codon sequence"
                    (proteins "AUGUUUUAA")
-                   '( "Methionine" "Phenylalanine" ))
+                   '("Methionine" "Phenylalanine"))
 
       (test-equal? "Translation stops if STOP codon in middle of three-codon sequence"
                    (proteins "UGGUAGUGG")
-                   '( "Tryptophan" ))
+                   '("Tryptophan"))
 
       (test-equal? "Translation stops if STOP codon in middle of six-codon sequence"
                    (proteins "UGGUGUUAUUAAUGGUUU")
-                   '( "Tryptophan" "Cysteine" "Tyrosine" ))
+                   '("Tryptophan" "Cysteine" "Tyrosine"))
 
       (test-equal? "Sequence of two non-STOP codons does not translate to a STOP codon"
                    (proteins "AUGAUG")
-                   '( "Methionine" "Methionine" ))
+                   '("Methionine" "Methionine"))
 
       (test-exn "Unknown amino acids, not part of a codon, can't translate"
                 exn:fail? (lambda () (proteins "XYZ")))
@@ -125,6 +125,6 @@
 
       (test-equal? "Incomplete RNA sequence can translate if valid until a STOP codon"
                    (proteins "UUCUUCUAAUGGU")
-                   '( "Phenylalanine" "Phenylalanine" ))))
+                   '("Phenylalanine" "Phenylalanine"))))
 
   (run-tests suite))

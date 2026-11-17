@@ -13,15 +13,15 @@
 
       (test-equal? "find first prime"
                    (primes 2)
-                   '( 2 ))
+                   '(2))
 
       (test-equal? "find primes up to 10"
                    (primes 10)
-                   '( 2 3 5 7 ))
+                   '(2 3 5 7))
 
       (test-equal? "limit is prime"
                    (primes 13)
-                   '( 2 3 5 7 11 13 ))
+                   '(2 3 5 7 11 13))
 
       (test-equal? "find primes up to 1000"
                    (primes 1000)
