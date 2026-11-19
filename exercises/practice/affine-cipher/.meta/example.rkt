@@ -58,7 +58,7 @@
                 (modulo (* ai (- d b)) 26)
                 d)) M))))
 
-; http://www-math.ucdenver.edu/~wcherowi/courses/m5410/exeucalg.html
+; https://www-math.ucdenver.edu/~wcherowi/courses/m5410/exeucalg.html
 ; https://en.wikibooks.org/wiki/Algorithm_Implementation/Mathematics/Extended_Euclidean_algorithm
 ; https://stackoverflow.com/questions/13096491/multiplicative-inverse-of-modulo-m-in-scheme
 (define (egcd a b)

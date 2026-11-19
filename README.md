@@ -11,7 +11,7 @@ Please see the [contributing guide](https://exercism.org/docs/building). We welc
 
 ### Code Style
 
-The Racket code in this repo is meant to conform with the conventions set forth in [How to Program Racket](http://docs.racket-lang.org/style/index.html).
+The Racket code in this repo is meant to conform with the conventions set forth in [How to Program Racket](https://docs.racket-lang.org/style/index.html).
 
 ### Dependencies
 

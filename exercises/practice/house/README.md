@@ -108,7 +108,7 @@ that lay in the house that Jack built.
 * * * *
 
 For installation and learning resources, refer to the
-[exercism Racket page](http://exercism.io/languages/racket).
+[exercism Racket page](https://exercism.io/languages/racket).
 
 You can run the provided tests through DrRacket, or via the command line.
 
