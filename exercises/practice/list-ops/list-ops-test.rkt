@@ -93,6 +93,10 @@
                    (my-reverse '(1 3 5 7))
                    '(7 5 3 1))
 
+      (test-equal? "non-empty odd-length list"
+                   (my-reverse '(1 3 5 7 9 11 13))
+                   '(13 11 9 7 5 3 1))
+
       (test-equal? "list of lists is not flattened"
                    (my-reverse '((1 2) (3) () (4 5 6)))
                    '((4 5 6) () (3) (1 2)))))

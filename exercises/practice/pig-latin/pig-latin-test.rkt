@@ -98,7 +98,7 @@
                    "ymay")
 
       (test-equal? "a whole phrase"
-                   (translate "quick fast run")
-                   "ickquay astfay unray")))
+                   (translate "why do squids enjoy xrays")
+                   "ywhay oday idssquay enjoyay xraysay")))
 
   (run-tests suite))
